@@ -20,15 +20,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 * {
   box-sizing: border-box;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-*::before,
-*::after {
-  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
 }
 
 ol, ul {

@@ -24,5 +24,12 @@ $color-black-low-opacity: rgba(0, 0, 0, .2);
 $color-black-half-opacity: rgba(0, 0, 0, .5);
 $color-black-high-opacity: rgba(0, 0, 0, .8);
 
-// Layout
-$header-height: 70px;
+// Shadows.
+$color-box-shadow-card: rgba(0, 0, 0, .3);
+$color-white-half-opacity: rgba(255, 255, 255, .5);
+$box-shadow-card: 0.5px 1px 1.5px $color-box-shadow-card;
+$box-shadow-header: 0px 0px 3px $color-box-shadow-card;
+
+// Fonts
+$font-family-header: 'Oswald', sans-serif;
+$font-family-body: 'Open Sans', sans-serif;

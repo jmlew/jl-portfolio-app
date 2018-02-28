@@ -1,1 +1,14 @@
 @import 'variables';
+
+@mixin circle($size) {
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+}
+
+@mixin quote($color) {
+  font-family: $font-family-header;
+  position: absolute;
+  font-size: 100px;
+  color: $color;
+}

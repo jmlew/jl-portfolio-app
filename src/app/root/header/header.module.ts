@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from "@angular/flex-layout";
-
 import { HeaderComponent } from './header.component';
+import { RouterModule } from "@angular/router";
 
 @NgModule({
-  declarations: [ HeaderComponent ],
+  imports: [
+    FlexLayoutModule,
+    RouterModule,
+  ],
   exports: [ HeaderComponent ],
-  imports: [FlexLayoutModule ],
+  declarations: [ HeaderComponent ],
 })
 export class HeaderModule { }

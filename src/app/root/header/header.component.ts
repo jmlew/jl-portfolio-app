@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UiLayoutService, UIDimensions } from "../../shared/ui-layout.service";
+
 @Component({
   moduleId: module.id,
   selector: 'jl-header',

@@ -10,6 +10,7 @@ import { GapiSheetsModule } from "../shared/gapi-sheets.module";
 
 import { RootComponent } from './root.component';
 
+import { RoutesService } from "../shared/routes.service";
 import { DataService } from "../shared/data-service.service";
 import { UiLayoutService } from "../shared/ui-layout.service";
 
@@ -29,6 +30,7 @@ import { UiLayoutService } from "../shared/ui-layout.service";
     // Remove for prod.
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
     DataService,
+    RoutesService,
     UiLayoutService,
   ],
   bootstrap: [RootComponent]

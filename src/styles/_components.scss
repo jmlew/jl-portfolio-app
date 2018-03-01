@@ -20,14 +20,14 @@
   transition: $btn-transition;
   text-decoration: none;
 
-  &:focus, &:hover {
+  &:focus {
     outline: 0;
     background-color: $color-grey-500;
     // box-shadow: $box-shadow-btn;
   }
 
   &:disabled {
-    opacity: 1;
+    opacity: .5;
     // box-shadow: none;
   }
 
@@ -35,9 +35,13 @@
     cursor: pointer;
   }
 
-  &:not(:disabled):active {
-    background-color: $color-grey-500;
-    // box-shadow: $box-shadow-btn;
+  &:not(:disabled) {
+    &:active {
+      background-color: $color-grey-500;
+    }
+    &:hover {
+      background-color: $color-grey-500;
+    }
   }
 
   &:not(:first-of-type) {

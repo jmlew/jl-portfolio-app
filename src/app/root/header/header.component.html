@@ -6,8 +6,13 @@
     [fxFlex.sm]="dimensions.wPageMaxSm" [fxFlex.md]="dimensions.wPageMaxMd" [fxFlex.lg]="dimensions.wPageMaxLg">
     <h1 class="jl-title">Jason Lewis</h1>
     <nav class="jl-header-nav" fxLayout="row" fxLayoutAlign="center center">
-      <button class="btn-main" routerLink="/work">Work</button>
-      <button class="btn-main" routerLink="/about">About</button>
+      <button class="btn-main"
+        [disabled]="true"
+        [disabled]="currentRoute && currentRoute.name == routeConfig.work.name"
+        [routerLink]="routeConfig.work.path">Work</button>
+      <button class="btn-main"
+         [disabled]="currentRoute && currentRoute.name == routeConfig.about.name"
+        [routerLink]="routeConfig.about.path">About</button>
     </nav>
   </section>
 </header>

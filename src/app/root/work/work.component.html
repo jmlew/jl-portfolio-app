@@ -1,7 +1,7 @@
 <section class="jl-page-content">
-  <section [ngSwitch]="dataLoaded">
+  <section [ngSwitch]="dataLoadedState">
     <div *ngSwitchCase="loadState.loading">
-      <h2>Loaded sheets data...</h2>
+      <h2>Loading sheets data...</h2>
     </div>
     <div *ngSwitchCase="loadState.loaded">
       <h2>Data has loaded!</h2>

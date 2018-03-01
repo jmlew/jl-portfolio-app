@@ -13,6 +13,7 @@ import { RootComponent } from './root.component';
 
 import { RoutesService } from "../shared/routes.service";
 import { DataService } from "../shared/data-service.service";
+import { DataStoreService } from "../shared/data-store.service";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DataService } from "../shared/data-service.service";
     // Remove for prod.
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
     DataService,
+    DataStoreService,
     RoutesService,
   ],
   bootstrap: [RootComponent]

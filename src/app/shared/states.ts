@@ -13,11 +13,6 @@ export const LOAD_STATE: State = {
   unloaded: 'unloaded',
 };
 
-export const EDIT_STATE: State = {
-  view: 'view',
-  edit: 'edit',
-};
-
 export const BOOLEAN_STRING_STATE: State = {
   true: 'true',
   false: 'false',

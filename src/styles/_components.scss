@@ -4,7 +4,7 @@
 .btn-main {
   display: inline-block;
   font-family: $font-family-titles;
-  background-color: $color-grey-400;
+  background-color: $color-grey-500;
   color: $color-white;
   font-weight: 500;
   letter-spacing: 1px;
@@ -20,28 +20,20 @@
   transition: $btn-transition;
   text-decoration: none;
 
-  &:focus {
-    outline: 0;
-    background-color: $color-grey-500;
-    // box-shadow: $box-shadow-btn;
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:active, &:hover, &:focus {
+      background-color: $color-grey-600;
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 
   &:disabled {
-    opacity: .5;
-    // box-shadow: none;
-  }
-
-  &:not(:disabled) {
-    cursor: pointer;
-  }
-
-  &:not(:disabled) {
-    &:active {
-      background-color: $color-grey-500;
-    }
-    &:hover {
-      background-color: $color-grey-500;
-    }
+    opacity: .7;
   }
 
   &:not(:first-of-type) {

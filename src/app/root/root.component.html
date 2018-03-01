@@ -1,13 +1,13 @@
 <jl-header></jl-header>
 
-<router-outlet></router-outlet>
+<div fxLayout="row" fxLayoutAlign="center start">
+  <section class="jl-page-container"
+    fxLayout="row" fxLayoutAlign="start start"
+    fxLayoutAlign.xs="center start"
+    [fxFlex.sm]="dimensions.wPageMaxSm"
+    [fxFlex.md]="dimensions.wPageMaxMd"
+    [fxFlex.lg]="dimensions.wPageMaxLg">
 
-<!-- <ng-container *ngIf="isDataLoaded; then dataLoaded; else dataLoading">
-</ng-container>
-
-<ng-template #dataLoading>
-  <h2>Loaded sheets data...</h2>
-</ng-template>
-<ng-template #dataLoaded>
-  <h2>Data has loaded!</h2>
-</ng-template> -->
+    <router-outlet></router-outlet>
+  </section>
+</div>

@@ -48,3 +48,12 @@
     margin-left: .5em;
   }
 }
+
+.jl-divider-horiz {
+  height: 1px;
+  border-top: 1px solid $color-grey-400;
+
+  &.jl-title {
+    margin: .75em 0 1.5em 0;
+  }
+}

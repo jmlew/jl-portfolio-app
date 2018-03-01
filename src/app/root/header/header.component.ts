@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Data } from "@angular/router";
-import { UiLayoutService, UIDimensions } from "../../shared/ui-layout.service";
-import { RouteConfig, ROOT_ROUTE_CONFIG, Route, RoutesService, RouteLevel } from "../../shared/routes.service";
 import { Subscription } from 'rxjs/Subscription';
+
+import { UI_DIMENSIONS, UIDimensions } from "../../shared/ui-layout.service";
+import { RouteConfig, ROOT_ROUTE_CONFIG, Route, RoutesService, RouteLevel } from "../../shared/routes.service";
 
 @Component({
   moduleId: module.id,
@@ -11,15 +12,13 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  dimensions: UIDimensions;
+  dimensions: UIDimensions = UI_DIMENSIONS;
   routeConfig: RouteConfig = ROOT_ROUTE_CONFIG;
   currentRoute: Route;
   activePageSubscription: Subscription;
   constructor(
-    private readonly uiLayout: UiLayoutService,
     private readonly routesService: RoutesService,
   ) {
-    this.dimensions = uiLayout.dimensions;
     this.initObservables();
   }
 

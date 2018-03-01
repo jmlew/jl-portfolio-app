@@ -7,12 +7,15 @@
     <h1 class="jl-title">Jason Lewis</h1>
     <nav class="jl-header-nav" fxLayout="row" fxLayoutAlign="center center">
       <button class="btn-main"
-        [disabled]="true"
         [disabled]="currentRoute && currentRoute.name == routeConfig.work.name"
-        [routerLink]="routeConfig.work.path">Work</button>
+        [routerLink]="routeConfig.work.path">
+        {{routeConfig.work.label}}
+      </button>
       <button class="btn-main"
-         [disabled]="currentRoute && currentRoute.name == routeConfig.about.name"
-        [routerLink]="routeConfig.about.path">About</button>
+        [disabled]="currentRoute && currentRoute.name == routeConfig.about.name"
+        [routerLink]="routeConfig.about.path">
+         {{routeConfig.about.label}}
+      </button>
     </nav>
   </section>
 </header>

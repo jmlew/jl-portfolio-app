@@ -34,11 +34,12 @@ $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 // Fonts
 $font-family-default: sans-serif;
 $font-family-titles: 'Oswald', $font-family-default;
-$font-family-body: 'Open Sans', $font-family-default;
+$font-family-body: BlinkMacSystemFont, 'Open Sans', $font-family-default;
 
 // Font dimensions
 $font-size-base: 1em;
 $line-height-base: 1.5;
+$line-height-body: 1.75;
 
 // Dimensions
 $width-page-max-lg: 60%; // min 1280

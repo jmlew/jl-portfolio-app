@@ -1,6 +1,7 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { WorkModule } from "./work/work.module";
 import { AboutModule } from "./about/about.module";
@@ -19,6 +20,7 @@ import { UiLayoutService } from "../shared/ui-layout.service";
   declarations: [ RootComponent ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     HeaderModule,
     WorkModule,
     AboutModule,

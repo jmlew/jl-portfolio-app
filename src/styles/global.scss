@@ -6,9 +6,18 @@
 @import 'components';
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
   font-family: $font-family-body;
   line-height: $line-height-base;
   background-color: $color-grey-50;
+}
+
+p {
+  font-size: .875rem;
+  margin-bottom: 1rem;
 }
 
 // Dimensions
@@ -21,4 +30,30 @@ body {
 .width-page-max-sm {
   width: $width-page-max-sm;
 }
+
+// Containers
+.jl-page-container {
+  // border-left: 1px solid $color-grey-200;
+  // border-right: 1px solid $color-grey-200;
+}
+.jl-page-content {
+  margin: 2rem 0;
+
+  .jl-page-title {
+    font-family: $font-family-titles;
+    font-size: 26px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-grey-800;
+  }
+  .jl-page-body {
+    margin: 1em 0;
+    color: $color-grey-800;
+    line-height: $line-height-body;
+  }
+}
+
+// Text
+
 

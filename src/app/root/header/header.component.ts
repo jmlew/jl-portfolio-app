@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UiLayoutService, UIDimensions } from "../../shared/ui-layout.service";
 @Component({
   moduleId: module.id,
   selector: 'jl-header',
@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor() {
-
+  dimensions: UIDimensions;
+  constructor(
+    private readonly uiLayout: UiLayoutService) {
+    this.dimensions = uiLayout.dimensions;
   }
 }

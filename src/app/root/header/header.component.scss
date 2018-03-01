@@ -3,9 +3,10 @@
 
 .jl-header {
   height: 80px;
+  padding-bottom: 6px;
   background-color: $color-white;
   box-shadow: $box-shadow-header;
-  font-family: $font-family-header;
+  font-family: $font-family-primary;
 
   .jl-title {
     white-space: nowrap;
@@ -15,24 +16,11 @@
     color: $color-grey-400;
   }
 
-  .jl-subtitle {
-    margin: 7px 0 0;
-    white-space: nowrap;
+  .jl-header-nav {
+    padding: 7px 0 0;
     font-size: 15px;
     letter-spacing: 1px;
     font-weight: 300;
     color: $color-grey-600;
-  }
-
-  .jl-divider-vert {
-    height: 50px;
-    margin: 0 30px;
-    border-left: 1px solid $color-grey-300;
-  }
-
-  .jl-subtitle-dot {
-    @include circle(6px);
-    margin: 0 15px;
-    background-color: $color-grey-200;
   }
 }

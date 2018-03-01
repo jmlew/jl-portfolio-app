@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { GoogleApiService, GoogleAuthService } from 'ng-gapi/lib';
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class GapiSheetsService {

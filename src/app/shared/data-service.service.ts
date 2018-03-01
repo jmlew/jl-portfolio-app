@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { GapiSheetsService } from './gapi_sheets';
+import { GapiSheetsService } from './gapi-sheets.service';
 
 @Injectable()
 export class DataService {
   private gapiLoadSubscription: Subscription;
   constructor(
     private readonly gapiSheetsService: GapiSheetsService,
-  ) {}
+  ) { }
 
   loadSheetsData(config: SheetConfig): Promise<string[][]> {
     return this.initSheetsApi().then(() => this.getSheetsData(config));

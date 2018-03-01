@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../shared/data_service';
-import { SHEETS } from "../shared/data_service";
+import { DataService, SHEETS } from '../shared/data-service.service';
 
 /** Root component for the entire app. */
 @Component({
@@ -10,14 +9,21 @@ import { SHEETS } from "../shared/data_service";
   styleUrls: ['./root.component.scss'],
 })
 export class RootComponent {
+  isDataLocal = true;
   isDataLoaded = false;
   constructor(
     private readonly dataService: DataService
   ) {
-    this.dataService.loadSheetsData(SHEETS.projects)
-        .then((data: string[][]) => {
-          console.log('sheet data: ', data);
-          this.isDataLoaded = true;
-        });
+    if (this.isDataLocal) {
+      console.log('loading local mock data');
+    } else {
+      console.log('loading sheets data');
+      this.dataService.loadSheetsData(SHEETS.projects)
+          .then((data: string[][]) => {
+            console.log('sheet data: ', data);
+            this.isDataLoaded = true;
+          });
+
+    }
   }
 }

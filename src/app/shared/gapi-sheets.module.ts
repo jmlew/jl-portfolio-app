@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { GoogleApiModule, NG_GAPI_CONFIG, NgGapiClientConfig } from 'ng-gapi/lib';
 
-import { SHEETS_CONFIG, GapiSheetsService } from './gapi_sheets';
+import { SHEETS_CONFIG, GapiSheetsService } from './gapi-sheets.service';
 
 const gapiClientConfig: NgGapiClientConfig = {
   client_id: SHEETS_CONFIG.clientId,

@@ -25,11 +25,28 @@ $color-black-half-opacity: rgba(0, 0, 0, .5);
 $color-black-high-opacity: rgba(0, 0, 0, .8);
 
 // Shadows.
-$color-box-shadow-card: rgba(0, 0, 0, .3);
+$color-box-shadow: rgba(0, 0, 0, .3);
 $color-white-half-opacity: rgba(255, 255, 255, .5);
-$box-shadow-card: 0.5px 1px 1.5px $color-box-shadow-card;
-$box-shadow-header: 0px 0px 3px $color-box-shadow-card;
+$box-shadow-card: 0.5px 1px 1.5px $color-box-shadow;
+$box-shadow-header: 0px 0px 3px $color-box-shadow;
+$box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 
 // Fonts
-$font-family-header: 'Oswald', sans-serif;
-$font-family-body: 'Open Sans', sans-serif;
+$font-family-default: sans-serif;
+$font-family-primary: 'Oswald', $font-family-default;
+$font-family-secondary: 'Open Sans', $font-family-default;
+
+// Font dimensions
+$font-size-base: 1em;
+$line-height-base: 1.5;
+
+// Dimensions
+$width-page-max-lg: 60%; // min 1280
+$width-page-max-md: 70%; // min 960
+$width-page-max-sm: 590px; // min 600
+
+// Component dimensions
+$border-radius: .25em;
+
+// Transitions
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;

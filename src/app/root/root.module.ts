@@ -3,11 +3,12 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { HeaderModule } from './header/header.module';
-import { GapiSheetsModule } from "../shared/gapi_sheets_module";
+import { GapiSheetsModule } from "../shared/gapi-sheets.module";
 
 import { RootComponent } from './root.component';
 
-import { DataService } from "../shared/data_service";
+import { DataService } from "../shared/data-service.service";
+import { UiLayoutService } from "../shared/ui-layout.service";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { DataService } from "../shared/data_service";
     // Remove for prod.
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
     DataService,
+    UiLayoutService,
   ],
   bootstrap: [RootComponent]
 })

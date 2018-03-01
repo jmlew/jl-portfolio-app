@@ -3,7 +3,22 @@
 @import 'resets';
 @import 'variables';
 @import 'mixins';
+@import 'components';
 
 body {
-  font-family: sans-serif;
+  font-family: $font-family-default;
+  line-height: $line-height-base;
+  background-color: $color-grey-50;
 }
+
+// Dimensions
+.width-page-max-lg {
+  width: $width-page-max-lg;
+}
+.width-page-max-md {
+  width: $width-page-max-md;
+}
+.width-page-max-sm {
+  width: $width-page-max-sm;
+}
+

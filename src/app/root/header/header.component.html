@@ -1,13 +1,13 @@
 <header class="jl-header"
   fxLayout="row" fxLayoutAlign="center center">
-  <h1 class="jl-title">Jason Lewis</h1>
-  <div class="jl-divider-vert"></div>
-  <h4 class="jl-subtitle"
-    fxLayout="row" fxLayoutAlign="left center">
-    Interactive Designer
-    <span class="jl-subtitle-dot"></span>
-    UX Engineer
-    <span class="jl-subtitle-dot"></span>
-    FE Developer
-  </h4>
+  <section class="jl-header-content"
+    fxLayout="row" fxLayoutAlign="space-between center"
+    fxLayout.xs="column" fxLayoutAlign.xs="center center"
+    [fxFlex.sm]="dimensions.wPageMaxSm" [fxFlex.md]="dimensions.wPageMaxMd" [fxFlex.lg]="dimensions.wPageMaxLg">
+    <h1 class="jl-title">Jason Lewis</h1>
+    <nav class="jl-header-nav" fxLayout="row" fxLayoutAlign="center center">
+      <button class="btn-main">Work</button>
+      <button class="btn-main">About</button>
+    </nav>
+  </section>
 </header>

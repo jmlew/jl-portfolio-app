@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+.btn-main {
+  display: inline-block;
+  font-family: $font-family-primary;
+  background-color: $color-grey-400;
+  color: $color-white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: none;
+  padding: .375em 1em;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  border-radius: $border-radius;
+  transition: $btn-transition;
+  text-decoration: none;
+
+  &:focus, &:hover {
+    outline: 0;
+    background-color: $color-grey-500;
+    // box-shadow: $box-shadow-btn;
+  }
+
+  &:disabled {
+    opacity: 1;
+    // box-shadow: none;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):active {
+    background-color: $color-grey-500;
+    // box-shadow: $box-shadow-btn;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: .5em;
+  }
+}

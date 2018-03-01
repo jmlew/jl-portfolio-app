@@ -1,13 +1,11 @@
-<p>
-  work works!
-</p>
+<section class="jl-page-content">
+  <section [ngSwitch]="dataLoaded">
+    <div *ngSwitchCase="loadState.loading">
+      <h2>Loaded sheets data...</h2>
+    </div>
+    <div *ngSwitchCase="loadState.loaded">
+      <h2>Data has loaded!</h2>
+    </div>
+  </section>
+</section>
 
-<!-- <ng-container *ngIf="isDataLoaded; then dataLoaded; else dataLoading">
-</ng-container>
-
-<ng-template #dataLoading>
-  <h2>Loaded sheets data...</h2>
-</ng-template>
-<ng-template #dataLoaded>
-  <h2>Data has loaded!</h2>
-</ng-template> -->

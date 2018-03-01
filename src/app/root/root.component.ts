@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { UI_DIMENSIONS, UIDimensions } from "../shared/ui-layout.service";
+import { UI_DIMENSIONS, UIDimensions } from "../shared/ui-layout";
 
 /** Root component for the entire app. */
 @Component({

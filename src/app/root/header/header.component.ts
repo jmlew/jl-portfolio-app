@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Data } from "@angular/router";
 import { Subscription } from 'rxjs/Subscription';
 
-import { UI_DIMENSIONS, UIDimensions } from "../../shared/ui-layout.service";
+import { UI_DIMENSIONS, UIDimensions } from "../../shared/ui-layout";
 import { RouteConfig, ROOT_ROUTE_CONFIG, Route, RoutesService, RouteLevel } from "../../shared/routes.service";
 
 @Component({

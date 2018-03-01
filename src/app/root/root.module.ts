@@ -13,7 +13,6 @@ import { RootComponent } from './root.component';
 
 import { RoutesService } from "../shared/routes.service";
 import { DataService } from "../shared/data-service.service";
-import { UiLayoutService } from "../shared/ui-layout.service";
 
 
 @NgModule({
@@ -33,7 +32,6 @@ import { UiLayoutService } from "../shared/ui-layout.service";
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
     DataService,
     RoutesService,
-    UiLayoutService,
   ],
   bootstrap: [RootComponent]
 })

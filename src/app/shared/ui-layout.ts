@@ -1,12 +1,6 @@
-import { Injectable } from '@angular/core';
-
-@Injectable()
-export class UiLayoutService {
-  constructor() { }
-}
 
 export interface UIDimensions {
-  [name: string]: number|string;
+  [name: string]: number | string;
 }
 
 export const UI_DIMENSIONS: UIDimensions = {

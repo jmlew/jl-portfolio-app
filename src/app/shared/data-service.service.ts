@@ -69,18 +69,18 @@ export class DataService {
     const dataRowStart = 2; // Row at which the header ends and projects begin.
     for (let rowIndex = dataRowStart; rowIndex < sheetRows.length; rowIndex++) {
       const item: ProjectItem = {};
-      sheetRows[rowIndex].forEach((item: string, index: number) => {
+      sheetRows[rowIndex].forEach((value: string, index: number) => {
         const id: string = ids[index];
         if (id) {
           switch (id) {
             case 'imgThumbLoc':
-              item[id] = dataConfig.imgThumbLocBase + item;
+              item[id] = dataConfig.imgThumbLocBase + value;
               break;
             case 'imgPreviewLoc':
-              item[id] = dataConfig.imgPreviewLocBase + item;
+              item[id] = dataConfig.imgPreviewLocBase + value;
               break;
             default:
-              item[id] = item;
+              item[id] = value;
               break;
           }
         }

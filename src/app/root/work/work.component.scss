@@ -1,2 +1,18 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
+
+$item-spacing: 10px;
+$item-padding: 10px;
+
+.jl-project-previews {
+  margin-left: - $item-spacing; // Shift to the left margin to align items.
+
+  .project-item {
+    // border: 1px solid grey;
+    padding: $item-padding;
+    margin: 0 0 $item-spacing $item-spacing;
+    background-color: $color-white;
+    box-shadow: $box-shadow-card;
+  }
+}
+

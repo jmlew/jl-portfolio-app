@@ -4,7 +4,18 @@
       <h2>Loading sheets data...</h2>
     </div>
     <div *ngSwitchCase="loadState.loaded">
-      <h2>Data has loaded!</h2>
+      <section class="jl-project-previews"
+         fxLayout="row wrap">
+         <div class="project-item"
+          fxFlex="1 1 90%"
+          fxFlex.sm="0 0 {{uiDimensions.wPortfolioItemMaxSm}}px"
+          fxFlex.md="0 0 {{uiDimensions.wPortfolioItemMaxMd}}px"
+          fxFlex.lg="0 0 {{uiDimensions.wPortfolioItemMaxLg}}px"
+          *ngFor="let item of projectItems">
+          <p>{{item.title}}</p>
+          <p>{{item.company}}</p>
+        </div>
+      </section>
     </div>
   </section>
 </section>

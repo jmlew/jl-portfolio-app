@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Data } from "@angular/router";
 import { Subscription } from 'rxjs/Subscription';
 
-import { UI_DIMENSIONS, UIDimensions } from "../../shared/ui-layout";
+import { PAGE_DIMENSIONS, NumericDimensions } from "../../shared/ui-layout";
 import { RouteConfig, ROOT_ROUTE_CONFIG, Route, RoutesService, RouteLevel } from "../../shared/routes.service";
 
 @Component({
@@ -12,7 +12,7 @@ import { RouteConfig, ROOT_ROUTE_CONFIG, Route, RoutesService, RouteLevel } from
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  dimensions: UIDimensions = UI_DIMENSIONS;
+  pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
   routeConfig: RouteConfig = ROOT_ROUTE_CONFIG;
   currentRoute: Route;
   activePageSubscription: Subscription;

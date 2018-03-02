@@ -39,6 +39,37 @@ export class DataService {
           });
     });
   }
+
+  createProjectProps(sheetRows: string[][]): ProjectProp[] {
+    const projectProps = [];
+    const propertyIds: string[] = sheetRows[0];
+    const propertyLabels: string[] = sheetRows[1];
+    propertyIds.forEach((id, index) => {
+      const dataProperty: ProjectProp = {
+        id,
+        label: propertyLabels[index],
+        isActive: false,
+      };
+      projectProps.push(dataProperty);
+    });
+    return projectProps;
+  }
+
+  createProjectItems(sheetRows: string[][], projectProps: ProjectProp[]): ProjectItem[] {
+    const projectItems: ProjectItem[] = [];
+    const dataRowStart = 2; // Row at which the header ends and the bugs begin.
+    for (let rowIndex = dataRowStart; rowIndex < sheetRows.length; rowIndex++) {
+      const dataItem: ProjectItem = {};
+      sheetRows[rowIndex].forEach((item: string, index: number) => {
+        const dataProperty: ProjectProp = projectProps[index];
+        if (dataProperty) {
+          dataItem[dataProperty.id] = item;
+        }
+      });
+      projectItems.push(dataItem);
+    }
+    return projectItems;
+  }
 }
 
 interface SheetConfig {
@@ -56,3 +87,12 @@ export const SHEETS: SheetConfigCollection = {
     cells: 'B1:Z',
   }
 };
+
+export interface ProjectProp {
+  id: string;
+  label: string;
+  isActive: boolean;
+}
+
+export type ProjectItemValue = string | number | Date;
+export interface ProjectItem { [id: string]: ProjectItemValue; }

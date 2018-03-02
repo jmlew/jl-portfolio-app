@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BOOLEAN_STRING_STATE } from './states';
+import { ProjectProp, ProjectItem } from './data-service.service';
 
 @Injectable()
 export class DataStoreService {
@@ -55,10 +56,39 @@ export class DataStoreService {
   private convertStringToBoolean(state: string): boolean {
     return state === BOOLEAN_STRING_STATE.true ? true : false;
   }
+
+  /**
+   * Gets the current project properties.
+   */
+  get projectProps(): ProjectProp[] {
+    return this.getItem(DATA_PROP.projectProps, true);
+  }
+
+  /**
+   * Sets the current project properties.
+   */
+  set projectProps(props: ProjectProp[]) {
+    this.setItem(DATA_PROP.projectProps, props, true);
+  }
+
+  /**
+   * Gets the current projectItems.
+   */
+  get projectItems(): ProjectItem[] {
+    return this.getItem(DATA_PROP.projectItems, true);
+  }
+
+  /**
+   * Sets the current projectItems.
+   */
+  set projectItems(props: ProjectItem[]) {
+    this.setItem(DATA_PROP.projectItems, props, true);
+  }
 }
 
 export const DATA_PROP: DataProp = {
-  projects: 'projects'
+  projectItems: 'projectItems',
+  projectProps: 'projectProps',
 }
 
 export interface DataProp {

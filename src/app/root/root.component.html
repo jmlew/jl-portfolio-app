@@ -2,11 +2,11 @@
 
 <div fxLayout="row" fxLayoutAlign="center start">
   <section class="jl-page-container"
-    fxLayout="row" fxLayoutAlign="start start"
+    fxLayoutAlign="start start"
     fxLayoutAlign.xs="center start"
-    [fxFlex.sm]="dimensions.wPageMaxSm"
-    [fxFlex.md]="dimensions.wPageMaxMd"
-    [fxFlex.lg]="dimensions.wPageMaxLg">
+    fxFlex="{{pageDimensions.wPageMaxSm}}px"
+    fxFlex.md="{{pageDimensions.wPageMaxMd}}px"
+    fxFlex.lg="{{pageDimensions.wPageMaxLg}}px">
 
     <router-outlet></router-outlet>
   </section>

@@ -1,3 +1,16 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
+.jl-about-title {
+  font-family: $font-family-titles;
+  font-size: 26px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $color-grey-800;
+}
+.jl-about-body {
+  margin: 1em 0;
+  color: $color-grey-800;
+  line-height: $line-height-body;
+}

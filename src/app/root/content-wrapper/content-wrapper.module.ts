@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-import { ContentWrapperModule } from "../content-wrapper/content-wrapper.module";
-import { AboutComponent } from './about.component';
+import { ContentWrapperComponent } from './content-wrapper.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
-    ContentWrapperModule,
   ],
-  declarations: [AboutComponent]
+  declarations: [ContentWrapperComponent],
+  exports: [ContentWrapperComponent],
 })
-export class AboutModule { }
+export class ContentWrapperModule { }

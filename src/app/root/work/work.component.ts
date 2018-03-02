@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { RoutesService } from "../../shared/routes.service";
 import { DataService, DataConfig, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
@@ -19,6 +19,7 @@ export class WorkComponent implements OnInit {
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataConfig: DataConfig;
+  isProjectDetailsShown = false;
 
   constructor(
     private readonly routesService: RoutesService,
@@ -28,6 +29,15 @@ export class WorkComponent implements OnInit {
 
   ngOnInit() {
     this.initProjectsData();
+  }
+
+  onOpenProjectDetails(item: ProjectItem) {
+    console.log('showing details for ', item);
+    this.isProjectDetailsShown = true;
+  }
+
+  onCloseProjectDetails() {
+    this.isProjectDetailsShown = false;
   }
 
   private initProjectsData() {
@@ -50,13 +60,13 @@ export class WorkComponent implements OnInit {
           this.setStoredData();
           this.dataLoadedState = LOAD_STATE.loaded;
         });
-      }
     }
+  }
 
-    /**
-     * Sets the projects data to the component from the data store.
-     * */
-    private setStoredData() {
+  /**
+   * Sets the projects data to the component from the data store.
+   * */
+  private setStoredData() {
     this.projectItems = this.dataStore.projectItems;
     this.projectProps = this.dataStore.projectProps;
     this.dataConfig = this.dataStore.dataConfig;

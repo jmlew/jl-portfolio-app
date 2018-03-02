@@ -15,9 +15,8 @@ import { RoutesService } from "../shared/routes.service";
 import { DataService } from "../shared/data-service.service";
 import { DataStoreService } from "../shared/data-store.service";
 
-
 @NgModule({
-  declarations: [ RootComponent ],
+  declarations: [ RootComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,

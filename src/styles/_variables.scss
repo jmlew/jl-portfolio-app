@@ -19,15 +19,18 @@ $color-grey-900: #2c2c2c;
 $color-white-low-opacity: rgba(255, 255, 255, .2);
 $color-white-mid-opacity: rgba(255, 255, 255, .5);
 $color-white-high-opacity: rgba(255, 255, 255, .8);
+$color-white-extreme-opacity: rgba(255, 255, 255, .95);
 $color-transparent: rgba(0, 0, 0, 0);
 $color-black-low-opacity: rgba(0, 0, 0, .2);
 $color-black-half-opacity: rgba(0, 0, 0, .5);
 $color-black-high-opacity: rgba(0, 0, 0, .8);
+$color-black-extreme-opacity: rgba(0, 0, 0, .95);
 
 // Shadows.
 $color-box-shadow: rgba(0, 0, 0, .3);
 $color-white-half-opacity: rgba(255, 255, 255, .5);
-$box-shadow-card: 0.5px 1px 1.5px $color-box-shadow;
+$box-shadow-card: 0.6px 1px 1.8px $color-box-shadow;
+$box-shadow-card-over: 1px 1.5px 3px .3px $color-box-shadow;
 $box-shadow-header: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 
@@ -42,9 +45,9 @@ $line-height-base: 1.5;
 $line-height-body: 1.75;
 
 // Dimensions
-$width-page-max-lg: 60%; // min 1280
-$width-page-max-md: 70%; // min 960
-$width-page-max-sm: 590px; // min 600
+// $width-page-max-lg: 60%; // min 1280
+// $width-page-max-md: 70%; // min 960
+// $width-page-max-sm: 590px; // min 600
 
 // Component dimensions
 $border-radius: .25em;
@@ -52,3 +55,4 @@ $border-radius: .25em;
 // Transitions
 $transition-btn: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
 $transition-opacity: opacity .15s ease-in-out;
+$transition-shadow: box-shadow .1s ease-in-out;

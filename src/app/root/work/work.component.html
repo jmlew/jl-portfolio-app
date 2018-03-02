@@ -1,26 +1,23 @@
-<section class="jl-page-content">
-  <section [ngSwitch]="dataLoadedState">
-    <div *ngSwitchCase="loadState.loading">
-      <h2>Loading sheets data...</h2>
-    </div>
-    <div *ngSwitchCase="loadState.loaded">
-      <section class="jl-project-previews"
-         fxLayout="row wrap">
-         <div class="project-item"
-          fxFlex="1 1 90%"
-          fxFlex.sm="0 0 {{uiDimensions.wPortfolioItemMaxSm}}px"
-          fxFlex.md="0 0 {{uiDimensions.wPortfolioItemMaxMd}}px"
-          fxFlex.lg="0 0 {{uiDimensions.wPortfolioItemMaxLg}}px"
-          *ngFor="let item of projectItems">
-          <img class="project-item-bg" src="{{item.imgThumbLoc}}">
-          <div class="project-item-details">
-            <p>{{projectProps.title.label}} : {{item.title}}</p>
-            <p> {{projectProps.company.label}} : {{item.company}}</p>
-          </div>
+<jl-project-details
+  (closeDetails)="onCloseProjectDetails()"
+   *ngIf="isProjectDetailsShown">
+</jl-project-details>
 
-        </div>
-      </section>
-    </div>
+<jl-content-wrapper>
+  <section class="jl-page-content">
+    <section [ngSwitch]="dataLoadedState">
+      <div *ngSwitchCase="loadState.loading">
+        <h2>Loading sheets data...</h2>
+      </div>
+      <div *ngSwitchCase="loadState.loaded">
+        <section class="jl-project-previews" fxLayout="row wrap">
+          <jl-project-item *ngFor="let item of projectItems"
+            [item]="item"
+            [projectProps]="projectProps"
+            (openDetails)="onOpenProjectDetails(item)"></jl-project-item>
+        </section>
+      </div>
+    </section>
   </section>
-</section>
+</jl-content-wrapper>
 

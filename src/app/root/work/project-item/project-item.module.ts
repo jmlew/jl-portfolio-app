@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-import { ContentWrapperModule } from "../content-wrapper/content-wrapper.module";
-import { AboutComponent } from './about.component';
+import { ProjectItemComponent } from "./project-item.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
-    ContentWrapperModule,
   ],
-  declarations: [AboutComponent]
+  declarations: [ProjectItemComponent],
+  exports: [ProjectItemComponent],
 })
-export class AboutModule { }
+export class ProjectItemModule { }

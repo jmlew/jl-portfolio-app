@@ -1,0 +1,14 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/components';
+
+.jl-project-details {
+  position: fixed;
+  z-index: 100;
+  margin-top: 20px;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px;
+  background-color: $color-white-extreme-opacity;
+  box-shadow: $box-shadow-card;
+}

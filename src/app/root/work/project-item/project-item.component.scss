@@ -1,0 +1,37 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/components';
+
+$item-spacing: 10px;
+$item-padding: 10px;
+
+.project-item {
+  position: relative;
+  margin: 0 0 $item-spacing $item-spacing;
+  background-color: $color-white;
+  box-shadow: $box-shadow-card;
+  overflow: hidden;
+  border-radius: 2px;
+  min-height: 200px;
+  transition: $transition-shadow;
+
+  &:hover {
+    box-shadow: $box-shadow-card-over;
+    cursor: pointer;
+  }
+
+  .project-item-bg {
+    position: absolute;
+  }
+
+  .project-item-details {
+    position: absolute;
+    padding: $item-padding;
+    background-color: $color-white-extreme-opacity;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    // color: $color-white;
+    transition: $transition-opacity;
+  }
+}

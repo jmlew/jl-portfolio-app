@@ -50,4 +50,5 @@ $width-page-max-sm: 590px; // min 600
 $border-radius: .25em;
 
 // Transitions
-$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$transition-btn: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$transition-opacity: opacity .15s ease-in-out;

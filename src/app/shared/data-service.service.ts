@@ -40,33 +40,52 @@ export class DataService {
     });
   }
 
-  createProjectProps(sheetRows: string[][]): ProjectProp[] {
-    const projectProps = [];
-    const propertyIds: string[] = sheetRows[0];
-    const propertyLabels: string[] = sheetRows[1];
-    propertyIds.forEach((id, index) => {
-      const dataProperty: ProjectProp = {
-        id,
-        label: propertyLabels[index],
-        isActive: false,
-      };
-      projectProps.push(dataProperty);
-    });
-    return projectProps;
+  createDataConfig(sheetRows: string[][]): DataConfig {
+    const ids: string[] = sheetRows[0];
+    const values: string[] = sheetRows[1];
+    return ids.reduce((accum, id, index) => {
+      accum[id] = values[index];
+      return accum;
+    }, {});
   }
 
-  createProjectItems(sheetRows: string[][], projectProps: ProjectProp[]): ProjectItem[] {
+  createProjectProps(sheetRows: string[][]): ProjectProps {
+    const ids: string[] = sheetRows[0];
+    const labels: string[] = sheetRows[1];
+    return ids.reduce((accum, id, index) => {
+      accum[id] = {
+        label: labels[index],
+        isActive: false,
+      };
+      return accum;
+    }, {});
+  }
+
+  createProjectItems(
+      sheetRows: string[][],
+      dataConfig: DataConfig): ProjectItem[] {
+    const ids: string[] = sheetRows[0];
     const projectItems: ProjectItem[] = [];
-    const dataRowStart = 2; // Row at which the header ends and the bugs begin.
+    const dataRowStart = 2; // Row at which the header ends and projects begin.
     for (let rowIndex = dataRowStart; rowIndex < sheetRows.length; rowIndex++) {
-      const dataItem: ProjectItem = {};
+      const item: ProjectItem = {};
       sheetRows[rowIndex].forEach((item: string, index: number) => {
-        const dataProperty: ProjectProp = projectProps[index];
-        if (dataProperty) {
-          dataItem[dataProperty.id] = item;
+        const id: string = ids[index];
+        if (id) {
+          switch (id) {
+            case 'imgThumbLoc':
+              item[id] = dataConfig.imgThumbLocBase + item;
+              break;
+            case 'imgPreviewLoc':
+              item[id] = dataConfig.imgPreviewLocBase + item;
+              break;
+            default:
+              item[id] = item;
+              break;
+          }
         }
       });
-      projectItems.push(dataItem);
+      projectItems.push(item);
     }
     return projectItems;
   }
@@ -85,13 +104,24 @@ export const SHEETS: SheetConfigCollection = {
   projects: {
     tab: 'projects!',
     cells: 'B1:Z',
+  },
+  config: {
+    tab: 'config!',
+    cells: 'B1:Z2',
   }
 };
 
-export interface ProjectProp {
-  id: string;
+export interface DataConfig {
+  [id: string]: string;
+}
+
+interface ProjectProp {
   label: string;
   isActive: boolean;
+}
+
+export interface ProjectProps {
+  [id: string]: ProjectProp;
 }
 
 export type ProjectItemValue = string | number | Date;

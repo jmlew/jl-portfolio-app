@@ -12,8 +12,12 @@
           fxFlex.md="0 0 {{uiDimensions.wPortfolioItemMaxMd}}px"
           fxFlex.lg="0 0 {{uiDimensions.wPortfolioItemMaxLg}}px"
           *ngFor="let item of projectItems">
-          <p>{{item.title}}</p>
-          <p>{{item.company}}</p>
+          <img class="project-item-bg" src="{{item.imgThumbLoc}}">
+          <div class="project-item-details">
+            <p>{{projectProps.title.label}} : {{item.title}}</p>
+            <p> {{projectProps.company.label}} : {{item.company}}</p>
+          </div>
+
         </div>
       </section>
     </div>

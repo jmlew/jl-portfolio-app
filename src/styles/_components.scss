@@ -17,7 +17,7 @@
   font-size: $font-size-base;
   line-height: $line-height-base;
   border-radius: $border-radius;
-  transition: $btn-transition;
+  transition: $transition-btn;
   text-decoration: none;
 
   &:not(:disabled) {

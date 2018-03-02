@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { BOOLEAN_STRING_STATE } from './states';
-import { ProjectProp, ProjectItem } from './data-service.service';
+import { ProjectProps, ProjectItem, DataConfig } from './data-service.service';
 
 @Injectable()
 export class DataStoreService {
   localStorageEnabled = false;
+  defaultLocalStorageEnabled = true;
   base: {};
 
   constructor() {
@@ -20,7 +21,10 @@ export class DataStoreService {
    * @param useLocalStorage Whether to save to local storage.
    */
   // tslint:disable-next-line:no-any Local storage values are not restricted.
-  setItem(data: string, value: any, useLocalStorage = false) {
+  setItem(
+      data: string,
+      value: any,
+      useLocalStorage = this.defaultLocalStorageEnabled) {
     this.base[data] = value;
     if (this.localStorageEnabled && useLocalStorage) {
       localStorage.setItem(data, JSON.stringify(value));
@@ -33,7 +37,9 @@ export class DataStoreService {
    * @param useLocalStorage Whether to retrieve from local storage.
    */
   // tslint:disable-next-line:no-any Local storage values are not restricted.
-  getItem(data: string, useLocalStorage = false): any {
+  getItem(
+      data: string,
+      useLocalStorage = this.defaultLocalStorageEnabled): any {
     const localStorageValue = (this.localStorageEnabled && useLocalStorage) ?
       JSON.parse(localStorage.getItem(data)) :
       null;
@@ -58,35 +64,50 @@ export class DataStoreService {
   }
 
   /**
+   * Gets the current data config.
+   */
+  get dataConfig(): DataConfig {
+    return this.getItem(DATA_PROP.dataConfig);
+  }
+
+  /**
+   * Sets the current data config.
+   */
+  set dataConfig(props: DataConfig) {
+    this.setItem(DATA_PROP.dataConfig, props);
+  }
+
+  /**
    * Gets the current project properties.
    */
-  get projectProps(): ProjectProp[] {
-    return this.getItem(DATA_PROP.projectProps, true);
+  get projectProps(): ProjectProps {
+    return this.getItem(DATA_PROP.projectProps);
   }
 
   /**
    * Sets the current project properties.
    */
-  set projectProps(props: ProjectProp[]) {
-    this.setItem(DATA_PROP.projectProps, props, true);
+  set projectProps(props: ProjectProps) {
+    this.setItem(DATA_PROP.projectProps, props);
   }
 
   /**
    * Gets the current projectItems.
    */
   get projectItems(): ProjectItem[] {
-    return this.getItem(DATA_PROP.projectItems, true);
+    return this.getItem(DATA_PROP.projectItems);
   }
 
   /**
    * Sets the current projectItems.
    */
   set projectItems(props: ProjectItem[]) {
-    this.setItem(DATA_PROP.projectItems, props, true);
+    this.setItem(DATA_PROP.projectItems, props);
   }
 }
 
 export const DATA_PROP: DataProp = {
+  dataConfig: 'dataConfig',
   projectItems: 'projectItems',
   projectProps: 'projectProps',
 }

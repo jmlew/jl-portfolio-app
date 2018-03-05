@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { GapiSheetsService } from './gapi-sheets.service';
+import { GapiSheetsService, SheetDimension } from './gapi-sheets.service';
 
 @Injectable()
 export class DataService {
@@ -31,7 +31,7 @@ export class DataService {
   private getSheetsData(config: SheetConfig): Promise<string[][]> {
     return new Promise((resolve) => {
       const sheet = config.tab + config.cells;
-      return this.gapiSheetsService.getSheetData(sheet)
+      return this.gapiSheetsService.getSheetData(sheet, config.dimension)
         .then(
           (response) => resolve(response.result.values),
           (error) => {
@@ -47,6 +47,21 @@ export class DataService {
       accum[id] = values[index];
       return accum;
     }, {});
+  }
+
+  createDataEnums(sheetCols: string[][]): DataEnums {
+    const enums: DataEnums = {};
+    sheetCols.forEach((rows, index) => {
+      const values = [];
+      rows.forEach((item, index) => {
+        if (index === 0) {
+          enums[item] = values;
+        } else {
+          values.push(item);
+        }
+      });
+    });
+    return enums;
   }
 
   createProjectProps(sheetRows: string[][]): ProjectProps {
@@ -83,6 +98,7 @@ export class DataService {
 interface SheetConfig {
   tab: string;
   cells: string;
+  dimension: SheetDimension;
 }
 
 interface SheetConfigCollection {
@@ -93,15 +109,26 @@ export const SHEETS: SheetConfigCollection = {
   projects: {
     tab: 'projects!',
     cells: 'B1:Z',
+    dimension: SheetDimension.ROWS,
   },
   config: {
     tab: 'config!',
     cells: 'B1:Z2',
+    dimension: SheetDimension.ROWS,
+  },
+  enums: {
+    tab: 'enums!',
+    cells: 'B1:C',
+    dimension: SheetDimension.COLUMNS,
   }
 };
 
 export interface DataConfig {
   [id: string]: string;
+}
+
+export interface DataEnums {
+  [id: string]: string[];
 }
 
 interface ProjectProp {

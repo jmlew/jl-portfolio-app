@@ -52,10 +52,13 @@ export class GapiSheetsService {
     });
   }
 
-  getSheetData(range: string) {
+  getSheetData(range: string, dimension: SheetDimension) {
     const sheets = gapi.client['sheets'];
     return sheets.spreadsheets.values.get({
-      range, spreadsheetId: SHEETS_CONFIG.spreadsheetId});
+      range,
+      majorDimension: dimension,
+      spreadsheetId: SHEETS_CONFIG.spreadsheetId,
+    });
   }
 }
 
@@ -66,3 +69,8 @@ export const SHEETS_CONFIG = {
   scopeReadonly: 'https://www.googleapis.com/auth/spreadsheets.readonly',
   discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
 };
+
+export enum SheetDimension {
+  ROWS = 'ROWS',
+  COLUMNS = 'COLUMNS',
+}

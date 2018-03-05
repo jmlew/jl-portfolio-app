@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BOOLEAN_STRING_STATE } from './states';
-import { ProjectProps, ProjectItem, DataConfig } from './data-service.service';
+import { ProjectProps, ProjectItem, DataConfig, DataEnums } from './data-service.service';
 
 @Injectable()
 export class DataStoreService {
@@ -78,6 +78,20 @@ export class DataStoreService {
   }
 
   /**
+   * Gets the current data enums.
+   */
+  get dataEnums(): DataEnums {
+    return this.getItem(DATA_PROP.dataEnums);
+  }
+
+  /**
+   * Sets the current data enums.
+   */
+  set dataEnums(props: DataEnums) {
+    this.setItem(DATA_PROP.dataEnums, props);
+  }
+
+  /**
    * Gets the current project properties.
    */
   get projectProps(): ProjectProps {
@@ -108,6 +122,7 @@ export class DataStoreService {
 
 export const DATA_PROP: DataProp = {
   dataConfig: 'dataConfig',
+  dataEnums: 'dataEnums',
   projectItems: 'projectItems',
   projectProps: 'projectProps',
 }

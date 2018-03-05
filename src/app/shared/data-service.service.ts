@@ -72,8 +72,8 @@ export class DataService {
       const item: ProjectItem = {};
       sheetRows[rowIndex].forEach((value: string, index: number) => {
         const id: string = ids[index];
-        if (id) {
-          switch (id) {
+        if (id) item[id] = value;
+          /* switch (id) {
             case 'imgThumbLoc':
               item[id] = dataConfig.imgThumbLocBase + value;
               break;
@@ -84,7 +84,7 @@ export class DataService {
               item[id] = value;
               break;
           }
-        }
+        } */
       });
       projectItems.push(item);
     }

@@ -1,5 +1,8 @@
 <jl-project-details
   (closeDetails)="onCloseProjectDetails()"
+  (openLink)="onOpenLink($event)"
+  [item]="currentProjectItem"
+  [imgLocBase]="dataConfig.imgPreviewLocBase"
    *ngIf="isProjectDetailsShown">
 </jl-project-details>
 
@@ -16,7 +19,9 @@
           <jl-project-item *ngFor="let item of projectItems"
             [item]="item"
             [projectProps]="projectProps"
-            (openDetails)="onOpenProjectDetails(item)"></jl-project-item>
+            [imgLocBase]="dataConfig.imgThumbLocBase"
+            (openDetails)="onOpenProjectDetails(item)"
+            (openLink)="onOpenLink($event)"></jl-project-item>
         </section>
       </div>
     </section>

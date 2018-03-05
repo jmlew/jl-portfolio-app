@@ -12,8 +12,10 @@ export class ProjectItemComponent implements OnInit {
   // uiDimensions: NumericDimensions = UI_DIMENSIONS;
 
   @Input() item: ProjectItem;
+  @Input() imgLocBase: string;
   @Input() projectProps: ProjectProps;
   @Output() openDetails = new EventEmitter<ProjectItem>();
+  @Output() openLink = new EventEmitter<string>();
 
   constructor() { }
 
@@ -22,6 +24,10 @@ export class ProjectItemComponent implements OnInit {
 
   onOpenDetails() {
     this.openDetails.emit(this.item);
+  }
+
+  onOpenLink(url: string) {
+    this.openLink.emit(url);
   }
 
 }

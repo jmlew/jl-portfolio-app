@@ -16,7 +16,8 @@ export class WorkComponent implements OnInit {
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataConfig: DataConfig;
-  isProjectDetailsShown = true;
+  currentProjectItem: ProjectItem;
+  isProjectDetailsShown = false;
 
   constructor(
     private readonly routesService: RoutesService,
@@ -29,11 +30,16 @@ export class WorkComponent implements OnInit {
   }
 
   onOpenProjectDetails(item: ProjectItem) {
+    this.currentProjectItem = item;
     this.isProjectDetailsShown = true;
   }
 
   onCloseProjectDetails() {
     this.isProjectDetailsShown = false;
+  }
+
+  onOpenLink(url: string) {
+    window.open(url, '_blank');
   }
 
   private initProjectsData() {

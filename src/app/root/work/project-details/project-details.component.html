@@ -1,13 +1,40 @@
-
-<div class="jl-project-details">
+<div class="jl-project-details" *ngIf="item">
   <jl-content-wrapper>
-
-    <h1>Project Details</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dignissimos atque nisi perspiciatis commodi quasi perferendis,
-      ipsa pariatur, dicta quia, debitis ducimus? Velit tempore minima necessitatibus vitae blanditiis, tenetur porro?</p>
-
-    <button class="btn-main" (click)="onClose()">Close details</button>
-
+    <button class="btn-close btn-icon icon-large" (click)="onClose()">
+      <i class="fas fa-times-circle"></i>
+    </button>
+    <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
+      <div class="item-images"
+        *ngIf="item.imgPreviewLoc">
+        <img src="{{imgLocBase + item.imgPreviewLoc}}">
+      </div>
+      <div fxFlex
+        fxLayout="column" fxLayoutAlign="space-between stretch">
+        <div class="item-details">
+          <div class="item-title">
+            <h1>{{item.title}}</h1>
+          </div>
+          <div class="item-desc">
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+        <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+          <button class="btn-icon" *ngIf="item.urlPreview" (click)="onOpenLink(item.urlPreview)">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn-icon" *ngIf="item.urlCode" (click)="onOpenLink(item.urlCode)">
+            <i class="fas fa-code"></i>
+          </button>
+          <button class="btn-icon" *ngIf="item.urlMocks" (click)="onOpenLink(item.urlMocks)">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button class="btn-icon" *ngIf="item.urlScreencast" (click)="onOpenLink(item.urlScreencast)">
+            <i class="fas fa-video"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </jl-content-wrapper>
 </div>
-
+<div class="jl-modal-bg" fxFlexFill
+  (click)="onClose()"></div>

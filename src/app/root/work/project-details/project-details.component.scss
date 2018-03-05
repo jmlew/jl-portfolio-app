@@ -8,7 +8,41 @@
   margin-top: 20px;
   width: 100%;
   min-height: 100px;
-  padding: 20px;
   background-color: $color-white-extreme-opacity;
+  color: $color-grey-800;
   box-shadow: $box-shadow-card;
 }
+
+.jl-modal-bg {
+  position: absolute;
+  z-index: 10;
+  background-color: $color-white-high-opacity;
+}
+
+.btn-close {
+  position: absolute;
+  top: - 12px;
+  right: - 10px;
+}
+
+.item-images {
+
+}
+
+.item-details {
+  padding: 20px 0;
+
+  .item-title {
+    color: $color-grey-800;
+  }
+
+  .item-desc {
+    color: $color-grey-600;
+  }
+}
+
+.item-footer {
+  padding: 10px;
+  border-top: 1px solid $color-grey-300;
+}
+

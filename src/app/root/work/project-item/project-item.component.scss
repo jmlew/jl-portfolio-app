@@ -3,7 +3,7 @@
 @import '../../../../styles/components';
 
 $item-spacing: 10px;
-$item-padding: 10px;
+$item-padding: 5px 10px;
 $item-width: 240px;
 $item-height: 180px;
 
@@ -13,7 +13,6 @@ $item-height: 180px;
   background-color: $color-white;
   box-shadow: $box-shadow-card;
   overflow: hidden;
-  // border-radius: 2px;
   transition: $transition-shadow, $transition-margin;
   width: $item-width;
   height: $item-height;
@@ -24,18 +23,37 @@ $item-height: 180px;
     cursor: pointer;
   }
 
-  .project-item-bg {
+  .item-bg {
     position: absolute;
   }
 
-  .project-item-details {
+  .item-details {
     position: absolute;
-    padding: $item-padding;
-    background-color: $color-white-extreme-opacity;
     opacity: 0;
-    width: 100%;
-    height: 100%;
     color: $color-grey-800;
+    background-color: $color-black-half-opacity;
     transition: $transition-opacity;
+  }
+
+  .item-title {
+    background-color: $color-white-extreme-opacity;
+    border-bottom: 1px solid $color-grey-300;
+    padding: $item-padding;
+    font-size: 14px;
+  }
+
+  .item-footer {
+    background-color: $color-white-extreme-opacity;
+    padding: $item-padding;
+    border: 1px solid $color-grey-300;
+  }
+
+  .item-icon-view {
+    font-size: 4em;
+    color: $color-white-high-opacity;
+
+    &:hover {
+      color: $color-white;
+    }
   }
 }

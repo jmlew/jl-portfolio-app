@@ -20,7 +20,10 @@ body {
 p {
   font-size: .875rem;
   margin-bottom: 1rem;
-  // font-family: $font-family-body;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-bottom: 1rem;
 }
 
 // Dimensions
@@ -37,9 +40,4 @@ p {
 // Global containers
 .jl-page-content {
   margin: 2rem 0;
-}
-
-
-.icon-small {
-  font-size: 20px;
 }

@@ -64,28 +64,16 @@ export class DataService {
   createProjectItems(
       sheetRows: string[][],
       dataConfig: DataConfig): ProjectItem[] {
-
     const ids: string[] = sheetRows[0];
     const projectItems: ProjectItem[] = [];
     const dataRowStart = 2; // Row at which the header ends and projects begin.
     for (let rowIndex = dataRowStart; rowIndex < sheetRows.length; rowIndex++) {
-      const item: ProjectItem = {};
-      sheetRows[rowIndex].forEach((value: string, index: number) => {
-        const id: string = ids[index];
-        if (id) item[id] = value;
-          /* switch (id) {
-            case 'imgThumbLoc':
-              item[id] = dataConfig.imgThumbLocBase + value;
-              break;
-            case 'imgPreviewLoc':
-              item[id] = dataConfig.imgPreviewLocBase + value;
-              break;
-            default:
-              item[id] = value;
-              break;
-          }
-        } */
-      });
+      const row: string[] = sheetRows[rowIndex];
+      const item: ProjectItem = row.reduce((accum, value, index) => {
+        const id = ids[index];
+        accum[id] = value;
+        return accum;
+      }, {});
       projectItems.push(item);
     }
     return projectItems;

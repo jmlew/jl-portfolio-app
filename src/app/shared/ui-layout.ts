@@ -4,9 +4,9 @@ export interface NumericDimensions {
 }
 
 export const PAGE_DIMENSIONS: NumericDimensions = {
-  wPageMaxSm: 590,
-  wPageMaxMd: 940,
-  wPageMaxLg: 940,
+  wPageMaxSm: 740,
+  wPageMaxMd: 740,
+  wPageMaxLg: 740,
 }
 
 const PORTFOLIO_ITEM_SPACER = 10;
@@ -15,7 +15,7 @@ export const UI_DIMENSIONS: NumericDimensions = {
   wPortfolioItemMaxSm:
     PAGE_DIMENSIONS.wPageMaxSm / 2 - PORTFOLIO_ITEM_SPACER / 2,
   wPortfolioItemMaxMd:
-    PAGE_DIMENSIONS.wPageMaxMd / 2 - PORTFOLIO_ITEM_SPACER / 2,
+    PAGE_DIMENSIONS.wPageMaxMd / 3 - PORTFOLIO_ITEM_SPACER / 2,
   wPortfolioItemMaxLg:
-    PAGE_DIMENSIONS.wPageMaxLg / 2 - PORTFOLIO_ITEM_SPACER / 2,
+    PAGE_DIMENSIONS.wPageMaxLg / 3 - PORTFOLIO_ITEM_SPACER / 2,
 }

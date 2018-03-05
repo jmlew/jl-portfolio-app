@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PAGE_DIMENSIONS, NumericDimensions } from "../shared/ui-layout";
+// import { PAGE_DIMENSIONS, NumericDimensions } from "../shared/ui-layout";
 
 /** Root component for the entire app. */
 @Component({
@@ -10,7 +10,7 @@ import { PAGE_DIMENSIONS, NumericDimensions } from "../shared/ui-layout";
   styleUrls: ['./root.component.scss'],
 })
 export class RootComponent {
-  pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
+  // pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
 
   constructor() {
 

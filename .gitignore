@@ -6,6 +6,7 @@
 
 # dependencies
 /node_modules
+fonts/
 
 # IDEs and editors
 /.idea

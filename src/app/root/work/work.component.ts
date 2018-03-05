@@ -3,7 +3,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RoutesService } from "../../shared/routes.service";
 import { DataService, DataConfig, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
-import { PAGE_DIMENSIONS, UI_DIMENSIONS, NumericDimensions } from "../../shared/ui-layout";
 import { LOAD_STATE, State } from "../../shared/states";
 
 @Component({
@@ -12,14 +11,12 @@ import { LOAD_STATE, State } from "../../shared/states";
   styleUrls: ['./work.component.scss']
 })
 export class WorkComponent implements OnInit {
-  pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
-  uiDimensions: NumericDimensions = UI_DIMENSIONS;
   loadState: State = LOAD_STATE;
   dataLoadedState: string;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataConfig: DataConfig;
-  isProjectDetailsShown = false;
+  isProjectDetailsShown = true;
 
   constructor(
     private readonly routesService: RoutesService,
@@ -32,7 +29,6 @@ export class WorkComponent implements OnInit {
   }
 
   onOpenProjectDetails(item: ProjectItem) {
-    console.log('showing details for ', item);
     this.isProjectDetailsShown = true;
   }
 

@@ -64,6 +64,7 @@ export class DataService {
   createProjectItems(
       sheetRows: string[][],
       dataConfig: DataConfig): ProjectItem[] {
+
     const ids: string[] = sheetRows[0];
     const projectItems: ProjectItem[] = [];
     const dataRowStart = 2; // Row at which the header ends and projects begin.

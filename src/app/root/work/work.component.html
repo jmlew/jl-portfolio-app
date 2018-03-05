@@ -10,7 +10,9 @@
         <h2>Loading sheets data...</h2>
       </div>
       <div *ngSwitchCase="loadState.loaded">
-        <section class="jl-project-previews" fxLayout="row wrap">
+        <section class="jl-project-previews"
+          fxLayout="row wrap"
+          fxLayout.xs="column" fxLayoutAlign.xs="start center">
           <jl-project-item *ngFor="let item of projectItems"
             [item]="item"
             [projectProps]="projectProps"

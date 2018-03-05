@@ -27,9 +27,9 @@ $color-black-high-opacity: rgba(0, 0, 0, .8);
 $color-black-extreme-opacity: rgba(0, 0, 0, .95);
 
 // Shadows.
-$color-box-shadow: rgba(0, 0, 0, .3);
+$color-box-shadow: rgba(0, 0, 0, .35);
 $color-white-half-opacity: rgba(255, 255, 255, .5);
-$box-shadow-card: 0.6px 1px 1.8px $color-box-shadow;
+$box-shadow-card: .7px 1px 1.8px .5px $color-box-shadow;
 $box-shadow-card-over: 1px 1.5px 3px .3px $color-box-shadow;
 $box-shadow-header: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
@@ -37,7 +37,8 @@ $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 // Fonts
 $font-family-default: sans-serif;
 $font-family-titles: 'Oswald', $font-family-default;
-$font-family-body: BlinkMacSystemFont, 'Open Sans', $font-family-default;
+$font-family-body: 'Roboto', $font-family-default;
+// $font-family-body: BlinkMacSystemFont, 'Open Sans', $font-family-default;
 
 // Font dimensions
 $font-size-base: 1em;
@@ -56,3 +57,4 @@ $border-radius: .25em;
 $transition-btn: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
 $transition-opacity: opacity .15s ease-in-out;
 $transition-shadow: box-shadow .1s ease-in-out;
+$transition-margin: margin .1s ease-out;

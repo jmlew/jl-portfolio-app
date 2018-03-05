@@ -4,6 +4,8 @@
 
 $item-spacing: 10px;
 $item-padding: 10px;
+$item-width: 240px;
+$item-height: 180px;
 
 .project-item {
   position: relative;
@@ -11,11 +13,13 @@ $item-padding: 10px;
   background-color: $color-white;
   box-shadow: $box-shadow-card;
   overflow: hidden;
-  border-radius: 2px;
-  min-height: 200px;
-  transition: $transition-shadow;
+  // border-radius: 2px;
+  transition: $transition-shadow, $transition-margin;
+  width: $item-width;
+  height: $item-height;
 
   &:hover {
+    margin-top: -2px;
     box-shadow: $box-shadow-card-over;
     cursor: pointer;
   }
@@ -31,7 +35,7 @@ $item-padding: 10px;
     opacity: 0;
     width: 100%;
     height: 100%;
-    // color: $color-white;
+    color: $color-grey-800;
     transition: $transition-opacity;
   }
 }

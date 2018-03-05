@@ -1,8 +1,4 @@
 <div class="project-item"
-  fxFlex="1 1 90%"
-  fxFlex.sm="0 0 {{uiDimensions.wPortfolioItemMaxSm}}px"
-  fxFlex.md="0 0 {{uiDimensions.wPortfolioItemMaxMd}}px"
-  fxFlex.lg="0 0 {{uiDimensions.wPortfolioItemMaxLg}}px"
   (mouseout)="itemDetails.style.opacity = 0"
   (mouseover)="itemDetails.style.opacity = 1"
   (click)="onOpenDetails()">
@@ -10,5 +6,10 @@
   <div #itemDetails class="project-item-details">
     <p>{{projectProps.title.label}} : {{item.title}}</p>
     <p> {{projectProps.company.label}} : {{item.company}}</p>
+    <i class="icon-small fas fa-info-circle"></i>
+    <i class="icon-small fas fa-code"></i>
+    <i class="icon-small fas fa-eye"></i>
+    <i class="icon-small fas fa-pencil-alt"></i>
+    <i class="icon-small fas fa-video"></i>
   </div>
 </div>

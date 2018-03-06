@@ -7,7 +7,7 @@ import { WorkModule } from "./work/work.module";
 import { AboutModule } from "./about/about.module";
 import { RootRoutingModule } from "./root-routing.module";
 import { HeaderModule } from './header/header.module';
-import { GapiSheetsModule } from "../shared/gapi-sheets.module";
+import { GapiSheetsModule } from "../shared/gapi/gapi-sheets.module";
 
 import { RootComponent } from './root.component';
 

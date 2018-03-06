@@ -6,7 +6,7 @@ import { ProjectProps, ProjectItem, DataConfig, DataEnums } from './data-service
 @Injectable()
 export class DataStoreService {
   localStorageEnabled = false;
-  defaultLocalStorageEnabled = false;
+  defaultLocalStorageEnabled = true;
   base: {};
 
   constructor() {

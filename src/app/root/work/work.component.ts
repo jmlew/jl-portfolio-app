@@ -61,8 +61,11 @@ export class WorkComponent implements OnInit {
         .then((data: string[][]) => {
           this.dataStore.projectProps =
           this.dataService.createProjectProps(data);
-          this.dataStore.projectItems =
-            this.dataService.createProjectItems(data, this.dataStore.dataConfig);
+          this.dataStore.projectItems = this.dataService.createProjectItems(
+              data,
+              this.dataStore.dataConfig,
+              this.dataStore.dataEnums
+          );
           this.setStoredData();
           this.dataLoadedState = LOAD_STATE.loaded;
         });

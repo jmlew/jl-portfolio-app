@@ -78,7 +78,8 @@ export class DataService {
 
   createProjectItems(
       sheetRows: string[][],
-      dataConfig: DataConfig): ProjectItem[] {
+      dataConfig: DataConfig,
+      dataEnums: DataEnums): ProjectItem[] {
     const ids: string[] = sheetRows[0];
     const projectItems: ProjectItem[] = [];
     const dataRowStart = 2; // Row at which the header ends and projects begin.
@@ -86,12 +87,22 @@ export class DataService {
       const row: string[] = sheetRows[rowIndex];
       const item: ProjectItem = row.reduce((accum, value, index) => {
         const id = ids[index];
-        accum[id] = value;
+        // Convert enums from indecies to their string values.
+        if (dataEnums[id]) {
+          accum[id] = value.length > 0 ?
+              this.convertEnums(dataEnums[id], value) : null;
+        } else {
+          accum[id] = value;
+        }
         return accum;
       }, {});
       projectItems.push(item);
     }
     return projectItems;
+  }
+
+  convertEnums(enumValues: string[], value: string): string[]|null {
+    return value.split(',').map((item) => enumValues[parseInt(item)]);
   }
 }
 

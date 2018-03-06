@@ -11,6 +11,7 @@ import { MODEL } from "../../../shared/model";
 export class ProjectDetailsComponent implements OnInit {
   MODEL = MODEL;
   @Input() item: ProjectItem;
+  @Input() projectProps: ProjectProps;
   @Input() imgLocBase: string;
   @Output() closeDetails = new EventEmitter<void>();
   @Output() openLink = new EventEmitter<string>();

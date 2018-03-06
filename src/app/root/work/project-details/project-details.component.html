@@ -17,6 +17,20 @@
           <div class="item-desc">
             <p>{{item[MODEL.description]}}</p>
           </div>
+          <div *ngIf="item[MODEL.projectType]">
+            <p><b>{{projectProps[MODEL.projectType].label}}:</b>
+            <span *ngFor="let item of item[MODEL.projectType]">
+              {{item}},
+            </span>
+            </p>
+          </div>
+          <div *ngIf="item[MODEL.projectSkills]">
+            <p><b>{{projectProps[MODEL.projectSkills].label}}:</b>
+              <span *ngFor="let item of item[MODEL.projectSkills]">
+                {{item}},
+              </span>
+            </p>
+          </div>
         </div>
         <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
           <button class="btn-icon" *ngIf="item[MODEL.urlPreview]" (click)="onOpenLink(item[MODEL.urlPreview])">

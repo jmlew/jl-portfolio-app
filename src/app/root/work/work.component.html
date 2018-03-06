@@ -2,6 +2,7 @@
   (closeDetails)="onCloseProjectDetails()"
   (openLink)="onOpenLink($event)"
   [item]="currentProjectItem"
+  [projectProps]="projectProps"
   [imgLocBase]="dataConfig.imgPreviewLocBase"
    *ngIf="isProjectDetailsShown">
 </jl-project-details>

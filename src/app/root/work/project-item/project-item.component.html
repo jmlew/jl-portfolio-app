@@ -2,33 +2,30 @@
   (mouseout)="itemDetails.style.opacity = 0"
   (mouseover)="itemDetails.style.opacity = 1"
   (click)="onOpenDetails()">
-  <img class="item-bg" src="{{imgLocBase + item.imgThumbLoc}}">
+  <img class="item-bg" src="{{imgLocBase + item[MODEL.imgThumbLoc]}}">
   <div #itemDetails class="item-details"
     fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
-    <div class="item-title"> {{item.title}} </div>
-    <button class="item-icon-view btn-icon" (click)="onOpenDetails()">
+    <div class="item-title"> {{item[MODEL.title]}} </div>
+    <button class="item-icon-view btn-icon"
+      (click)="onOpenDetails()">
       <i class="fas fa-info-circle"></i>
     </button>
     <div class="item-footer"
       fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-      <!-- <button class="btn-icon"
-        (click)="onOpenDetails()">
-        <i class="fas fa-info-circle"></i>
-      </button> -->
-      <button class="btn-icon" *ngIf="item.urlPreview"
-        (click)="onOpenLink(item.urlPreview)">
+      <button class="btn-icon" *ngIf="item[MODEL.urlPreview]"
+        (click)="onOpenLink(item[MODEL.urlPreview])">
         <i class="fas fa-eye"></i>
       </button>
-      <button class="btn-icon" *ngIf="item.urlCode"
-        (click)="onOpenLink(item.urlCode)">
+      <button class="btn-icon" *ngIf="item[MODEL.urlCode]"
+        (click)="onOpenLink(item[MODEL.urlCode])">
         <i class="fas fa-code"></i>
       </button>
-      <button class="btn-icon" *ngIf="item.urlMocks"
-        (click)="onOpenLink(item.urlMocks)">
+      <button class="btn-icon" *ngIf="item[MODEL.urlMocks]"
+        (click)="onOpenLink(item[MODEL.urlMocks])">
         <i class="fas fa-pencil-alt"></i>
       </button>
-      <button class="btn-icon" *ngIf="item.urlScreencast"
-        (click)="onOpenLink(item.urlScreencast)">
+      <button class="btn-icon" *ngIf="item[MODEL.urlScreencast]"
+        (click)="onOpenLink(item[MODEL.urlScreencast])">
         <i class="fas fa-video"></i>
       </button>
     </div>

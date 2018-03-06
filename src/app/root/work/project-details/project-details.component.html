@@ -5,30 +5,30 @@
     </button>
     <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
       <div class="item-images"
-        *ngIf="item.imgPreviewLoc">
-        <img src="{{imgLocBase + item.imgPreviewLoc}}">
+        *ngIf="item[MODEL.imgPreviewLoc]">
+        <img src="{{imgLocBase + item[MODEL.imgPreviewLoc]}}">
       </div>
       <div fxFlex
         fxLayout="column" fxLayoutAlign="space-between stretch">
         <div class="item-details">
           <div class="item-title">
-            <h1>{{item.title}}</h1>
+            <h1>{{item[MODEL.title]}}</h1>
           </div>
           <div class="item-desc">
-            <p>{{item.description}}</p>
+            <p>{{item[MODEL.description]}}</p>
           </div>
         </div>
         <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <button class="btn-icon" *ngIf="item.urlPreview" (click)="onOpenLink(item.urlPreview)">
+          <button class="btn-icon" *ngIf="item[MODEL.urlPreview]" (click)="onOpenLink(item[MODEL.urlPreview])">
             <i class="fas fa-eye"></i>
           </button>
-          <button class="btn-icon" *ngIf="item.urlCode" (click)="onOpenLink(item.urlCode)">
+          <button class="btn-icon" *ngIf="item[MODEL.urlCode]" (click)="onOpenLink(item[MODEL.urlCode])">
             <i class="fas fa-code"></i>
           </button>
-          <button class="btn-icon" *ngIf="item.urlMocks" (click)="onOpenLink(item.urlMocks)">
+          <button class="btn-icon" *ngIf="item[MODEL.urlMocks]" (click)="onOpenLink(item[MODEL.urlMocks])">
             <i class="fas fa-pencil-alt"></i>
           </button>
-          <button class="btn-icon" *ngIf="item.urlScreencast" (click)="onOpenLink(item.urlScreencast)">
+          <button class="btn-icon" *ngIf="item[MODEL.urlScreencast]" (click)="onOpenLink(item[MODEL.urlScreencast])">
             <i class="fas fa-video"></i>
           </button>
         </div>

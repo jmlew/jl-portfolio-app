@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ProjectItem, ProjectProps } from '../../../shared/data-service.service';
+import { MODEL } from "../../../shared/model";
 
 @Component({
   selector: 'jl-project-details',
@@ -8,6 +9,7 @@ import { ProjectItem, ProjectProps } from '../../../shared/data-service.service'
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
+  MODEL = MODEL;
   @Input() item: ProjectItem;
   @Input() imgLocBase: string;
   @Output() closeDetails = new EventEmitter<void>();

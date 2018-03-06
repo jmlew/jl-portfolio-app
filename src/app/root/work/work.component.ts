@@ -52,6 +52,10 @@ export class WorkComponent implements OnInit {
       this.dataService.loadSheetsData(SHEETS.config)
         .then((data: string[][]) => {
           this.dataStore.dataConfig = this.dataService.createDataConfig(data);
+          return this.dataService.loadSheetsData(SHEETS.enums);
+        })
+        .then((data: string[][]) => {
+          this.dataStore.dataEnums = this.dataService.createDataEnums(data);
           return this.dataService.loadSheetsData(SHEETS.projects);
         })
         .then((data: string[][]) => {

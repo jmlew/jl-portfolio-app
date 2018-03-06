@@ -17,12 +17,11 @@ body {
   background-color: $color-grey-50;
 }
 
-p {
+p, li {
   font-size: .875rem;
-  margin-bottom: 1rem;
 }
 
-h1, h2, h3, h4, h5 {
+p, h1, h2, h3, h4, h5 {
   margin-bottom: 1rem;
 }
 
@@ -40,4 +39,9 @@ h1, h2, h3, h4, h5 {
 // Global containers
 .jl-page-content {
   margin: 2rem 0;
+}
+
+// Control elements ourside app scope.
+.lock-overflow-y {
+  overflow-y: hidden;
 }

@@ -29,8 +29,9 @@ $color-black-extreme-opacity: rgba(0, 0, 0, .95);
 // Shadows.
 $color-box-shadow: rgba(0, 0, 0, .35);
 $color-white-half-opacity: rgba(255, 255, 255, .5);
-$box-shadow-card: .7px 1px 1.8px .5px $color-box-shadow;
+$box-shadow-card: .7px 1px 1.8px $color-box-shadow;
 $box-shadow-card-over: 1px 1.5px 3px .3px $color-box-shadow;
+$box-shadow-details-page: 0px 2px 8px rgba(0, 0, 0, .5);
 $box-shadow-header: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 

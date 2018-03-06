@@ -1,4 +1,4 @@
-<div class="jl-project-details" *ngIf="item">
+<div class="jl-project-details">
   <jl-content-wrapper>
     <button class="btn-close btn-icon icon-large" (click)="onClose()">
       <i class="fas fa-times-circle"></i>
@@ -8,8 +8,7 @@
         *ngIf="item[MODEL.imgPreviewLoc]">
         <img src="{{imgLocBase + item[MODEL.imgPreviewLoc]}}">
       </div>
-      <div fxFlex
-        fxLayout="column" fxLayoutAlign="space-between stretch">
+      <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
         <div class="item-details">
           <div class="item-title">
             <h1>{{item[MODEL.title]}}</h1>

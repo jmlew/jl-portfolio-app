@@ -1,4 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Renderer2,
+} from '@angular/core';
 
 import { RoutesService } from "../../shared/routes.service";
 import { DataService, DataConfig, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
@@ -23,6 +29,7 @@ export class WorkComponent implements OnInit {
     private readonly routesService: RoutesService,
     private readonly dataService: DataService,
     private readonly dataStore: DataStoreService,
+    private readonly renderer: Renderer2,
   ) { }
 
   ngOnInit() {
@@ -32,10 +39,14 @@ export class WorkComponent implements OnInit {
   onOpenProjectDetails(item: ProjectItem) {
     this.currentProjectItem = item;
     this.isProjectDetailsShown = true;
+    // Lock body scrolling.
+    this.renderer.addClass(document.body, 'lock-overflow-y');
   }
 
   onCloseProjectDetails() {
     this.isProjectDetailsShown = false;
+    // Unock body scrolling.
+    this.renderer.removeClass(document.body, 'lock-overflow-y');
   }
 
   onOpenLink(url: string) {

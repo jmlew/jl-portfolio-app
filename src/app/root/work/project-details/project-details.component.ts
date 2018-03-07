@@ -12,6 +12,7 @@ import {
   style,
   transition,
   trigger,
+  AnimationEvent,
 } from '@angular/animations';
 
 import { ProjectItem, ProjectProps } from '../../../shared/data-service.service';
@@ -35,7 +36,7 @@ import { VISIBLE_STATE, State } from "../../../shared/states";
       'bgVisible',
       [
         state('hidden', style({ opacity: 0 })),
-        state('visible', style({ opacity: .7 })),
+        state('visible', style({ opacity: .8 })),
         transition('hidden => visible', animate('300ms ease-in-out')),
         transition('visible => hidden', animate('300ms ease-in-out'))
       ])]
@@ -52,9 +53,7 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -67,6 +66,10 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.closeDetails.emit();
     }, 300);
+  }
+
+  onPanelVisibleDone(event: AnimationEvent) {
+    console.log('onPanelVisibleDone', event);
   }
 
   onOpenLink(url: string) {

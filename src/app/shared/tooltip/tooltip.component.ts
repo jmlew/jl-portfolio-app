@@ -7,8 +7,8 @@ import { Component, Input, AfterViewInit, HostListener, ElementRef } from '@angu
 })
 export class TooltipComponent implements AfterViewInit {
   private element: HTMLElement;
-  private ref: HTMLElement;
-  @Input() evocationRef: ElementRef;
+  private refElement: HTMLElement;
+  @Input() invocationRef: ElementRef;
   @Input() message: string;
 
   constructor(private elementRef: ElementRef) {
@@ -16,20 +16,19 @@ export class TooltipComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.ref = this.evocationRef.nativeElement;
+    this.refElement = this.invocationRef.nativeElement;
     this.position();
   }
 
-  @HostListener('window:resize')
-  onWindowResize() {
+  @HostListener('window:resize') onWindowResize() {
     this.position();
   }
 
   private position() {
-    const clientRect = this.ref.getBoundingClientRect();
+    const clientRect = this.refElement.getBoundingClientRect();
     this.element.style.top = clientRect.top -
         this.element.offsetHeight - 6 + window.scrollY + 'px';
     this.element.style.left = clientRect.left +
-        (this.ref.offsetWidth / 2) - (this.element.offsetWidth / 2) + 'px';
+      (this.refElement.offsetWidth / 2) - (this.element.offsetWidth / 2) + 'px';
   }
 }

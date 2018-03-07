@@ -16,8 +16,7 @@ export class TooltipDirective implements OnDestroy {
     this.toolTips = tooltipService.toolTips;
   }
 
-  @HostListener('mouseenter')
-  onMouseEnter(): void {
+  @HostListener('mouseenter') onMouseEnter() {
     this.id = Math.random();
     const tooltip: ToolTip = {
       id: this.id,
@@ -27,13 +26,11 @@ export class TooltipDirective implements OnDestroy {
     this.tooltipService.toolTips.push(tooltip);
   }
 
-  @HostListener('mouseleave')
-  onMouseLeave(): void {
+  @HostListener('mouseleave') onMouseLeave() {
     this.destroy();
   }
 
-  @HostListener('click')
-  onClick(): void {
+  @HostListener('click') onClick() {
     this.destroy();
   }
 
@@ -41,7 +38,7 @@ export class TooltipDirective implements OnDestroy {
     this.destroy();
   }
 
-  destroy(): void {
+  destroy() {
     const index = this.tooltipService.toolTips
         .findIndex((item) => item.id === this.id);
     this.tooltipService.toolTips.splice(index, 1);

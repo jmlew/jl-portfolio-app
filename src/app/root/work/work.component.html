@@ -7,6 +7,7 @@
   *ngIf="isProjectDetailsVisible"></jl-project-details>
 
 <jl-content-wrapper>
+
   <button class="btn-show-filters btn-icon"
     [@btnFiltersVisible]="filtersVisibleState"
     (click)="onToggleFiltersVisible()"
@@ -15,7 +16,8 @@
   </button>
   <section class="jl-filters-panel"
     [ngClass]="{'is-visible': isFiltersVisible}"
-    [@filtersVisible]="filtersVisibleState">
+    [@filtersVisible]="filtersVisibleState"
+    (@filtersVisible.done)="onFiltersVisibleDone($event)">
     <h1>Filters here!</h1>
     <p>Filter</p>
     <p>Filter</p>
@@ -26,7 +28,7 @@
     <p>Filter</p>
   </section>
 
-  <section class="jl-page-content">
+  <section class="jl-work-content">
     <section [ngSwitch]="dataLoadedState">
       <div *ngSwitchCase="LOAD_STATE.loading">
         <h2>Loading sheets data...</h2>

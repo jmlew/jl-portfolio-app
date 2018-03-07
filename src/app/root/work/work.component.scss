@@ -1,6 +1,10 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
+.jl-work-content {
+  margin: 2rem 0;
+}
+
 .jl-project-previews {
   margin-left: - 10px; // Shift to the left margin to align items.
 }

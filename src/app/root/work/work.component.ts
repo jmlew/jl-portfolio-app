@@ -11,10 +11,17 @@ import {
   style,
   transition,
   trigger,
+  AnimationEvent,
 } from '@angular/animations';
 
 import { RoutesService } from "../../shared/routes.service";
-import { DataService, DataConfig, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
+import {
+  DataService,
+  DataConfig,
+  ProjectItem,
+  ProjectProps,
+  SHEETS,
+} from '../../shared/data-service.service';
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
 import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
 
@@ -73,7 +80,7 @@ export class WorkComponent implements OnInit {
 
   onCloseProjectDetails() {
     this.isProjectDetailsVisible = false;
-    // Unock body scrolling.
+    // Unlock body scrolling.
     this.renderer.removeClass(document.body, 'lock-overflow-y');
   }
 
@@ -85,6 +92,10 @@ export class WorkComponent implements OnInit {
     this.isFiltersVisible = ! this.isFiltersVisible;
     this.filtersVisibleState =
         this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
+  }
+
+  onFiltersVisibleDone(event: AnimationEvent) {
+    console.log('onFiltersVisibleDone', event);
   }
 
   private initProjectsData() {

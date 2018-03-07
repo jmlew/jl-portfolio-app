@@ -102,7 +102,9 @@ export class DataService {
   }
 
   convertEnums(enumValues: string[], value: string): string[]|null {
-    return value.split(',').map((item) => enumValues[parseInt(item) - 1]);
+    return value.split(',')
+      .map((item) => item.trim())
+      .map((item) => enumValues[parseInt(item) - 1]);
   }
 }
 

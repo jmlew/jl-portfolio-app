@@ -2,6 +2,8 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/components';
 
+$padding-content: 20px 0;
+
 .jl-project-details {
   position: fixed;
   overflow: hidden;
@@ -21,7 +23,6 @@
   bottom: 0;
   left: 0;
   background-color: $color-white;
-  opacity: .7;
 }
 
 .btn-close {
@@ -33,11 +34,11 @@
 }
 
 .item-images {
-  padding: 20px 0;
+  padding: $padding-content;
 }
 
 .item-details {
-  padding: 20px 0;
+  padding: $padding-content;
 
   .item-title {
     color: $color-grey-800;

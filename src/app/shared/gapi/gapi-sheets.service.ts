@@ -16,7 +16,6 @@ export class GapiSheetsService {
 
   initSheetsApi(): Promise<void | {}> {
     if (this.isApiReady) return new Promise((resolve) => resolve());
-    // Load data without user sign in.
     return this.loadClient()
       .then(() => {
         this.isApiReady = true;

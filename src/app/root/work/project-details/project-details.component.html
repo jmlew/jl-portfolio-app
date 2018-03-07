@@ -4,10 +4,13 @@
       <i class="fas fa-times-circle"></i>
     </button>
     <section class="details-content"
-      [@panelVisible]="panelVisibleState">
+      [@panelVisible]="panelVisibleState"
+      (@panelVisible.done)="onPanelVisibleDone($event)">
       <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
         <div class="item-images" *ngIf="item[MODEL.imgPreviewLoc]">
-          <img src="{{imgLocBase + item[MODEL.imgPreviewLoc]}}">
+          <jl-image-carousel
+            [imgLocBase]="imgLocBase"
+            [imgPreviewLoc]="item[MODEL.imgPreviewLoc]"></jl-image-carousel>
         </div>
         <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
           <div class="item-details">
@@ -52,5 +55,4 @@
   </jl-content-wrapper>
 </section>
 <section class="jl-modal-bg" fxFlexFill
-  [@bgVisible]="panelVisibleState"
-  (click)="onClose()"></section>
+  [@bgVisible]="panelVisibleState" (click)="onClose()"></section>

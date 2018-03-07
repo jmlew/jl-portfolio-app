@@ -51,7 +51,7 @@ export class WorkComponent implements OnInit {
   projectProps: ProjectProps;
   dataConfig: DataConfig;
   currentProjectItem: ProjectItem;
-  isProjectDetailsShown = false;
+  isProjectDetailsVisible = false;
 
   constructor(
     private readonly routesService: RoutesService,
@@ -66,13 +66,13 @@ export class WorkComponent implements OnInit {
 
   onOpenProjectDetails(item: ProjectItem) {
     this.currentProjectItem = item;
-    this.isProjectDetailsShown = true;
+    this.isProjectDetailsVisible = true;
     // Lock body scrolling.
     this.renderer.addClass(document.body, 'lock-overflow-y');
   }
 
   onCloseProjectDetails() {
-    this.isProjectDetailsShown = false;
+    this.isProjectDetailsVisible = false;
     // Unock body scrolling.
     this.renderer.removeClass(document.body, 'lock-overflow-y');
   }

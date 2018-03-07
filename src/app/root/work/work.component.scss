@@ -5,25 +5,21 @@
   margin-left: - 10px; // Shift to the left margin to align items.
 }
 
-$btn-size-filters: 40px;
 
-.jl-filters {
+.jl-filters-panel {
   position: relative;
+  overflow: hidden;
 
-  .jl-filters-panel {
-    position: relative;
-    overflow: hidden;
-
-    &.is-visible {
-      border-bottom: 1px solid grey;
-    }
+  &.is-visible {
+    border-bottom: 1px solid grey;
   }
+}
 
-  .btn-show-filters {
-    position: absolute;
-    font-size: $btn-size-filters;
-    top: - $btn-size-filters * .625;
-    right: - $btn-size-filters * .625;
-  }
+$btn-size-filters: 40px;
+.btn-show-filters {
+  position: absolute;
+  font-size: $btn-size-filters;
+  top: - $btn-size-filters * .625;
+  right: - $btn-size-filters * .625;
 }
 

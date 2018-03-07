@@ -1,65 +1,56 @@
-<div class="jl-project-details">
+<section class="jl-project-details">
   <jl-content-wrapper>
-    <button class="btn-close btn-icon icon-large" (click)="onClose()">
+    <button class="btn-close btn-icon" (click)="onClose()">
       <i class="fas fa-times-circle"></i>
     </button>
-    <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
-      <div class="item-images"
-        *ngIf="item[MODEL.imgPreviewLoc]">
-        <img src="{{imgLocBase + item[MODEL.imgPreviewLoc]}}">
-      </div>
-      <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
-        <div class="item-details">
-          <div class="item-title">
-            <h1>{{item[MODEL.title]}}</h1>
+    <section class="details-content"
+      [@panelVisible]="panelVisibleState">
+      <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
+        <div class="item-images" *ngIf="item[MODEL.imgPreviewLoc]">
+          <img src="{{imgLocBase + item[MODEL.imgPreviewLoc]}}">
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
+          <div class="item-details">
+            <div class="item-title">
+              <h1>{{item[MODEL.title]}}</h1>
+            </div>
+            <div class="item-desc">
+              <p>{{item[MODEL.description]}}</p>
+            </div>
+            <div *ngIf="item[MODEL.projectType]">
+              <p><b>{{projectProps[MODEL.projectType].label}}:</b>
+                <span *ngFor="let item of item[MODEL.projectType]">
+                    {{item}},
+                  </span>
+              </p>
+            </div>
+            <div *ngIf="item[MODEL.projectSkills]">
+              <p><b>{{projectProps[MODEL.projectSkills].label}}:</b>
+                <span *ngFor="let item of item[MODEL.projectSkills]">
+                      {{item}},
+                    </span>
+              </p>
+            </div>
           </div>
-          <div class="item-desc">
-            <p>{{item[MODEL.description]}}</p>
-          </div>
-          <div *ngIf="item[MODEL.projectType]">
-            <p><b>{{projectProps[MODEL.projectType].label}}:</b>
-            <span *ngFor="let item of item[MODEL.projectType]">
-              {{item}},
-            </span>
-            </p>
-          </div>
-          <div *ngIf="item[MODEL.projectSkills]">
-            <p><b>{{projectProps[MODEL.projectSkills].label}}:</b>
-              <span *ngFor="let item of item[MODEL.projectSkills]">
-                {{item}},
-              </span>
-            </p>
+          <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+            <button class="btn-icon" *ngIf="item[MODEL.urlPreview]" (click)="onOpenLink(item[MODEL.urlPreview])" jl-tooltip message="View Preview">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="btn-icon" *ngIf="item[MODEL.urlCode]" (click)="onOpenLink(item[MODEL.urlCode])" jl-tooltip message="View Code">
+              <i class="fas fa-code"></i>
+            </button>
+            <button class="btn-icon" *ngIf="item[MODEL.urlMocks]" (click)="onOpenLink(item[MODEL.urlMocks])" jl-tooltip message="View Mocks">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn-icon" *ngIf="item[MODEL.urlScreencast]" (click)="onOpenLink(item[MODEL.urlScreencast])" jl-tooltip message="View Screencast">
+              <i class="fas fa-video"></i>
+            </button>
           </div>
         </div>
-        <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-          <button class="btn-icon"
-            *ngIf="item[MODEL.urlPreview]"
-            (click)="onOpenLink(item[MODEL.urlPreview])"
-            jl-tooltip message="View Preview">
-            <i class="fas fa-eye"></i>
-          </button>
-          <button class="btn-icon"
-            *ngIf="item[MODEL.urlCode]"
-            (click)="onOpenLink(item[MODEL.urlCode])"
-            jl-tooltip message="View Code">
-            <i class="fas fa-code"></i>
-          </button>
-          <button class="btn-icon"
-            *ngIf="item[MODEL.urlMocks]"
-            (click)="onOpenLink(item[MODEL.urlMocks])"
-            jl-tooltip message="View Mocks">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-          <button class="btn-icon"
-            *ngIf="item[MODEL.urlScreencast]"
-            (click)="onOpenLink(item[MODEL.urlScreencast])"
-            jl-tooltip message="View Screencast">
-            <i class="fas fa-video"></i>
-          </button>
-        </div>
       </div>
-    </div>
+    </section>
   </jl-content-wrapper>
-</div>
-<div class="jl-modal-bg" fxFlexFill
-  (click)="onClose()"></div>
+</section>
+<section class="jl-modal-bg" fxFlexFill
+  [@bgVisible]="panelVisibleState"
+  (click)="onClose()"></section>

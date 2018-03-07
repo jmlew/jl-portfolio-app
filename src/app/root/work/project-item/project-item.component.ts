@@ -25,8 +25,9 @@ export class ProjectItemComponent implements OnInit {
     this.openDetails.emit(this.item);
   }
 
-  onOpenLink(url: string) {
+  onOpenLink(url: string, event: MouseEvent) {
     this.openLink.emit(url);
+    event.stopPropagation();
   }
 
 }

@@ -5,20 +5,48 @@ import {
   EventEmitter,
   Renderer2,
 } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 import { RoutesService } from "../../shared/routes.service";
 import { DataService, DataConfig, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
-import { LOAD_STATE, State } from "../../shared/states";
+import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
 
 @Component({
   // selector: 'jl-work', // Provided via router.
   templateUrl: './work.component.html',
-  styleUrls: ['./work.component.scss']
+  styleUrls: ['./work.component.scss'],
+  animations: [
+    trigger(
+      'filtersVisible',
+      [
+        state('hidden', style({ height: '0' })),
+        state('visible', style({ height: '*' })),
+        transition('hidden => visible', animate('300ms ease-out')),
+        transition('visible => hidden', animate('200ms ease-in-out'))
+      ]),
+    trigger(
+      'btnFiltersVisible',
+      [
+        state('hidden', style({ transform: 'rotateZ(0)' })),
+        state('visible', style({ transform: 'rotateZ(180deg)' })),
+        transition('hidden => visible', animate('200ms ease-out')),
+        transition('visible => hidden', animate('150ms ease-in-out'))
+      ])
+  ]
 })
 export class WorkComponent implements OnInit {
-  loadState: State = LOAD_STATE;
-  dataLoadedState: string;
+  readonly LOAD_STATE: State = LOAD_STATE;
+  readonly VISIBLE_STATE: State = VISIBLE_STATE;
+  filtersVisibleState: string = VISIBLE_STATE.hidden;
+  dataLoadedState: string = LOAD_STATE.unloaded;
+  isFiltersVisible = false;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataConfig: DataConfig;
@@ -51,6 +79,12 @@ export class WorkComponent implements OnInit {
 
   onOpenLink(url: string) {
     window.open(url, '_blank');
+  }
+
+  onToggleFiltersVisible() {
+    this.isFiltersVisible = ! this.isFiltersVisible;
+    this.filtersVisibleState =
+        this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
   }
 
   private initProjectsData() {

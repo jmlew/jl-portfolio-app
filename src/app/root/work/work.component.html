@@ -4,16 +4,36 @@
   [item]="currentProjectItem"
   [projectProps]="projectProps"
   [imgLocBase]="dataConfig.imgPreviewLocBase"
-   *ngIf="isProjectDetailsShown">
-</jl-project-details>
+   *ngIf="isProjectDetailsShown"></jl-project-details>
 
 <jl-content-wrapper>
+  <section class="jl-filters">
+    <button class="btn-show-filters btn-icon"
+      [@btnFiltersVisible]="filtersVisibleState"
+      (click)="onToggleFiltersVisible()"
+      jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'View Filters'">
+      <i class="fas fa-chevron-circle-down"></i>
+    </button>
+    <section class="jl-filters-panel"
+      [ngClass]="{'is-visible': isFiltersVisible}"
+      [@filtersVisible]="filtersVisibleState">
+      <h1>Filters here!</h1>
+      <p>Filter</p>
+      <p>Filter</p>
+      <p>Filter</p>
+      <p>Filter</p>
+      <p>Filter</p>
+      <p>Filter</p>
+      <p>Filter</p>
+    </section>
+  </section>
+
   <section class="jl-page-content">
     <section [ngSwitch]="dataLoadedState">
-      <div *ngSwitchCase="loadState.loading">
+      <div *ngSwitchCase="LOAD_STATE.loading">
         <h2>Loading sheets data...</h2>
       </div>
-      <div *ngSwitchCase="loadState.loaded">
+      <div *ngSwitchCase="LOAD_STATE.loaded">
         <section class="jl-project-previews"
           fxLayout="row wrap"
           fxLayout.xs="column" fxLayoutAlign.xs="start center">

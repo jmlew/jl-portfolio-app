@@ -27,7 +27,9 @@ export class TooltipComponent implements AfterViewInit {
 
   private position() {
     const clientRect = this.ref.getBoundingClientRect();
-    this.element.style.top = clientRect.top - this.element.offsetHeight - 6 + 'px';
-    this.element.style.left = clientRect.left + (this.ref.offsetWidth / 2) - (this.element.offsetWidth / 2) + 'px';
+    this.element.style.top = clientRect.top -
+        this.element.offsetHeight - 6 + window.scrollY + 'px';
+    this.element.style.left = clientRect.left +
+        (this.ref.offsetWidth / 2) - (this.element.offsetWidth / 2) + 'px';
   }
 }

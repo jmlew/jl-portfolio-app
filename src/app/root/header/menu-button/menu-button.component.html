@@ -1,0 +1,7 @@
+<button class="btn-header-menu"
+  [disabled]="isActive"
+  (click)="onClick()">
+  {{label}}
+  <div class="underline" [ngClass]="{'is-active': isActive}"></div>
+</button>
+

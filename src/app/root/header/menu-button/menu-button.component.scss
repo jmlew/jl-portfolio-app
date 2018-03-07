@@ -1,0 +1,59 @@
+@import '../../../../styles/variables';
+
+$btn-height: 1em;
+
+.btn-header-menu {
+  display: inline-block;
+  font-family: $font-family-titles;
+  background-color: none;
+  color: $color-grey-600;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: none;
+  padding: 0 .75rem;
+  font-size: 1em;
+  line-height: 0;
+  text-decoration: none;
+
+  .underline {
+    width: 0;
+    margin: 0 auto;
+    padding-bottom: $btn-height;
+    border-bottom: 1px solid $color-grey-600;
+    transition: width .05s ease-out;
+
+    &.is-active {
+      width: 100%;
+      border-bottom-color: $color-grey-500;
+    }
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:active, &:hover, &:focus {
+      color: $color-grey-800;
+
+      .underline {
+        width: 100%;
+        border-bottom-color: $color-grey-600;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &:disabled {
+    opacity: .7;
+  }
+
+  &:not(:first-of-type) {
+    margin-left: .5em;
+  }
+}

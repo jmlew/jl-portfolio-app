@@ -8,16 +8,14 @@
     fxFlex.lg="{{pageDimensions.wPageMaxLg}}px">
     <h1 class="jl-title">Jason Lewis</h1>
     <nav class="jl-header-nav" fxLayout="row" fxLayoutAlign="center center">
-      <button class="btn-main"
-        [disabled]="currentRoute && currentRoute.name == routeConfig.work.name"
-        [routerLink]="routeConfig.work.path">
-        {{routeConfig.work.label}}
-      </button>
-      <button class="btn-main"
-        [disabled]="currentRoute && currentRoute.name == routeConfig.about.name"
-        [routerLink]="routeConfig.about.path">
-         {{routeConfig.about.label}}
-      </button>
+      <jl-menu-button label="WORK"
+        (activate)="onNavigateTo(routeConfig.work)"
+        [isActive]="currentRoute && currentRoute.name == routeConfig.work.name">
+      </jl-menu-button>
+      <jl-menu-button label="ABOUT"
+        (activate)="onNavigateTo(routeConfig.about)"
+        [isActive]="currentRoute && currentRoute.name == routeConfig.about.name">
+      </jl-menu-button>
     </nav>
   </section>
 </header>

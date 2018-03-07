@@ -83,15 +83,10 @@ export class WorkComponent implements OnInit {
     }
   }
 
-  /**
-   * Sets the projects data to the component from the data store.
-   * */
+  /** Sets the projects data to the component from the data store. */
   private setStoredData() {
     this.projectItems = this.dataStore.projectItems;
     this.projectProps = this.dataStore.projectProps;
     this.dataConfig = this.dataStore.dataConfig;
-    console.log('dataConfig', this.dataConfig);
-    console.log('projectProps', this.projectProps);
-    console.log('projectItems', this.projectItems);
   }
 }

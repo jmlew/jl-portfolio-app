@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Data } from "@angular/router";
+import { Router, Data } from "@angular/router";
 import { Subscription } from 'rxjs/Subscription';
 
 import { PAGE_DIMENSIONS, NumericDimensions } from "../../shared/ui-layout";
@@ -17,6 +17,7 @@ export class HeaderComponent {
   currentRoute: Route;
   activePageSubscription: Subscription;
   constructor(
+    private readonly router: Router,
     private readonly routesService: RoutesService,
   ) {
     this.initObservables();
@@ -28,5 +29,9 @@ export class HeaderComponent {
         .subscribe((data: Data) => {
           if (data.route) this.currentRoute = data.route;
         });
+  }
+
+  onNavigateTo(route: Route) {
+    this.router.navigate([route.name]);
   }
 }

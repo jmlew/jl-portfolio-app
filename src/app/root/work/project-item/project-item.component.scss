@@ -3,7 +3,9 @@
 @import '../../../../styles/components';
 
 $item-spacing: 10px;
-$item-padding: 5px 10px;
+$item-padding-h: 10px;
+$item-padding-v: 5px;
+$item-padding-low-v: 3px;
 $item-width: 240px;
 $item-height: 180px;
 
@@ -30,30 +32,41 @@ $item-height: 180px;
   .item-details {
     position: absolute;
     opacity: 0;
-    color: $color-grey-800;
     background-color: $color-black-half-opacity;
     transition: $transition-opacity;
-  }
 
-  .item-title {
-    background-color: $color-white-extreme-opacity;
-    border-bottom: 1px solid $color-grey-300;
-    padding: $item-padding;
-    font-size: 14px;
-  }
+    .item-title {
+      padding: $item-padding-v $item-padding-h;
+      background-color: $color-white-extreme-opacity;
+      color: $color-grey-800;
+      border-bottom: 1px solid $color-grey-400;
+      font-size: 14px;
+    }
 
-  .item-footer {
-    background-color: $color-white-extreme-opacity;
-    padding: $item-padding;
-    border-top: 1px solid $color-grey-300;
-  }
+    .item-type {
+      padding: $item-padding-low-v $item-padding-h;
+      margin-top: -1px;
+      background-color: $color-black-high-opacity;
+      color: $color-grey-100;
+      border-bottom: 1px solid $color-grey-200;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
 
-  .item-icon-view {
-    font-size: 4em;
-    color: $color-white-high-opacity;
+    .item-footer {
+      padding: $item-padding-v $item-padding-h;
+      color: $color-grey-800;
+      border-top: 1px solid $color-grey-300;
+      background-color: $color-white-extreme-opacity;
+    }
 
-    &:hover {
-      color: $color-white;
+    .item-icon-view {
+      font-size: 3em;
+      color: $color-white-high-opacity;
+
+      &:hover {
+        color: $color-white;
+      }
     }
   }
 }

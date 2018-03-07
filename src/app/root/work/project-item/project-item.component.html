@@ -1,11 +1,14 @@
+<!-- (mouseout)="itemDetails.style.opacity = 0" -->
 <div class="project-item"
-  (mouseout)="itemDetails.style.opacity = 0"
   (mouseover)="itemDetails.style.opacity = 1"
   (click)="onOpenDetails()">
   <img class="item-bg" src="{{imgLocBase + item[MODEL.imgThumbLoc]}}">
   <div #itemDetails class="item-details"
     fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
-    <div class="item-title"> {{item[MODEL.title]}} </div>
+    <div>
+      <div class="item-title"> {{item[MODEL.title]}} </div>
+      <div class="item-type"> {{item[MODEL.projectType]}} </div>
+    </div>
     <button class="item-icon-view btn-icon"
       (click)="onOpenDetails()">
       <i class="fas fa-info-circle"></i>

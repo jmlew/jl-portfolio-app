@@ -1,0 +1,5 @@
+<div class="jl-tooltip-container">
+  <jl-tooltip class="jl-tooltip" *ngFor="let tooltip of tooltips"
+    [message]="tooltip.message"
+    [evocationRef]="tooltip.ref"></jl-tooltip>
+</div>

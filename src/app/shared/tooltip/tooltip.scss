@@ -1,0 +1,36 @@
+@import '../../../styles/variables';
+
+$tooltip-arrow-size: 5px;
+$tooltip-color: $color-white;
+
+.jl-tooltip-container {
+  position: absolute;
+  z-index: 10000;
+}
+
+.jl-tooltip {
+  position: absolute;
+  box-shadow: $box-shadow-card;
+}
+
+.jl-tooltip-content {
+  padding: 5px 10px;
+  font-size: 13px;
+  white-space: nowrap;
+  color: $color-grey-800;
+  background-color: $tooltip-color;
+
+  .arrow {
+    position: absolute;
+    display: block;
+    bottom: - $tooltip-arrow-size * 2;
+    width: $tooltip-arrow-size;
+    height: $tooltip-arrow-size;
+
+    border-style: solid;
+    border-color: transparent;
+    border-width: $tooltip-arrow-size;
+    border-top-color: $tooltip-color;
+  }
+}
+

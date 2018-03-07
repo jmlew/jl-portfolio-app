@@ -10,19 +10,21 @@ import { HeaderModule } from './header/header.module';
 import { GapiSheetsModule } from "../shared/gapi/gapi-sheets.module";
 
 import { RootComponent } from './root.component';
+import { TooltipModule } from "../shared/tooltip/tooltip.module";
 
 import { RoutesService } from "../shared/routes.service";
 import { DataService } from "../shared/data-service.service";
 import { DataStoreService } from "../shared/data-store.service";
 
 @NgModule({
-  declarations: [ RootComponent],
+  declarations: [ RootComponent ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     HeaderModule,
     WorkModule,
     AboutModule,
+    TooltipModule,
     GapiSheetsModule,
     RootRoutingModule,
   ],

@@ -28,7 +28,7 @@ $font-size-btn-icon-large: 30px;
   &:not(:disabled) {
     cursor: pointer;
 
-    &:active, &:hover, &:focus {
+    &:active, &:hover {
       background-color: $color-grey-600;
     }
 
@@ -62,7 +62,7 @@ $font-size-btn-icon-large: 30px;
   &:not(:disabled) {
     cursor: pointer;
 
-    &:active, &:hover, &:focus {
+    &:active, &:hover {
       color: $color-grey-800;
     }
 

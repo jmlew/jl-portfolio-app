@@ -24,7 +24,7 @@ $btn-height: 1em;
     margin: 0 auto;
     padding-bottom: $btn-height;
     border-bottom: 1px solid $color-grey-600;
-    transition: width .05s ease-out;
+    transition: width .075s ease-out;
 
     &.is-active { }
   }

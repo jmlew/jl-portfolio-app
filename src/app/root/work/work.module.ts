@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from "../../shared/tooltip/tooltip.module";
 import { ProjectItemModule } from "./project-item/project-item.module";
 import { ProjectDetailsModule } from "./project-details/project-details.module";
+import { ProjectFiltersModule } from "./project-filters/project-filters.module";
 import { ContentWrapperModule } from "../content-wrapper/content-wrapper.module";
 import { WorkComponent } from './work.component';
 
@@ -14,10 +15,11 @@ import { WorkComponent } from './work.component';
     CommonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    ContentWrapperModule,
     TooltipModule,
     ProjectItemModule,
     ProjectDetailsModule,
-    ContentWrapperModule,
+    ProjectFiltersModule,
   ],
   declarations: [WorkComponent],
 })

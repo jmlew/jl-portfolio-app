@@ -11,7 +11,6 @@ import {
   style,
   transition,
   trigger,
-  AnimationEvent,
 } from '@angular/animations';
 
 import { RoutesService } from "../../shared/routes.service";
@@ -26,18 +25,9 @@ import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
 import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
 
 @Component({
-  // selector: 'jl-work', // Provided via router.
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss'],
   animations: [
-    trigger(
-      'filtersVisible',
-      [
-        state('hidden', style({ height: '0' })),
-        state('visible', style({ height: '*' })),
-        transition('hidden => visible', animate('300ms ease-out')),
-        transition('visible => hidden', animate('200ms ease-in-out'))
-      ]),
     trigger(
       'btnFiltersVisible',
       [
@@ -51,8 +41,8 @@ import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
 export class WorkComponent implements OnInit {
   readonly LOAD_STATE: State = LOAD_STATE;
   readonly VISIBLE_STATE: State = VISIBLE_STATE;
-  filtersVisibleState: string = VISIBLE_STATE.hidden;
   dataLoadedState: string = LOAD_STATE.unloaded;
+  filtersVisibleState: string = VISIBLE_STATE.hidden;
   isFiltersVisible = false;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
@@ -91,11 +81,11 @@ export class WorkComponent implements OnInit {
   onToggleFiltersVisible() {
     this.isFiltersVisible = ! this.isFiltersVisible;
     this.filtersVisibleState =
-        this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
+      this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
   }
 
-  onFiltersVisibleDone(event: AnimationEvent) {
-    console.log('onFiltersVisibleDone', event);
+  onFiltersChanged() {
+    console.log('filters changed');
   }
 
   private initProjectsData() {

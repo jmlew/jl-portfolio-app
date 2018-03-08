@@ -1,0 +1,15 @@
+<section class="jl-filters-panel"
+  [ngClass]="{'is-visible': isVisible}"
+  [@filtersVisible]="visibleState"
+  (@filtersVisible.done)="onVisibleChangeDone($event)">
+
+  <section class="jl-filters-content">
+    <h1>Property Category!</h1>
+    <div *ngFor="let prop of projectPropsKeys">
+      <input type="checkbox"
+        id="{{prop}}"
+        value="{{projectProps[prop].isActive}}">
+      <label for="prop">{{projectProps[prop].label}}</label>
+    </div>
+  </section>
+</section>

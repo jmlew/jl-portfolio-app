@@ -1,0 +1,16 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+@import '../../../../styles/components';
+
+.jl-filters-panel {
+  position: relative;
+  overflow: hidden;
+
+  &.is-visible {
+    border-bottom: 1px solid grey;
+  }
+}
+
+.jl-filters-content {
+  padding: 20px;
+}

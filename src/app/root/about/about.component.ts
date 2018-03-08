@@ -4,7 +4,6 @@ import { RoutesService } from "../../shared/routes.service";
 // import { PAGE_DIMENSIONS, NumericDimensions } from "../../shared/ui-layout";
 
 @Component({
-  // selector: 'jl-about', // Provided via router.
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })

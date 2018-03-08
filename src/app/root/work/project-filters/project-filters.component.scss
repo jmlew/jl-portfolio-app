@@ -22,8 +22,19 @@
     letter-spacing: .1em;
     text-transform: uppercase;
     font-family: $font-family-titles;
-    margin-bottom: .625em;
+    margin-bottom: .5em;
     color: $color-grey-800;
+  }
+
+  .btn-filter-clear {
+    margin-bottom: .5em;
+    padding-left: 10px;
+    font-size: 14px;
+    color: $color-grey-500;
+
+    &:hover {
+      color: $color-grey-800;
+    }
   }
 }
 

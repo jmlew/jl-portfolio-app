@@ -42,12 +42,13 @@ export class ProjectFiltersComponent implements OnInit {
   @Input() dataEnums: DataEnums;;
   @Input() projectItems: ProjectItem[];
   @Output() filtersChanged = new EventEmitter<void>();
-
   filters: Filter[];
 
   constructor(private readonly filtersService: FiltersService) { }
 
   ngOnInit() {
+    console.log('ProjectFiltersComponent ngOnInit', this.filtersService.filters);
+
     if (!this.filtersService.filters) this.createFilters();
     this.filters = this.filtersService.filters;
   }
@@ -61,9 +62,18 @@ export class ProjectFiltersComponent implements OnInit {
     });
   }
 
-  onChangeFilter(control: FilterControl, value: boolean) {
+  onChangeFilterControl(control: FilterControl, value: boolean) {
     control.isActive = value;
     this.filtersChanged.emit();
+  }
+
+  onClearFilter(filter: Filter) {
+    this.filtersService.clearFilter(filter);
+    this.filtersChanged.emit();
+  }
+
+  isFilterActive(filter: Filter): boolean {
+    return this.filtersService.isFilterActive(filter);
   }
 
   onVisibleChangeDone(event: AnimationEvent) {

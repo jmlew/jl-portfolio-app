@@ -24,7 +24,7 @@ export class FiltersService {
     this.filters.push(filter);
   }
 
-  createFilterControls(property: string, values: string[]): FilterControl[] {
+  private createFilterControls(property: string, values: string[]): FilterControl[] {
     return values.map((value) => {
       return {
         name: value,
@@ -57,6 +57,17 @@ export class FiltersService {
               itemValues.includes(control.name));
       return noneSelected || matched;
     });
+  }
+
+  clearFilter(filter: Filter) {
+    filter.controls.forEach((control: FilterControl) => {
+      control.isActive = false;
+    });
+  }
+
+  isFilterActive(filter: Filter): boolean {
+    return filter.controls.some(
+        (control: FilterControl) => control.isActive);
   }
 }
 

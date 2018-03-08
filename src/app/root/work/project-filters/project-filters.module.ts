@@ -4,6 +4,8 @@ import { NgModel } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { TooltipModule } from "../../../shared/tooltip/tooltip.module";
+
 import { ProjectFiltersComponent } from './project-filters.component';
 
 import { FiltersService } from "./filters.service";
@@ -13,6 +15,7 @@ import { FiltersService } from "./filters.service";
     CommonModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    TooltipModule,
   ],
   declarations: [ProjectFiltersComponent, NgModel],
   exports: [ProjectFiltersComponent],

@@ -3,13 +3,17 @@
   [@filtersVisible]="visibleState"
   (@filtersVisible.done)="onVisibleChangeDone($event)">
 
-  <section class="jl-filters-content">
-    <h1>Property Category!</h1>
-    <div *ngFor="let prop of projectPropsKeys">
-      <input type="checkbox"
-        id="{{prop}}"
-        value="{{projectProps[prop].isActive}}">
-      <label for="prop">{{projectProps[prop].label}}</label>
+  <section class="filter-category" *ngFor="let filter of filters">
+    <h2>{{filter.label}}</h2>
+    <div fxLayout="row wrap">
+      <div class="filter-control" *ngFor="let control of filter.controls">
+        <input type="checkbox"
+          id="{{control.id}}"
+          value="{{control.isActive}}"
+          [checked]="control.isActive"
+          (change)="onChangeFilter(control, $event.target.checked)">
+        <label for="{{control.id}}"> {{control.name}} </label>
+      </div>
     </div>
   </section>
 </section>

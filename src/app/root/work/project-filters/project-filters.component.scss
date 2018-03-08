@@ -7,10 +7,64 @@
   overflow: hidden;
 
   &.is-visible {
-    border-bottom: 1px solid grey;
+    // border-bottom: 1px solid grey;
   }
 }
 
-.jl-filters-content {
-  padding: 20px;
+.filter-category {
+  margin: 1rem 1rem 0;
+
+  &:first-of-type {
+    margin-top: 1.5rem;
+  }
+
+  &:last-of-type {
+    margin-bottom: .5rem;
+  }
+
+  h2 {
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-family: $font-family-titles;
+    margin-bottom: .625em;
+    color: $color-grey-800;
+  }
 }
+
+.filter-control {
+  margin-right: 12px;
+
+  input {
+    &[type=checkbox] {
+      margin-right: 0;
+      opacity: .6;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &+label {
+        padding-left: 3px;
+        font-size: .75rem;
+        font-weight: 400;
+        color: $color-grey-600;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-grey-800;
+        }
+      }
+
+      &:checked {
+        opacity: 1;
+
+        &+label {
+          color: $color-grey-800;
+          // font-weight: 700;
+        }
+      }
+    }
+  }
+}
+

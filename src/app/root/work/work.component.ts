@@ -17,10 +17,12 @@ import { RoutesService } from "../../shared/routes.service";
 import {
   DataService,
   DataConfig,
+  DataEnums,
   ProjectItem,
   ProjectProps,
   SHEETS,
 } from '../../shared/data-service.service';
+import { FiltersService, Filter, FilterControl } from "./project-filters/filters.service";
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
 import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
 
@@ -42,23 +44,26 @@ export class WorkComponent implements OnInit {
   readonly LOAD_STATE: State = LOAD_STATE;
   readonly VISIBLE_STATE: State = VISIBLE_STATE;
   dataLoadedState: string = LOAD_STATE.unloaded;
-  filtersVisibleState: string = VISIBLE_STATE.hidden;
-  isFiltersVisible = false;
+  filtersVisibleState: string;
+  isFiltersVisible = true;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
+  dataEnums: DataEnums;
   dataConfig: DataConfig;
   currentProjectItem: ProjectItem;
   isProjectDetailsVisible = false;
 
   constructor(
+    private readonly renderer: Renderer2,
     private readonly routesService: RoutesService,
     private readonly dataService: DataService,
     private readonly dataStore: DataStoreService,
-    private readonly renderer: Renderer2,
+    private readonly filtersService: FiltersService,
   ) { }
 
   ngOnInit() {
     this.initProjectsData();
+    this.updateFiltersVisibleState();
   }
 
   onOpenProjectDetails(item: ProjectItem) {
@@ -80,12 +85,17 @@ export class WorkComponent implements OnInit {
 
   onToggleFiltersVisible() {
     this.isFiltersVisible = ! this.isFiltersVisible;
+    this.updateFiltersVisibleState();
+  }
+
+  private updateFiltersVisibleState() {
     this.filtersVisibleState =
       this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
   }
 
   onFiltersChanged() {
-    console.log('filters changed');
+    this.projectItems =
+        this.filtersService.filterItems(this.dataStore.projectItems);
   }
 
   private initProjectsData() {
@@ -108,10 +118,7 @@ export class WorkComponent implements OnInit {
           this.dataStore.projectProps =
           this.dataService.createProjectProps(data);
           this.dataStore.projectItems = this.dataService.createProjectItems(
-              data,
-              this.dataStore.dataConfig,
-              this.dataStore.dataEnums
-          );
+              data, this.dataStore.dataConfig, this.dataStore.dataEnums);
           this.setStoredData();
           this.dataLoadedState = LOAD_STATE.loaded;
         });
@@ -120,8 +127,11 @@ export class WorkComponent implements OnInit {
 
   /** Sets the projects data to the component from the data store. */
   private setStoredData() {
-    this.projectItems = this.dataStore.projectItems;
+    this.projectItems = this.filtersService.filters ?
+        this.filtersService.filterItems(this.dataStore.projectItems) :
+        this.dataStore.projectItems;
     this.projectProps = this.dataStore.projectProps;
+    this.dataEnums = this.dataStore.dataEnums;
     this.dataConfig = this.dataStore.dataConfig;
   }
 }

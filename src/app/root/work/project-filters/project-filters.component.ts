@@ -1,6 +1,7 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   Input,
   Output,
   EventEmitter,
@@ -14,8 +15,10 @@ import {
   trigger,
 } from '@angular/animations';
 
-import { ProjectItem, ProjectProps } from '../../../shared/data-service.service';
+import { FiltersService, Filter, FilterControl } from "./filters.service";
+import { ProjectItem, ProjectProps, DataEnums } from '../../../shared/data-service.service';
 import { VISIBLE_STATE, State } from "../../../shared/states";
+import { MODEL } from "../../../shared/model";
 
 @Component({
   selector: 'jl-project-filters',
@@ -36,25 +39,40 @@ export class ProjectFiltersComponent implements OnInit {
   @Input() isVisible: boolean;
   @Input() visibleState: string;
   @Input() projectProps: ProjectProps;
+  @Input() dataEnums: DataEnums;;
   @Input() projectItems: ProjectItem[];
   @Output() filtersChanged = new EventEmitter<void>();
 
-  projectPropsKeys: string[];
+  filters: Filter[];
 
-  constructor(
-
-  ) { }
+  constructor(private readonly filtersService: FiltersService) { }
 
   ngOnInit() {
-    this.projectPropsKeys = Object.keys(this.projectProps);
+    if (!this.filtersService.filters) this.createFilters();
+    this.filters = this.filtersService.filters;
   }
 
-  onFiltersChanged() {
+  private createFilters() {
+    this.filtersService.initFilters();
+    enumFilters.forEach((prop) => {
+      const label = this.projectProps[prop].label;
+      const values = this.dataEnums[prop];
+      this.filtersService.addFilter(prop, label, values);
+    });
+  }
+
+  onChangeFilter(control: FilterControl, value: boolean) {
+    control.isActive = value;
     this.filtersChanged.emit();
   }
-
 
   onVisibleChangeDone(event: AnimationEvent) {
 
   }
 }
+
+const enumFilters = [
+  MODEL.projectType,
+  MODEL.projectSkills,
+  // MODEL.company,
+];

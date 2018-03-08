@@ -131,7 +131,7 @@ export const SHEETS: SheetConfigCollection = {
   },
   enums: {
     tab: 'enums!',
-    cells: 'B1:C',
+    cells: 'B1:E',
     dimension: SheetDimension.COLUMNS,
   }
 };
@@ -153,5 +153,6 @@ export interface ProjectProps {
   [id: string]: ProjectProp;
 }
 
-export type ProjectItemValue = string | number | Date;
+export type ProjectItemValue = any;
+// export type ProjectItemValue = string | number | Date | string[];
 export interface ProjectItem { [id: string]: ProjectItemValue; }

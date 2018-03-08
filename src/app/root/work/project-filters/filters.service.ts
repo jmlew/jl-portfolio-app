@@ -1,0 +1,73 @@
+import { Injectable } from '@angular/core';
+import {
+  ProjectItem,
+  ProjectItemValue,
+  ProjectProps,
+} from '../../../shared/data-service.service';
+
+@Injectable()
+export class FiltersService {
+  isActiveAll = false;
+  filters: Filter[];
+  constructor() { }
+
+  initFilters() {
+    this.filters = [];
+  }
+
+  addFilter(property: string, label: string, values: string[]) {
+    const filter: Filter = {
+      property: property,
+      label: label,
+      controls: this.createFilterControls(property, values),
+    };
+    this.filters.push(filter);
+  }
+
+  createFilterControls(property: string, values: string[]): FilterControl[] {
+    return values.map((value) => {
+      return {
+        name: value,
+        id: (property + value).replace(/\s/g, ''),
+        isActive: this.isActiveAll,
+      };
+    });
+  }
+
+  filterItems(items: ProjectItem[]): ProjectItem[] {
+    return items.filter((item: ProjectItem) => this.validateItem(item));
+  }
+
+  private validateItem(item: ProjectItem): boolean {
+    return this.filters.every((filter: Filter) => {
+      const property = filter.property;
+      const itemValues: string[] = item[property];
+      // Pass if no project item values exist for the filterable property.
+      if (!itemValues) {
+        console.warn(` No values matching filterable property:
+            ${property} for project: ${item.title}`);
+        return true;
+      }
+      // Pass if no filters are active for the given property.
+      const noneSelected = filter.controls.every(
+          (control: FilterControl) => control.isActive === false);
+      // Pass if one or more active filters match the item's values.
+      const matched = filter.controls.some(
+          (control: FilterControl) => control.isActive &&
+              itemValues.includes(control.name));
+      return noneSelected || matched;
+    });
+  }
+}
+
+export interface Filter {
+  label: string,
+  property: string,
+  controls: FilterControl[];
+}
+
+export interface FilterControl {
+  name: string,
+  id: string,
+  isActive: boolean,
+}

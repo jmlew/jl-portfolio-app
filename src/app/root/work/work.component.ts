@@ -62,10 +62,54 @@ export class WorkComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.initProjectsData();
+    this.dataLoadedState = LOAD_STATE.loading;
+    if (this.dataStore.projectItems) {
+      this.render();
+    } else {
+      this.loadData().then(() => this.render());
+    }
+  }
+
+  private render() {
+    console.log('WorkComponent render()');
+
+    this.dataEnums = this.dataStore.dataEnums;
+    this.dataConfig = this.dataStore.dataConfig;
+    this.projectProps = this.dataStore.projectProps;
+    this.projectItems = this.filtersService.filters ?
+        this.filtersService.filterItems(this.dataStore.projectItems) :
+        this.dataStore.projectItems;
 
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
+
+    this.dataLoadedState = LOAD_STATE.loaded;
+
+    console.log('view compooonent filters panel init from here?');
+
+  }
+
+  private loadData() {
+    return new Promise((resolve) => {
+      this.dataService.loadSheetsData(SHEETS.config)
+          .then((data: string[][]) => {
+            this.dataStore.dataConfig = this.dataService.createDataConfig(data);
+            return this.dataService.loadSheetsData(SHEETS.enums);
+          })
+          .then((data: string[][]) => {
+            this.dataStore.dataEnums = this.dataService.createDataEnums(data);
+            return this.dataService.loadSheetsData(SHEETS.projects);
+          })
+          .then((data: string[][]) => {
+            this.dataStore.projectProps =
+                this.dataService.createProjectProps(data);
+            this.dataStore.projectItems = this.dataService.createProjectItems(
+                data,
+                this.dataStore.dataConfig,
+                this.dataStore.dataEnums);
+            resolve();
+          });
+    });
   }
 
   onOpenProjectDetails(item: ProjectItem) {
@@ -87,11 +131,11 @@ export class WorkComponent implements OnInit {
 
   onToggleFiltersVisible() {
     this.isFiltersVisible = ! this.isFiltersVisible;
-    this.dataStore.isFiltersVisible = this.isFiltersVisible;
     this.updateFiltersVisibleState();
   }
 
   private updateFiltersVisibleState() {
+    this.dataStore.isFiltersVisible = this.isFiltersVisible;
     this.filtersVisibleState =
       this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
   }
@@ -99,42 +143,5 @@ export class WorkComponent implements OnInit {
   onFiltersChanged() {
     this.projectItems =
         this.filtersService.filterItems(this.dataStore.projectItems);
-  }
-
-  private initProjectsData() {
-    this.dataLoadedState = LOAD_STATE.loading;
-    if (this.dataStore.projectItems) {
-      this.setStoredData();
-      this.dataLoadedState = LOAD_STATE.loaded;
-    } else {
-      console.log('loading sheets data');
-      this.dataService.loadSheetsData(SHEETS.config)
-        .then((data: string[][]) => {
-          this.dataStore.dataConfig = this.dataService.createDataConfig(data);
-          return this.dataService.loadSheetsData(SHEETS.enums);
-        })
-        .then((data: string[][]) => {
-          this.dataStore.dataEnums = this.dataService.createDataEnums(data);
-          return this.dataService.loadSheetsData(SHEETS.projects);
-        })
-        .then((data: string[][]) => {
-          this.dataStore.projectProps =
-          this.dataService.createProjectProps(data);
-          this.dataStore.projectItems = this.dataService.createProjectItems(
-              data, this.dataStore.dataConfig, this.dataStore.dataEnums);
-          this.setStoredData();
-          this.dataLoadedState = LOAD_STATE.loaded;
-        });
-    }
-  }
-
-  /** Sets the projects data to the component from the data store. */
-  private setStoredData() {
-    this.projectItems = this.filtersService.filters ?
-        this.filtersService.filterItems(this.dataStore.projectItems) :
-        this.dataStore.projectItems;
-    this.projectProps = this.dataStore.projectProps;
-    this.dataEnums = this.dataStore.dataEnums;
-    this.dataConfig = this.dataStore.dataConfig;
   }
 }

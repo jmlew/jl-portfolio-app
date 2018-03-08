@@ -30,8 +30,8 @@ import { MODEL } from "../../../shared/model";
       [
         state('hidden', style({ height: '0' })),
         state('visible', style({ height: '*' })),
-        transition('hidden => visible', animate('300ms ease-out')),
-        transition('visible => hidden', animate('200ms ease-in-out'))
+        transition('hidden => visible', animate('200ms ease-out')),
+        transition('visible => hidden', animate('200ms ease'))
       ]),
   ]
 })

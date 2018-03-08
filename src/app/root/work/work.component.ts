@@ -45,7 +45,7 @@ export class WorkComponent implements OnInit {
   readonly VISIBLE_STATE: State = VISIBLE_STATE;
   dataLoadedState: string = LOAD_STATE.unloaded;
   filtersVisibleState: string;
-  isFiltersVisible = true;
+  isFiltersVisible = false;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataEnums: DataEnums;

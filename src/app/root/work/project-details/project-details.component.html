@@ -23,15 +23,15 @@
             <div *ngIf="item[MODEL.projectType]">
               <p><b>{{projectProps[MODEL.projectType].label}}:</b>
                 <span *ngFor="let item of item[MODEL.projectType]">
-                    {{item}},
-                  </span>
+                  {{item}},
+                </span>
               </p>
             </div>
             <div *ngIf="item[MODEL.projectSkills]">
               <p><b>{{projectProps[MODEL.projectSkills].label}}:</b>
                 <span *ngFor="let item of item[MODEL.projectSkills]">
-                      {{item}},
-                    </span>
+                  {{item}},
+                </span>
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@
               <i class="fas fa-pencil-alt"></i>
             </button>
             <button class="btn-icon" *ngIf="item[MODEL.urlScreencast]" (click)="onOpenLink(item[MODEL.urlScreencast])" jl-tooltip message="View Screencast">
-              <i class="fas fa-video"></i>
+              <i class="fas fa-film"></i>
             </button>
           </div>
         </div>

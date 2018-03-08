@@ -43,7 +43,7 @@ import { VISIBLE_STATE, State } from "../../../shared/states";
 })
 export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   readonly MODEL: StringMap = MODEL;
-  panelVisibleState: string;
+  panelVisibleState: string = VISIBLE_STATE.hidden;
 
   @Input() item: ProjectItem;
   @Input() projectProps: ProjectProps;

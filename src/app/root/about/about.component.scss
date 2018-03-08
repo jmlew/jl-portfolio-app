@@ -3,7 +3,43 @@
 
 .jl-about-content {
   margin: 2rem 0;
+
 }
+
+.about-section {
+  margin-bottom: 2em;
+  .about-title {
+    font-family: $font-family-titles;
+    font-size: 24px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: $color-grey-700;
+  }
+
+  .about-card {
+    padding: 1em 1.5em .5em;
+    box-shadow: $box-shadow-card-about;
+    background-color: $color-white;
+    font-family: $font-family-body;
+
+    p {
+      line-height: $line-height-body;
+      color: $color-grey-800;
+    }
+
+    &.profile {
+      padding: 1.25em 1.75em .5em;
+
+      p {
+        font-size: 1.25em;
+        font-weight: 300;
+        color: $color-grey-600;
+      }
+    }
+  }
+}
+
 
 .jl-about-title {
   font-family: $font-family-titles;

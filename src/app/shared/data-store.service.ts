@@ -118,6 +118,17 @@ export class DataStoreService {
   set projectItems(props: ProjectItem[]) {
     this.setItem(DATA_PROP.projectItems, props);
   }
+
+  set isFiltersVisible(isVisible: boolean) {
+    this.setItem(
+      DATA_PROP.isFiltersVisible,
+      this.convertBooleanToString(isVisible));
+  }
+
+  get isFiltersVisible(): boolean {
+    const isVisible = this.getItem(DATA_PROP.isFiltersVisible);
+    return isVisible == null ? null : this.convertStringToBoolean(isVisible);
+  }
 }
 
 export const DATA_PROP: DataProp = {
@@ -125,6 +136,7 @@ export const DATA_PROP: DataProp = {
   dataEnums: 'dataEnums',
   projectItems: 'projectItems',
   projectProps: 'projectProps',
+  isFiltersVisible: 'isFiltersVisible',
 }
 
 export interface DataProp {

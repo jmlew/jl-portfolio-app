@@ -45,7 +45,7 @@ export class WorkComponent implements OnInit {
   readonly VISIBLE_STATE: State = VISIBLE_STATE;
   dataLoadedState: string = LOAD_STATE.unloaded;
   filtersVisibleState: string;
-  isFiltersVisible = false;
+  isFiltersVisible: boolean;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataEnums: DataEnums;
@@ -63,6 +63,8 @@ export class WorkComponent implements OnInit {
 
   ngOnInit() {
     this.initProjectsData();
+
+    this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
   }
 
@@ -85,6 +87,7 @@ export class WorkComponent implements OnInit {
 
   onToggleFiltersVisible() {
     this.isFiltersVisible = ! this.isFiltersVisible;
+    this.dataStore.isFiltersVisible = this.isFiltersVisible;
     this.updateFiltersVisibleState();
   }
 

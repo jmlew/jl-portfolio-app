@@ -24,13 +24,14 @@
 
   <section class="jl-work-content">
     <section [ngSwitch]="dataLoadedState">
-      <div *ngSwitchCase="LOAD_STATE.loading">
-        <h2>Loading sheets data...</h2>
+      <div *ngSwitchCase="LOAD_STATE.loading"
+         fxLayout="row" fxLayoutAlign="center center">
+        <img class="jl-progress-spinner" src="../../../assets/ui/progress.gif">
       </div>
       <div *ngSwitchCase="LOAD_STATE.loaded">
         <section class="jl-project-previews"
-          fxLayout="row wrap"
-          fxLayout.xs="column" fxLayoutAlign.xs="start center">
+          fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="start center"
+          *ngIf="projectItems.length > 0">
           <jl-project-item *ngFor="let item of projectItems"
             [item]="item"
             [projectProps]="projectProps"
@@ -38,6 +39,10 @@
             (openDetails)="onOpenProjectDetails(item)"
             (openLink)="onOpenLink($event)"></jl-project-item>
         </section>
+        <div *ngIf="projectItems.length === 0"
+          fxLayout="row" fxLayoutAlign="center center">
+          <p>No projects returned for the above filters.</p>
+        </div>
       </div>
     </section>
   </section>

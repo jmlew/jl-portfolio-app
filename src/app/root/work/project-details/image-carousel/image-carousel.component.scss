@@ -13,7 +13,7 @@
     margin-top: 1rem;
 
     .btn-nav {
-      font-size: 2rem;
+      font-size: 1.5rem;
 
       &.hide {
         visibility: hidden;
@@ -30,7 +30,7 @@
       .btn-dot {
         margin: 0 3px;
         background-color: $color-icon-out;
-        @include circle(.75rem);
+        @include circle(.625rem);
 
         &:hover,
         &:disabled,

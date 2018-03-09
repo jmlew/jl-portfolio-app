@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
 import { ProjectItem, ProjectProps } from '../../../shared/data-service.service';
 import { MODEL } from "../../../shared/model";
 

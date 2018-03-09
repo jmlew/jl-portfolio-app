@@ -44,12 +44,15 @@ import { VISIBLE_STATE, State } from "../../../shared/states";
 export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   readonly MODEL: StringMap = MODEL;
   panelVisibleState: string = VISIBLE_STATE.hidden;
-
+  panelIsExpanded = false;
+  @Input() projectIndex: number;
+  @Input() projectItemsLength: number;
   @Input() item: ProjectItem;
   @Input() projectProps: ProjectProps;
   @Input() imgLocBase: string;
-  @Output() closeDetails = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();
   @Output() openLink = new EventEmitter<string>();
+  @Output() selectProject = new EventEmitter<number>();
 
   constructor() { }
 
@@ -64,15 +67,27 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   onClose() {
     this.panelVisibleState = VISIBLE_STATE.hidden;
     setTimeout(() => {
-      this.closeDetails.emit();
+      this.close.emit();
     }, 300);
   }
 
-  onPanelVisibleDone(event: AnimationEvent) {
-    console.log('onPanelVisibleDone', event);
+  onProjectNext() {
+    const currentItem = this.projectIndex >= this.projectItemsLength - 1 ?
+      0 : this.projectIndex + 1;
+    this.selectProject.emit(currentItem);
+  }
+
+  onProjectPrev() {
+    const currentItem = this.projectIndex <= 0 ?
+      this.projectItemsLength - 1 : this.projectIndex - 1;
+    this.selectProject.emit(currentItem);
   }
 
   onOpenLink(url: string) {
     this.openLink.emit(url);
+  }
+
+  onPanelVisibleDone(event: AnimationEvent) {
+
   }
 }

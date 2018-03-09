@@ -51,6 +51,7 @@ export class WorkComponent implements OnInit {
   dataEnums: DataEnums;
   dataConfig: DataConfig;
   currentProjectItem: ProjectItem;
+  currentProjectItemIndex: number;
   isProjectDetailsVisible = false;
 
   constructor(
@@ -83,11 +84,7 @@ export class WorkComponent implements OnInit {
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
 
-    // tmp!
-    this.onOpenProjectDetails(this.projectItems[0]);
-
     this.dataLoadedState = LOAD_STATE.loaded;
-
 
     console.log('view compooonent filters panel init from here?');
 
@@ -116,17 +113,23 @@ export class WorkComponent implements OnInit {
     });
   }
 
-  onOpenProjectDetails(item: ProjectItem) {
+  onOpenProject(item: ProjectItem) {
     this.currentProjectItem = item;
+    this.currentProjectItemIndex = this.projectItems.indexOf(item);
     this.isProjectDetailsVisible = true;
     // Lock body scrolling.
     this.renderer.addClass(document.body, 'lock-overflow-y');
   }
 
-  onCloseProjectDetails() {
+  onCloseProject() {
     this.isProjectDetailsVisible = false;
     // Unlock body scrolling.
     this.renderer.removeClass(document.body, 'lock-overflow-y');
+  }
+
+  onSelectProject(index: number) {
+    this.currentProjectItemIndex = index;
+    this.currentProjectItem = this.projectItems[this.currentProjectItemIndex];
   }
 
   onOpenLink(url: string) {

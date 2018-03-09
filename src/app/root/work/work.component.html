@@ -1,9 +1,12 @@
 <jl-project-details
-  (closeDetails)="onCloseProjectDetails()"
-  (openLink)="onOpenLink($event)"
-  [item]="currentProjectItem"
   [projectProps]="projectProps"
   [imgLocBase]="dataConfig.imgPreviewLocBase"
+  [item]="currentProjectItem"
+  [projectIndex]="currentProjectItemIndex"
+  [projectItemsLength]="projectItems.length"
+  (close)="onCloseProject()"
+  (openLink)="onOpenLink($event)"
+  (selectProject)="onSelectProject($event)"
   *ngIf="isProjectDetailsVisible"></jl-project-details>
 
 <jl-content-wrapper>
@@ -36,7 +39,7 @@
             [item]="item"
             [projectProps]="projectProps"
             [imgLocBase]="dataConfig.imgThumbLocBase"
-            (openDetails)="onOpenProjectDetails(item)"
+            (openDetails)="onOpenProject(item)"
             (openLink)="onOpenLink($event)"></jl-project-item>
         </section>
         <div *ngIf="projectItems.length === 0"

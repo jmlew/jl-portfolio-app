@@ -15,6 +15,49 @@ $padding-content: 2rem 0;
   color: $color-grey-800;
 }
 
+.details-content {
+  .item-images {
+    margin-right: 2rem;
+    padding: $padding-content;
+  }
+
+  .item-details {
+    padding: $padding-content;
+
+    .details-title {
+      color: $color-grey-800;
+    }
+
+    .details-desc {
+      color: $color-grey-600;
+    }
+  }
+
+  .item-footer {
+    padding: 10px;
+    border-top: 1px solid $color-grey-300;
+  }
+
+  .btn-project-select {
+    margin-top: 8rem;
+    font-size: 2.5rem;
+
+    &.btn-left {
+      margin-left: -1em;
+      margin-right: .5em;
+    }
+
+    &.btn-right {
+      margin-right: -1em;
+      margin-left: .5em;
+    }
+
+    &:disabled {
+      visibility: hidden;
+    }
+  }
+}
+
 .jl-modal-bg {
   position: fixed;
   z-index: 1900;
@@ -33,25 +76,6 @@ $padding-content: 2rem 0;
   color: $color-grey-600;
 }
 
-.item-images {
-  margin-right: 2rem;
-  padding: $padding-content;
-}
 
-.item-details {
-  padding: $padding-content;
 
-  .item-title {
-    color: $color-grey-800;
-  }
-
-  .item-desc {
-    color: $color-grey-600;
-  }
-}
-
-.item-footer {
-  padding: 10px;
-  border-top: 1px solid $color-grey-300;
-}
 

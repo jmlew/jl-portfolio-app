@@ -5,7 +5,7 @@
 
   <section class="filter-category" *ngFor="let filter of filters">
     <div fxLayout="row" fxLayoutAlign="start center">
-      <h2>{{filter.label}}</h2>
+      <h2 class="sub-title">{{filter.label}}</h2>
       <button class="btn-icon btn-filter-clear"
         *ngIf="isFilterActive(filter)"
         (click)="onClearFilter(filter)"

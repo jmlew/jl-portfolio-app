@@ -29,7 +29,7 @@
     <section [ngSwitch]="dataLoadedState">
       <div *ngSwitchCase="LOAD_STATE.loading"
          fxLayout="row" fxLayoutAlign="center center">
-        <img class="jl-progress-spinner" src="../../../assets/ui/progress.gif">
+        <img class="progress-spinner" src="../../../assets/ui/progress.gif">
       </div>
       <div *ngSwitchCase="LOAD_STATE.loaded">
         <section class="jl-project-previews"

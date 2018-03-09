@@ -2,8 +2,6 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/components';
 
-$padding-content: 2rem 0;
-
 .jl-project-details {
   position: fixed;
   overflow: hidden;
@@ -16,25 +14,52 @@ $padding-content: 2rem 0;
 }
 
 .details-content {
+  padding: 1.25rem 0 .85rem;
+
   .item-images {
     margin-right: 2rem;
-    padding: $padding-content;
   }
 
-  .item-details {
-    padding: $padding-content;
+  .item-info {
 
-    .details-title {
-      color: $color-grey-800;
+    p {
+      color: $color-grey-600;
     }
 
-    .details-desc {
-      color: $color-grey-600;
+    h2 {
+      margin-bottom: .5em;
+      color: $color-grey-900;
+      line-height: 1.25em;
+    }
+
+    .title {
+      margin-bottom: .4em;
+      font-size: 1.5em;
+      letter-spacing: .05em;
+      text-transform: none;
+    }
+
+    .title-tagline {
+      font-size: .75em;
+      color: $color-grey-500;
+      margin-bottom: 1.2em;
+    }
+
+    .title-dot {
+      margin: 0 .8rem .15rem .5rem;
+      display: inline-block;
+      background-color: $color-grey-300;
+      @include circle(.4rem);
+    }
+
+    .divider-h {
+      border-top-color: $color-grey-300;
     }
   }
 
   .item-footer {
-    padding: 10px;
+    margin-top: .5rem;
+    padding-top: .75rem;
     border-top: 1px solid $color-grey-300;
   }
 

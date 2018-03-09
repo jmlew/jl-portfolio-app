@@ -1,27 +1,8 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
-  Renderer2,
-} from '@angular/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { RoutesService } from "../../shared/routes.service";
-import {
-  DataService,
-  DataConfig,
-  DataEnums,
-  ProjectItem,
-  ProjectProps,
-  SHEETS,
-} from '../../shared/data-service.service';
+import { DataService, DataConfig, DataEnums, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
 import { FiltersService, Filter, FilterControl } from "./project-filters/filters.service";
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
 import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
@@ -83,6 +64,8 @@ export class WorkComponent implements OnInit {
 
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
+
+    this.onOpenProject(this.projectItems[1]);
 
     this.dataLoadedState = LOAD_STATE.loaded;
 

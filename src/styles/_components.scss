@@ -4,7 +4,7 @@
 $font-size-btn: $font-size-base;
 $font-size-btn-icon: 18px;
 $font-size-btn-icon-small: 15px;
-$font-size-btn-icon-large: 24px;
+$font-size-btn-icon-large: 22px;
 
 .btn-main {
   display: inline-block;
@@ -80,15 +80,19 @@ $font-size-btn-icon-large: 24px;
   }
 }
 
-.jl-divider-horiz {
+.divider-h {
   height: 1px;
   border-top: 1px solid $color-grey-400;
 
-  &.jl-title {
-    margin: .75em 0 1.5em 0;
+  &.spacer-title-1 {
+    margin: .75rem 0 1.5rem 0;
+  }
+
+  &.spacer-body-1 {
+    margin: 1.25rem 0 1rem;
   }
 }
 
-.jl-progress-spinner {
+.progress-spinner {
   opacity: .5;
 }

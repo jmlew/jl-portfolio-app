@@ -62,6 +62,9 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.panelVisibleState = VISIBLE_STATE.visible;
     }, 100);
+
+    console.log('item', this.item);
+
   }
 
   onClose() {

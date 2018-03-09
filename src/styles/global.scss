@@ -17,12 +17,20 @@ body {
   background-color: $color-grey-50;
 }
 
+// Text
+
 p, li, label {
   font-size: .875rem;
 }
 
 p, h1, h2, h3, h4, h5 {
   margin-bottom: 1rem;
+}
+
+.sub-title {
+  font-family: $font-family-titles;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 // Dimensions

@@ -6,17 +6,38 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./image-carousel.component.scss']
 })
 export class ImageCarouselComponent implements OnInit {
-  images: string[];
+  items: string[];
+  currentIndex: number;
+  itemsLength: number;
   @Input() imgLocBase: string;
   @Input() imgPreviewLoc: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.images = this.imgPreviewLoc.split(',')
-        .map((item) => item.trim());
-    console.log('this.images', this.images);
+    this.items = this.imgPreviewLoc.split(',')
+        .map((item) => item.trim())
+        .filter((item) => item.length > 1);
 
+    this.currentIndex = 0;
+    this.itemsLength = this.items.length;
   }
 
+  onSelectIndex(index: number) {
+    this.currentIndex = index;
+  }
+
+  isCurrentIndex(index: number):boolean {
+    return this.currentIndex === index;
+  }
+
+  onSelectNext() {
+    this.currentIndex = this.currentIndex >= this.itemsLength - 1 ?
+        0 : this.currentIndex + 1;
+  }
+
+  onSelectPrev() {
+    this.currentIndex = this.currentIndex === 0 ?
+        this.itemsLength - 1 : this.currentIndex - 1;
+  }
 }

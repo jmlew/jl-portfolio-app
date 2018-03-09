@@ -6,7 +6,7 @@
     <section class="details-content"
       [@panelVisible]="panelVisibleState"
       (@panelVisible.done)="onPanelVisibleDone($event)">
-      <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="20px">
+      <div fxLayout="row" fxLayoutAlign="start stretch">
         <div class="item-images" *ngIf="item[MODEL.imgPreviewLoc]">
           <jl-image-carousel
             [imgLocBase]="imgLocBase"
@@ -36,16 +36,16 @@
             </div>
           </div>
           <div class="item-footer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-            <button class="btn-icon" *ngIf="item[MODEL.urlPreview]" (click)="onOpenLink(item[MODEL.urlPreview])" jl-tooltip message="View Preview">
+            <button class="btn-icon icon-large" *ngIf="item[MODEL.urlPreview]" (click)="onOpenLink(item[MODEL.urlPreview])" jl-tooltip message="View Preview">
               <i class="fas fa-eye"></i>
             </button>
-            <button class="btn-icon" *ngIf="item[MODEL.urlCode]" (click)="onOpenLink(item[MODEL.urlCode])" jl-tooltip message="View Code">
+            <button class="btn-icon icon-large" *ngIf="item[MODEL.urlCode]" (click)="onOpenLink(item[MODEL.urlCode])" jl-tooltip message="View Code">
               <i class="fas fa-code"></i>
             </button>
-            <button class="btn-icon" *ngIf="item[MODEL.urlMocks]" (click)="onOpenLink(item[MODEL.urlMocks])" jl-tooltip message="View Mocks">
+            <button class="btn-icon icon-large" *ngIf="item[MODEL.urlMocks]" (click)="onOpenLink(item[MODEL.urlMocks])" jl-tooltip message="View Mocks">
               <i class="fas fa-pencil-alt"></i>
             </button>
-            <button class="btn-icon" *ngIf="item[MODEL.urlScreencast]" (click)="onOpenLink(item[MODEL.urlScreencast])" jl-tooltip message="View Screencast">
+            <button class="btn-icon icon-large" *ngIf="item[MODEL.urlScreencast]" (click)="onOpenLink(item[MODEL.urlScreencast])" jl-tooltip message="View Screencast">
               <i class="fas fa-film"></i>
             </button>
           </div>

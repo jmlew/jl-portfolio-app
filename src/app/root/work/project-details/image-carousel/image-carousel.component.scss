@@ -1,2 +1,43 @@
 @import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
 
+.jl-image-carousel {
+  position: relative;
+
+  .images {
+    overflow: hidden;
+    box-shadow: $box-shadow-details-image;
+  }
+
+  .navigation {
+    margin-top: 1rem;
+
+    .btn-nav {
+      font-size: 2rem;
+
+      &.hide {
+        visibility: hidden;
+      }
+
+      &:disabled {
+        opacity: .5;
+      }
+    }
+
+    .nav-dots {
+      margin: 0 5px;
+
+      .btn-dot {
+        margin: 0 3px;
+        background-color: $color-icon-out;
+        @include circle(.75rem);
+
+        &:hover,
+        &:disabled,
+        &.is-active {
+          background-color: $color-icon-over;
+        }
+      }
+    }
+  }
+}

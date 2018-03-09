@@ -2,7 +2,7 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/components';
 
-$padding-content: 20px 0;
+$padding-content: 2rem 0;
 
 .jl-project-details {
   position: fixed;
@@ -34,6 +34,7 @@ $padding-content: 20px 0;
 }
 
 .item-images {
+  margin-right: 2rem;
   padding: $padding-content;
 }
 

@@ -1,2 +1,28 @@
-<img *ngFor="let image of images"
-  src="{{imgLocBase + image}}">
+<section class="jl-image-carousel">
+  <section class="images">
+    <img src="{{imgLocBase + items[currentIndex]}}">
+  </section>
+  <section class="navigation"
+    fxLayout="row" fxLayoutAlign="center center"
+    *ngIf="itemsLength > 1">
+    <button class="btn-icon btn-nav"
+      [disabled]="currentIndex === 0"
+      (click)="onSelectPrev()">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="nav-dots" fxLayout="row">
+      <button class="btn-icon btn-dot"
+        *ngFor="let item of items; let index = index"
+        [ngClass]="{'is-active': isCurrentIndex(index)}"
+        [disabled]="isCurrentIndex(index)"
+        (click)="onSelectIndex(index)"></button>
+    </div>
+    <button class="btn-icon btn-nav"
+      [disabled]="currentIndex >= itemsLength - 1"
+      (click)="onSelectNext()">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </section>
+</section>
+
+

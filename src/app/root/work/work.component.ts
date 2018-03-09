@@ -83,7 +83,11 @@ export class WorkComponent implements OnInit {
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
 
+    // tmp!
+    this.onOpenProjectDetails(this.projectItems[0]);
+
     this.dataLoadedState = LOAD_STATE.loaded;
+
 
     console.log('view compooonent filters panel init from here?');
 

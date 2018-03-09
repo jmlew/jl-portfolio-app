@@ -4,7 +4,7 @@
 $font-size-btn: $font-size-base;
 $font-size-btn-icon: 18px;
 $font-size-btn-icon-small: 15px;
-$font-size-btn-icon-large: 30px;
+$font-size-btn-icon-large: 24px;
 
 .btn-main {
   display: inline-block;
@@ -55,7 +55,7 @@ $font-size-btn-icon-large: 30px;
   padding: 5px;
   font-size: $font-size-btn-icon;
   line-height: 1;
-  color: $color-grey-500;
+  color: $color-icon-out;
   background-color: transparent;
   transition: $transition-btn;
 
@@ -63,7 +63,7 @@ $font-size-btn-icon-large: 30px;
     cursor: pointer;
 
     &:active, &:hover {
-      color: $color-grey-800;
+      color: $color-icon-over;
     }
 
     &:focus {

@@ -15,6 +15,10 @@ $color-grey-700: #747474;
 $color-grey-800: #545454;
 $color-grey-900: #2c2c2c;
 
+// Component colours
+$color-icon-over: $color-grey-800;
+$color-icon-out: $color-grey-500;
+
 // Opacity colors
 $color-white-low-opacity: rgba(255, 255, 255, .2);
 $color-white-mid-opacity: rgba(255, 255, 255, .5);
@@ -33,6 +37,7 @@ $box-shadow-card: .7px 1px 1.8px $color-box-shadow;
 $box-shadow-card-about: .5px 1px 1.5px $color-box-shadow;
 $box-shadow-card-over: 1px 1.5px 3px .3px $color-box-shadow;
 $box-shadow-details-page: 0px 2px 8px rgba(0, 0, 0, .5);
+$box-shadow-details-image: .7px 1.2px 2.5px $color-box-shadow;
 $box-shadow-header: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
 

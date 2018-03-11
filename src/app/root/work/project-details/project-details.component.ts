@@ -45,9 +45,9 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   readonly MODEL: StringMap = MODEL;
   panelVisibleState: string = VISIBLE_STATE.hidden;
   panelIsExpanded = false;
-  @Input() projectIndex: number;
+  @Input() projectItemIndex: number;
   @Input() projectItemsLength: number;
-  @Input() item: ProjectItem;
+  @Input() projectItem: ProjectItem;
   @Input() projectProps: ProjectProps;
   @Input() imgLocBase: string;
   @Output() close = new EventEmitter<void>();
@@ -63,7 +63,7 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
       this.panelVisibleState = VISIBLE_STATE.visible;
     }, 100);
 
-    console.log('item', this.item);
+    console.log('projectItem', this.projectItem);
 
   }
 
@@ -75,14 +75,14 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   }
 
   onProjectNext() {
-    const currentItem = this.projectIndex >= this.projectItemsLength - 1 ?
-      0 : this.projectIndex + 1;
+    const currentItem = this.projectItemIndex >= this.projectItemsLength - 1 ?
+      0 : this.projectItemIndex + 1;
     this.selectProject.emit(currentItem);
   }
 
   onProjectPrev() {
-    const currentItem = this.projectIndex <= 0 ?
-      this.projectItemsLength - 1 : this.projectIndex - 1;
+    const currentItem = this.projectItemIndex <= 0 ?
+      this.projectItemsLength - 1 : this.projectItemIndex - 1;
     this.selectProject.emit(currentItem);
   }
 

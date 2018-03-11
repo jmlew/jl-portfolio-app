@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { GapiSheetsService, SheetDimension } from './gapi/gapi-sheets.service';
 
+import { StringMap, MODEL } from "./model";
+
 @Injectable()
 export class DataService {
   private gapiLoadSubscription: Subscription;
@@ -89,10 +91,13 @@ export class DataService {
         const id = ids[index];
         // Convert enums from indecies to their string values.
         if (dataEnums[id]) {
-          accum[id] = value.length > 0 ?
-              this.convertEnums(dataEnums[id], value) : null;
+          accum[id] = value ? this.convertEnums(dataEnums[id], value) : null;
         } else {
-          accum[id] = value;
+          if (id === MODEL.tasks) {
+            accum[id] = value ? value.split('.').filter(item => item) : null;
+          } else {
+            accum[id] = value;
+          }
         }
         return accum;
       }, {});
@@ -103,6 +108,7 @@ export class DataService {
 
   convertEnums(enumValues: string[], value: string): string[]|null {
     return value.split(',')
+      .filter(item => item)
       .map((item) => item.trim())
       .map((item) => enumValues[parseInt(item) - 1]);
   }

@@ -14,20 +14,19 @@
 }
 
 .details-content {
-  padding: 1.25rem 0 .85rem;
+  padding: 1.25rem 0 1rem;
 
   .item-images {
     margin-right: 2rem;
   }
 
   .item-info {
-
-    p {
+    p, li {
       color: $color-grey-600;
     }
 
     h2 {
-      margin-bottom: .5em;
+      margin-bottom: .75em;
       color: $color-grey-900;
       line-height: 1.25em;
     }
@@ -42,7 +41,11 @@
     .title-tagline {
       font-size: .75em;
       color: $color-grey-500;
-      margin-bottom: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    .sub-headline {
+      margin-top: 1.5em;
     }
 
     .title-dot {
@@ -58,7 +61,7 @@
   }
 
   .item-footer {
-    margin-top: .5rem;
+    margin-top: 1.5rem;
     padding-top: .75rem;
     border-top: 1px solid $color-grey-300;
   }
@@ -95,9 +98,9 @@
 
 .btn-close {
   position: absolute;
-  top: 5px;
-  right: -20px;
-  font-size: 30px;
+  top: 8px;
+  right: -17px;
+  font-size: 1.5rem;
   color: $color-grey-600;
 }
 

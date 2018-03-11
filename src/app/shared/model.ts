@@ -6,6 +6,7 @@
 export const MODEL: StringMap = {
   title: 'title',
   description: 'description',
+  tasks: 'tasks',
   isEnabled: 'isEnabled',
   company: 'company',
   year: 'year',

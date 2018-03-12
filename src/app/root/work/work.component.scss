@@ -13,8 +13,19 @@ $btn-size-filters: 40px;
 .btn-show-filters {
   position: absolute;
   z-index: 1000;
-  font-size: $btn-size-filters;
   top: - $btn-size-filters * .625;
   right: - $btn-size-filters * .625;
+  width: 44px;
+  height: 44px;
+  @include circle($btn-size-filters);
+  background-color: $color-grey-600;
+
+  img {
+    margin-bottom: -5px;
+  }
+
+  &:hover {
+    background-color: $color-grey-800;
+  }
 }
 

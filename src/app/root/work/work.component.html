@@ -10,20 +10,21 @@
   *ngIf="isProjectDetailsVisible"></jl-project-details>
 
 <jl-content-wrapper>
-
-  <button class="btn-show-filters btn-icon"
-    [@btnFiltersVisible]="filtersVisibleState"
-    (click)="onToggleFiltersVisible()"
-    jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'View Filters'">
-    <i class="fas fa-chevron-circle-down"></i>
-  </button>
-  <jl-project-filters
-    [isVisible]="isFiltersVisible"
-    [visibleState]="filtersVisibleState"
-    [projectProps]="projectProps"
-    [projectItems]="projectItems"
-    [dataEnums]="dataEnums"
-    (filtersChanged)="onFiltersChanged()"></jl-project-filters>
+  <div *ngIf="dataLoadedState === LOAD_STATE.loaded">
+    <button class="btn-show-filters btn-icon"
+      [@btnFiltersVisible]="filtersVisibleState"
+      (click)="onToggleFiltersVisible()"
+      jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'View Filters'">
+      <i class="fas fa-chevron-circle-down"></i>
+    </button>
+    <jl-project-filters
+      [isVisible]="isFiltersVisible"
+      [visibleState]="filtersVisibleState"
+      [projectProps]="projectProps"
+      [projectItems]="projectItems"
+      [dataEnums]="dataEnums"
+      (filtersChanged)="onFiltersChanged()"></jl-project-filters>
+  </div>
 
   <section class="jl-work-content">
     <section [ngSwitch]="dataLoadedState">

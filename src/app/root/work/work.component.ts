@@ -53,8 +53,6 @@ export class WorkComponent implements OnInit {
   }
 
   private render() {
-    console.log('WorkComponent render()');
-
     this.dataEnums = this.dataStore.dataEnums;
     this.dataConfig = this.dataStore.dataConfig;
     this.projectProps = this.dataStore.projectProps;
@@ -65,12 +63,7 @@ export class WorkComponent implements OnInit {
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
 
-    this.onOpenProject(this.projectItems[0]);
-
     this.dataLoadedState = LOAD_STATE.loaded;
-
-    console.log('view compooonent filters panel init from here?');
-
   }
 
   private loadData() {

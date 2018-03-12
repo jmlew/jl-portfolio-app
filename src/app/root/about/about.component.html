@@ -5,19 +5,97 @@
       <section class="about-section">
         <h1 class="about-title text-right"> Profile </h1>
         <div class="about-card profile">
-          <p>I’m an Interaction Designer and UX Engineer currently in the role of Product Technology Manager on the O-Ladder for gTech
+          <p>I’m an <b>Interaction Designer</b> and <b>UX Engineer</b> currently in the role of Product Technology Manager on the O-Ladder for gTech
           Ads. I currently specialize in the design and development of internal tools as well as provide UX expertise for various teams
           around the org.</p>
-          <p>I've brought over 14 years experience working with a variety of multimedia and web technologies to Google, where I've spent
+          <p>I've brought over <b>14 years experience</b> working with a variety of multimedia and web technologies to Google, where I've spent
           the past 6 years in a number of roles which have required a unique balance of design and development skills.</p>
         </div>
       </section>
       <section class="about-section">
         <h1 class="about-title text-right"> Employment History </h1>
         <div class="about-card">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab excepturi quidem dolorum sint illum sequi? Maiores sit rem corporis
-            quis tenetur odit expedita itaque. Vero quam molestiae exercitationem facere. Sunt!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab excepturi quidem dolorum sint illum sequi? Maiores sit rem corporis</p>
+          <h2 class="sub-title">Interactive Designer & UX Engineer</h2>
+          <h3 class="tagline secondary">
+             2015 - 2018<span class="tagline-dot"></span>Google
+          </h3>
+          <p>Currently operating in the role of <b>Product Technology Manager</b> to employ <b>Interactive Design</b> and <b>UX Engineering</b>  skills for the design and development of various tools across all product areas under gTech Ads.</p>
+          <p>Employing a mix of <b>project management</b>, <b>UX</b>, and <b>frontend development</b> skills with a thorough knowledge
+            of <b>Product Excellence</b> principles, <b>Google infrastructure</b>, and <b>Web Development</b> technologies, I've driven
+            and contributed to a number of high-profile and impactful projects and collaborated with a number of teams throughout the
+            org.</p>
+        </div>
+        <div class="about-card">
+          <h2 class="sub-title">Rich Media Flash & HTML5 Developer</h2>
+          <h3 class="tagline secondary">
+              2011 - 2015<span class="tagline-dot"></span>Google
+          </h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt harum eum, eveniet eaque beatae at adipisci quia tempora,
+          minima, perferendis libero quidem animi repellat eligendi maiores ullam doloremque officia.</p>
+        </div>
+        <div class="about-card">
+          <h2 class="sub-title">Senior Flash Developer</h2>
+          <h3 class="tagline secondary">
+            2007 - 2011<span class="tagline-dot"></span>StreamCity (Enabledware 2011)
+          </h3>
+          <ul>
+            <li>Web & Flash Development</li>
+            <li>Motion Graphics & Video Production</li>
+            <li>External Marketing Collateral & Internal Communications</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h2 class="sub-title">Lead Creative Specialist</h2>
+          <h3 class="tagline secondary">
+             2004 – 2007<span class="tagline-dot"></span>Eden Media
+          </h3>
+          <ul>
+            <li>Multimedia Development</li>
+            <li>Web Design</li>
+            <li>Motion Graphics & Video Production</li>
+            <li>External Marketing Collateral</li>
+          </ul>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button class="btn-show-more btn-icon"
+          (click)="isOtherEmploymentShown = !isOtherEmploymentShown">
+            <span>{{isOtherEmploymentShown ? 'Hide' : 'Show'}} Pre 2004</span>
+            <i class="fas"
+              ngClass="fa-chevron-{{isOtherEmploymentShown ? 'up' : 'down'}}"></i>
+          </button>
+        </div>
+        <div *ngIf="isOtherEmploymentShown">
+          <div class="about-card">
+            <h2 class="sub-title">Freelance Web & Print Designer</h2>
+            <h3 class="tagline secondary">
+               2001 - 2004<span class="tagline-dot"></span>Optiplan Filing Systems
+            </h3>
+            <ul>
+              <li>Graphic Design & External Print Marketing Collateral</li>
+              <li>Web Design</li>
+              <li>Multimedia Development</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h2 class="sub-title">Freelance Web & Print Designer"</h2>
+            <h3 class="tagline secondary">
+               2003 - 2004<span class="tagline-dot"></span>Smarter Clothing
+            </h3>
+            <ul>
+              <li>Graphic Design</li>
+              <li>External Print Marketing Collateral</li>
+            </ul>
+          </div>
+          <div class="about-card">
+            <h2 class="sub-title">Print Designer & Pre-Press operator</h2>
+            <h3 class="tagline secondary">
+               2002 - 2003<span class="tagline-dot"></span>Swift Printing & Graphics
+            </h3>
+            <ul>
+              <li>Graphic Designer</li>
+              <li>Pre-Press Operator</li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
@@ -25,7 +103,7 @@
       <section class="about-section">
         <h1 class="about-title"> Skills </h1>
         <div class="about-card">
-          <!-- <h3>Development</h3>
+          <h2 class="sub-title">Development</h2>
           <ul>
             <li>Javascript + Typescript</li>
             <li>Angular + AngularJS</li>
@@ -40,29 +118,47 @@
             <li>Apps Script</li>
             <li>SQL</li>
           </ul>
-          <h3>Design</h3>
+          <h2 class="sub-title">Design</h2>
           <ul>
-            <li>Sketch</li>
             <li>Illustrator</li>
             <li>Photoshop</li>
+            <li>Sketch</li>
             <li>Axure</li>
             <li>Framer</li>
             <li>After Effects</li>
             <li>Balsamiq</li>
-            <li>UX + PE Principles</li>
-          </ul> -->
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab excepturi quidem dolorum sint illum sequi? Maiores sit rem corporis
-            quis tenetur odit expedita itaque. Vero quam molestiae exercitationem facere. Sunt!</p>
+            <li>UX Principles</li>
+          </ul>
         </div>
       </section>
+
       <section class="about-section">
-        <h1 class="about-title"> Qualifications </h1>
+        <h1 class="about-title">Qualifications</h1>
         <div class="about-card">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab excepturi quidem dolorum sint illum sequi? Maiores sit rem corporis
-            quis tenetur odit expedita itaque. Vero quam molestiae exercitationem facere. Sunt!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab excepturi quidem dolorum sint illum sequi? Maiores sit rem corporis</p>
+          <h2 class="sub-title">Bachelor of Design</h2>
+          <h3 class="tagline">University of Western Sydney</h3>
+          <h3 class="tagline secondary">1999 - 2003</h3>
+          <ul>
+            <li>Web Design</li>
+            <li>Web Development</li>
+            <li>Multimedia & New Media Development</li>
+            <li>Illustration & Photography</li>
+            <li>Design Theory & Graphic Design Principle</li>
+          </ul>
         </div>
       </section>
+
+      <!--
+      <section class="about-section">
+        <h1 class="about-title"></h1>
+        <div class="about-card">
+          <h2 class="sub-title"></h2>
+          <h3 class="tagline"></h3>
+          <h3 class="tagline secondary"></h3>
+          <p></p>
+        </div>
+      </section>
+      -->
     </div>
   </section>
 </jl-content-wrapper>

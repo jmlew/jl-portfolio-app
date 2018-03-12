@@ -9,6 +9,7 @@ import { RoutesService } from "../../shared/routes.service";
 })
 export class AboutComponent implements OnInit {
   // pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
+  isOtherEmploymentShown = false;
 
   constructor(
     private readonly routesService: RoutesService,

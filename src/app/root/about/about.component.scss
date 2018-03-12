@@ -3,39 +3,103 @@
 
 .jl-about-content {
   margin: 2rem 0;
-
 }
 
 .about-section {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
+
   .about-title {
     font-family: $font-family-titles;
-    font-size: 24px;
+    font-size: 1.75em;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: .1em;
-    color: $color-grey-700;
+    color: $color-grey-600;
   }
 
   .about-card {
-    padding: 1em 1.5em .5em;
+    padding: 1.5em 2em 2em;
     box-shadow: $box-shadow-card-about;
     background-color: $color-white;
     font-family: $font-family-body;
 
-    p {
-      line-height: $line-height-body;
-      color: $color-grey-800;
+    &:not(:first-of-type) {
+      margin-top: .625em;
     }
 
     &.profile {
-      padding: 1.25em 1.75em .5em;
-
       p {
         font-size: 1.25em;
         font-weight: 300;
+        line-height: 1.625em;
         color: $color-grey-600;
+
+        b, strong {
+          font-weight: 500;
+        }
       }
     }
+
+    p, li {
+      color: $color-grey-600;
+      b, strong {
+        font-weight: 800;
+      }
+    }
+
+    p {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .sub-title {
+      margin-bottom: 1em;
+      font-size: 1.125em;
+      color: $color-grey-800;
+
+      &:not(:first-of-type) {
+        margin-top: 1.5em;
+      }
+    }
+
+    .tagline {
+      color: $color-grey-800;
+      font-size: .875em;
+      font-weight: 500;
+      margin-bottom: 1.25em;
+
+      &.secondary {
+        color: $color-grey-600;
+      }
+
+      &:first-of-type {
+        margin-top: -.5em;
+      }
+
+      &:last-of-type {
+        margin-top: -.75em;
+      }
+    }
+
+    .tagline-dot {
+      margin: 0 .75rem .1rem .75rem;
+      display: inline-block;
+      background-color: $color-grey-300;
+      @include circle(.4rem);
+    }
+  }
+}
+
+.btn-show-more {
+  margin: .75em 0;
+  font-size: 1em;
+  color: $color-grey-600;
+
+  i {
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-size: 1.375em;
+    vertical-align: middle;
   }
 }

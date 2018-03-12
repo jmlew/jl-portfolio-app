@@ -25,6 +25,7 @@ p, li, label {
 
 p, h1, h2, h3, h4, h5 {
   margin-bottom: 1rem;
+  line-height: $line-height-base;
 }
 
 ul {
@@ -33,13 +34,14 @@ ul {
 
   li {
     padding-left: .125rem;
+    margin-bottom: .375em;
   }
 }
 
 .sub-title {
   font-family: $font-family-titles;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: .075em;
 }
 
 // Dimensions

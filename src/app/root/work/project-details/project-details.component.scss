@@ -8,13 +8,13 @@
   top: 10%;
   z-index: 2000;
   width: 100%;
-  background-color: $color-white-extreme-opacity;
+  background-color: $color-white;
   box-shadow: $box-shadow-details-page;
   color: $color-grey-800;
 }
 
 .details-content {
-  padding: 1.25rem 0 1rem;
+  padding: 1.5rem 0 1rem;
 
   .item-images {
     margin-right: 2rem;
@@ -61,7 +61,7 @@
   }
 
   .item-footer {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     padding-top: .75rem;
     border-top: 1px solid $color-grey-300;
   }
@@ -93,7 +93,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $color-white;
+  background-color: $color-black;
 }
 
 .btn-close {

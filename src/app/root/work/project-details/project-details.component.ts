@@ -36,7 +36,7 @@ import { VISIBLE_STATE, State } from "../../../shared/states";
       'bgVisible',
       [
         state('hidden', style({ opacity: 0 })),
-        state('visible', style({ opacity: .8 })),
+        state('visible', style({ opacity: .6 })),
         transition('hidden => visible', animate('300ms ease-in-out')),
         transition('visible => hidden', animate('300ms ease-in-out'))
       ])]

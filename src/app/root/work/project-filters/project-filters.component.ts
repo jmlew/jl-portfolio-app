@@ -47,8 +47,6 @@ export class ProjectFiltersComponent implements OnInit {
   constructor(private readonly filtersService: FiltersService) { }
 
   ngOnInit() {
-    console.log('ProjectFiltersComponent ngOnInit', this.filtersService.filters);
-
     if (!this.filtersService.filters) this.createFilters();
     this.filters = this.filtersService.filters;
   }

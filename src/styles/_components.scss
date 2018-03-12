@@ -82,7 +82,7 @@ $font-size-btn-icon-large: 22px;
 
 .divider-h {
   height: 1px;
-  border-top: 1px solid $color-grey-400;
+  border-top: $border-400;
 
   &.spacer-title-1 {
     margin: .75rem 0 1.5rem 0;
@@ -95,4 +95,12 @@ $font-size-btn-icon-large: 22px;
 
 .progress-spinner {
   opacity: .5;
+}
+
+.user-message {
+  padding: 1em 1em 1.2em;
+  font-size: 1.5em;
+  font-weight: 300;
+  border-top: $border-400;
+  border-bottom: $border-400;
 }

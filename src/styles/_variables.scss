@@ -36,7 +36,7 @@ $color-white-half-opacity: rgba(255, 255, 255, .5);
 $box-shadow-card: .7px 1px 1.8px $color-box-shadow;
 $box-shadow-card-about: .5px 1px 1.5px $color-box-shadow;
 $box-shadow-card-over: 1px 1.5px 3px .3px $color-box-shadow;
-$box-shadow-details-page: 0px 2px 8px rgba(0, 0, 0, .5);
+$box-shadow-details-page: 0px 2px 8px rgba(0, 0, 0, .6);
 $box-shadow-details-image: .7px 1.2px 2.5px $color-box-shadow;
 $box-shadow-header: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
@@ -58,8 +58,9 @@ $line-height-body: 1.75;
 // $width-page-max-md: 70%; // min 960
 // $width-page-max-sm: 590px; // min 600
 
-// Component dimensions
+// Components
 $border-radius: .25em;
+$border-400: 1px solid $color-grey-400;
 
 // Transitions
 $transition-btn: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;

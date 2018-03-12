@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { TooltipModule } from "../../../shared/tooltip/tooltip.module";
+import { PipesModule } from "../../../root/pipes/pipes.module";
 
 import { ProjectItemComponent } from "./project-item.component";
 
@@ -11,6 +12,7 @@ import { ProjectItemComponent } from "./project-item.component";
     CommonModule,
     FlexLayoutModule,
     TooltipModule,
+    PipesModule,
   ],
   declarations: [ProjectItemComponent],
   exports: [ProjectItemComponent],

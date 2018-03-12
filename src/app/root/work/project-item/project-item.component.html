@@ -7,7 +7,7 @@
     fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
     <div>
       <div class="item-title"> {{item[MODEL.title]}} </div>
-      <div class="item-type"> {{item[MODEL.projectType]}} </div>
+      <div class="item-type"> {{item[MODEL.projectType] | join : ' | '}} </div>
     </div>
     <button class="item-icon-view btn-icon"
       (click)="onOpenDetails()">

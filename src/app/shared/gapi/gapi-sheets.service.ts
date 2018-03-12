@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { GoogleApiService, GoogleAuthService } from 'ng-gapi/lib';
 import { Observable } from 'rxjs/Observable';
 
@@ -6,9 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class GapiSheetsService {
   isApiReady = false;
 
-  constructor(
-    private gApiService: GoogleApiService,
-    private zone: NgZone) {}
+  constructor(private gApiService: GoogleApiService) {}
 
   apiOnLoad(): Observable<void> {
     return this.gApiService.onLoad();
@@ -25,13 +23,11 @@ export class GapiSheetsService {
 
   private loadClient(): Promise<{}> {
     return new Promise((resolve, reject) => {
-      this.zone.run(() => {
-        gapi.load('client', {
-          callback: resolve, // @type gapi.LoadCallback returns void.
-          onerror: reject,
-          timeout: 1000,
-          ontimeout: reject
-        });
+      gapi.load('client', {
+        callback: resolve, // @type gapi.LoadCallback returns void.
+        onerror: reject,
+        timeout: 1000,
+        ontimeout: reject
       });
     });
   }
@@ -45,9 +41,7 @@ export class GapiSheetsService {
       // scope: SHEETS_CONFIG.scopeReadonly,
     };
     return new Promise((resolve) => {
-      this.zone.run(() => {
-        gapi.client.init(config).then(() => resolve());
-      });
+      gapi.client.init(config).then(() => resolve());
     });
   }
 

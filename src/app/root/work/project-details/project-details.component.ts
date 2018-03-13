@@ -62,9 +62,6 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.panelVisibleState = VISIBLE_STATE.visible;
     }, 100);
-
-    console.log('projectItem', this.projectItem);
-
   }
 
   onClose() {
@@ -91,6 +88,5 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   }
 
   onPanelVisibleDone(event: AnimationEvent) {
-
   }
 }

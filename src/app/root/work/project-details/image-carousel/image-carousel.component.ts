@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'jl-image-carousel',
   templateUrl: './image-carousel.component.html',
   styleUrls: ['./image-carousel.component.scss']
 })
-export class ImageCarouselComponent implements OnInit {
+export class ImageCarouselComponent implements OnChanges {
   items: string[];
   currentIndex: number;
   itemsLength: number;
@@ -14,7 +14,7 @@ export class ImageCarouselComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.items = this.imgPreviewLoc.split(',')
         .map((item) => item.trim())
         .filter((item) => item.length > 1);

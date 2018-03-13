@@ -5,15 +5,19 @@
   position: relative;
 
   .images {
-    overflow: hidden;
-    box-shadow: $box-shadow-details-image;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      box-shadow: $box-shadow-details-image;
+    }
   }
 
   .navigation {
     margin-top: 1rem;
 
     .btn-nav {
-      font-size: 1.5rem;
+      font-size: 2rem;
 
       &.hide {
         visibility: hidden;
@@ -29,8 +33,8 @@
 
       .btn-dot {
         margin: 0 3px;
-        background-color: $color-icon-out;
-        @include circle(.625rem);
+        background-color: $color-grey-400;
+        @include circle(.75rem);
 
         &:hover,
         &:disabled,

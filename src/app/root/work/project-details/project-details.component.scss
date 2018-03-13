@@ -2,12 +2,13 @@
 @import '../../../../styles/mixins';
 @import '../../../../styles/components';
 
-.jl-project-details {
+.jl-modal {
   position: fixed;
-  overflow: hidden;
+  overflow-y: auto;
   top: 10%;
-  z-index: 2000;
+  max-height: 85%;
   width: 100%;
+  z-index: 2000;
   background-color: $color-white;
   box-shadow: $box-shadow-details-page;
   color: $color-grey-800;
@@ -17,7 +18,7 @@
   padding: 1.5rem 0 1rem;
 
   .item-images {
-    margin-right: 2rem;
+    // margin-right: 2rem;
   }
 
   .item-info {
@@ -32,7 +33,7 @@
     }
 
     .title {
-      margin-bottom: .4em;
+      margin-bottom: .5em;
       font-size: 1.5em;
       letter-spacing: .05em;
       text-transform: none;
@@ -41,7 +42,7 @@
     .title-tagline {
       font-size: .75em;
       color: $color-grey-500;
-      margin-bottom: 1.5em;
+      margin-bottom: 1em;
     }
 
     .sub-headline {
@@ -54,21 +55,18 @@
       background-color: $color-grey-300;
       @include circle(.4rem);
     }
-
-    .divider-h {
-      border-top-color: $color-grey-300;
-    }
   }
 
-  .item-footer {
-    margin-top: 1.25rem;
-    padding-top: .75rem;
-    border-top: 1px solid $color-grey-300;
+  .item-output {
+    margin-bottom: .75rem;
+    padding: .5rem 0 .75em;
+    // border-top: 1px solid $color-grey-300;
+    border-bottom: 1px solid $color-grey-200;
   }
 
   .btn-project-select {
     margin-top: 6rem;
-    font-size: 2.5rem;
+    font-size: 2.5em;
     color: $color-grey-400;
 
     &:hover {
@@ -77,18 +75,22 @@
 
     &.btn-left {
       margin-left: -1em;
-      margin-right: .5em;
+      margin-right: .3em;
     }
 
     &.btn-right {
       margin-right: -1em;
-      margin-left: .5em;
+      margin-left: .2em;
     }
 
     &:disabled {
       visibility: hidden;
     }
   }
+}
+
+.divider-h {
+  border-top-color: $color-grey-300;
 }
 
 .jl-modal-bg {
@@ -104,7 +106,7 @@
 .btn-close {
   position: absolute;
   top: .5rem;
-  right: -17px;
+  right: -30px;
   font-size: 1.5rem;
   color: $color-grey-500;
 

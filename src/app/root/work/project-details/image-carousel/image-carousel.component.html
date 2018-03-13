@@ -5,8 +5,8 @@
   <section class="navigation"
     fxLayout="row" fxLayoutAlign="center center"
     *ngIf="itemsLength > 1">
+    <!-- [disabled]="currentIndex === 0" -->
     <button class="btn-icon btn-nav"
-      [disabled]="currentIndex === 0"
       (click)="onSelectPrev()">
       <i class="fas fa-chevron-left"></i>
     </button>
@@ -17,8 +17,8 @@
         [disabled]="isCurrentIndex(index)"
         (click)="onSelectIndex(index)"></button>
     </div>
+    <!-- [disabled]="currentIndex >= itemsLength - 1" -->
     <button class="btn-icon btn-nav"
-      [disabled]="currentIndex >= itemsLength - 1"
       (click)="onSelectNext()">
       <i class="fas fa-chevron-right"></i>
     </button>

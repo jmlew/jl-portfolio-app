@@ -14,9 +14,11 @@ export const MODEL: StringMap = {
   projectSkills: 'projectSkills',
   imgThumbLoc: 'imgThumbLoc',
   imgPreviewLoc: 'imgPreviewLoc',
+  urlPreview: 'urlPreview',
+  urlPrototype: 'urlPrototype',
   urlCode: 'urlCode',
   urlMocks: 'urlMocks',
-  urlPreview: 'urlPreview',
+  urlWireframes: 'urlWireframes',
   urlScreencast: 'urlScreencast',
 }
 

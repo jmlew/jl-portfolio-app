@@ -63,6 +63,9 @@ export class WorkComponent implements OnInit {
     this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
     this.updateFiltersVisibleState();
 
+    console.log('projectProps: ', this.projectProps);
+    console.log('projectItems: ', this.projectItems);
+
     this.dataLoadedState = LOAD_STATE.loaded;
   }
 

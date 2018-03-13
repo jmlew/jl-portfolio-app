@@ -2,10 +2,10 @@
 @import '../../../styles/mixins';
 
 .jl-header {
-  height: 80px;
+  height: $height-header;
   padding-bottom: 6px;
   background-color: $color-white;
-  box-shadow: $box-shadow-header;
+  box-shadow: $box-shadow-central;
   font-family: $font-family-titles;
 
   .jl-title {

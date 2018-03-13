@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+footer {
+  background-color: $color-white;
+  height: $height-footer;
+  box-shadow: $box-shadow-central;
+}
+
+.btn-view-source {
+  img {
+    opacity: .5;
+    width: 28px;
+    transition: $transition-btn;
+  }
+
+  span {
+    font-size: .875em;
+    color: $color-grey-600;
+    transition: $transition-btn;
+  }
+
+  &:hover {
+    img {
+      opacity: .8;
+    }
+
+    span {
+      color: $color-grey-800;
+    }
+  }
+}

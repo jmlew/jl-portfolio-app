@@ -93,6 +93,7 @@ export class DataService {
         if (dataEnums[id]) {
           accum[id] = value ? this.convertEnums(dataEnums[id], value) : null;
         } else {
+          // Convert tasks from a string of sentences to an array.
           if (id === MODEL.tasks) {
             accum[id] = value ? value.split('.').filter(item => item) : null;
           } else {

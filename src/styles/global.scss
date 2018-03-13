@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 
 @import 'resets';
@@ -15,6 +14,8 @@ body {
   font-family: $font-family-body;
   line-height: $line-height-base;
   background-color: $color-grey-50;
+
+  min-height: 100%;
 }
 
 // Text

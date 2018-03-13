@@ -2,11 +2,14 @@
 @import '../../../styles/mixins';
 
 .jl-about-content {
-  margin: 2rem 0;
+  margin: 2rem 0 1.5rem;
 }
 
 .about-section {
-  margin-bottom: 2rem;
+
+  &:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
 
   .about-title {
     font-family: $font-family-titles;
@@ -24,7 +27,7 @@
     font-family: $font-family-body;
 
     &:not(:first-of-type) {
-      margin-top: .625em;
+      margin-top: .5em;
     }
 
     &.profile {

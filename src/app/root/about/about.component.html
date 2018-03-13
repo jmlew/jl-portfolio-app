@@ -1,11 +1,11 @@
 <jl-content-wrapper>
   <section class="jl-about-content"
     fxLayout="row" fxLayoutGap="2.5em">
-    <div fxFlex="60">
+    <div fxFlex="65">
       <section class="about-section">
         <h1 class="about-title text-right"> Profile </h1>
         <div class="about-card profile">
-          <p>I’m an <b>Interaction Designer</b> and <b>UX Engineer</b> currently in the role of Product Technology Manager on the O-Ladder for gTech
+          <p><b>Interaction Designer</b> and <b>UX Engineer</b> currently in the role of Product Technology Manager on the O-Ladder for gTech
           Ads. I currently specialize in the design and development of internal tools as well as provide UX expertise for various teams
           around the org.</p>
           <p>I've brought over <b>14 years experience</b> working with a variety of multimedia and web technologies to Google, where I've spent
@@ -47,7 +47,7 @@
         <div class="about-card">
           <h2 class="sub-title">Lead Creative Specialist</h2>
           <h3 class="tagline secondary">
-             2004 – 2007<span class="tagline-dot"></span>Eden Media
+            2004 – 2007<span class="tagline-dot"></span>Eden Media
           </h3>
           <ul>
             <li>Multimedia Development</li>
@@ -58,17 +58,18 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="end center">
           <button class="btn-show-more btn-icon"
-          (click)="isOtherEmploymentShown = !isOtherEmploymentShown">
-            <span>{{isOtherEmploymentShown ? 'Hide' : 'Show'}} Pre 2004</span>
+            (click)="isOtherEmploymentShown = !isOtherEmploymentShown">
+            <!-- <span>{{isOtherEmploymentShown ? 'Hide' : 'Show'}} Pre 2007</span> -->
+            <span>Before 2004</span>
             <i class="fas"
-              ngClass="fa-chevron-{{isOtherEmploymentShown ? 'up' : 'down'}}"></i>
+            ngClass="fa-chevron-{{isOtherEmploymentShown ? 'up' : 'down'}}"></i>
           </button>
         </div>
         <div *ngIf="isOtherEmploymentShown">
           <div class="about-card">
             <h2 class="sub-title">Freelance Web & Print Designer</h2>
             <h3 class="tagline secondary">
-               2001 - 2004<span class="tagline-dot"></span>Optiplan Filing Systems
+                2001 - 2004<span class="tagline-dot"></span>Optiplan Filing Systems
             </h3>
             <ul>
               <li>Graphic Design & External Print Marketing Collateral</li>
@@ -77,9 +78,9 @@
             </ul>
           </div>
           <div class="about-card">
-            <h2 class="sub-title">Freelance Web & Print Designer"</h2>
+            <h2 class="sub-title">Freelance Web & Print Designer</h2>
             <h3 class="tagline secondary">
-               2003 - 2004<span class="tagline-dot"></span>Smarter Clothing
+                2003 - 2004<span class="tagline-dot"></span>Smarter Clothing
             </h3>
             <ul>
               <li>Graphic Design</li>
@@ -89,7 +90,7 @@
           <div class="about-card">
             <h2 class="sub-title">Print Designer & Pre-Press operator</h2>
             <h3 class="tagline secondary">
-               2002 - 2003<span class="tagline-dot"></span>Swift Printing & Graphics
+                2002 - 2003<span class="tagline-dot"></span>Swift Printing & Graphics
             </h3>
             <ul>
               <li>Graphic Designer</li>
@@ -99,7 +100,7 @@
         </div>
       </section>
     </div>
-    <div fxFlex="40">
+    <div fxFlex="35">
       <section class="about-section">
         <h1 class="about-title"> Skills </h1>
         <div class="about-card">
@@ -131,7 +132,6 @@
           </ul>
         </div>
       </section>
-
       <section class="about-section">
         <h1 class="about-title">Qualifications</h1>
         <div class="about-card">
@@ -147,18 +147,6 @@
           </ul>
         </div>
       </section>
-
-      <!--
-      <section class="about-section">
-        <h1 class="about-title"></h1>
-        <div class="about-card">
-          <h2 class="sub-title"></h2>
-          <h3 class="tagline"></h3>
-          <h3 class="tagline secondary"></h3>
-          <p></p>
-        </div>
-      </section>
-      -->
     </div>
   </section>
 </jl-content-wrapper>

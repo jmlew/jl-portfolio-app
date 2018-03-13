@@ -7,6 +7,7 @@ import { WorkModule } from "./work/work.module";
 import { AboutModule } from "./about/about.module";
 import { RootRoutingModule } from "./root-routing.module";
 import { HeaderModule } from './header/header.module';
+import { FooterModule } from './footer/footer.module';
 import { GapiSheetsModule } from "../shared/gapi/gapi-sheets.module";
 
 import { RootComponent } from './root.component';
@@ -22,6 +23,7 @@ import { DataStoreService } from "../shared/data-store.service";
     BrowserModule,
     FlexLayoutModule,
     HeaderModule,
+    FooterModule,
     WorkModule,
     AboutModule,
     TooltipModule,

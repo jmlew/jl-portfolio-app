@@ -83,26 +83,29 @@ export class DataService {
       dataConfig: DataConfig,
       dataEnums: DataEnums): ProjectItem[] {
     const ids: string[] = sheetRows[0];
+    const isEnabledIndex = ids.indexOf(MODEL.isEnabled);
     const projectItems: ProjectItem[] = [];
     const dataRowStart = 2; // Row at which the header ends and projects begin.
     for (let rowIndex = dataRowStart; rowIndex < sheetRows.length; rowIndex++) {
       const row: string[] = sheetRows[rowIndex];
-      const item: ProjectItem = row.reduce((accum, value, index) => {
-        const id = ids[index];
-        // Convert enums from indecies to their string values.
-        if (dataEnums[id]) {
-          accum[id] = value ? this.convertEnums(dataEnums[id], value) : null;
-        } else {
-          // Convert tasks from a string of sentences to an array.
-          if (id === MODEL.tasks) {
-            accum[id] = value ? value.split('.').filter(item => item) : null;
+      if (row[isEnabledIndex] === 'TRUE') {
+        const item: ProjectItem = row.reduce((accum, value, index) => {
+          const id = ids[index];
+          if (dataEnums[id]) {
+            // Convert enums from indecies to their string values.
+            accum[id] = value ? this.convertEnums(dataEnums[id], value) : null;
           } else {
-            accum[id] = value;
+            if (id === MODEL.tasks) {
+              // Convert tasks from a string of sentences to an array.
+              accum[id] = value ? value.split('.').filter(item => item) : null;
+            } else {
+              accum[id] = value;
+            }
           }
-        }
-        return accum;
-      }, {});
-      projectItems.push(item);
+          return accum;
+        }, {});
+        projectItems.push(item);
+      }
     }
     return projectItems;
   }

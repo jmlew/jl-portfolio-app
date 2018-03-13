@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { TooltipModule } from "../../../shared/tooltip/tooltip.module";
+import { ContentWrapperModule } from "../../content-wrapper/content-wrapper.module";
 
 import { ProjectFiltersComponent } from './project-filters.component';
 
@@ -16,6 +17,7 @@ import { FiltersService } from "./filters.service";
     BrowserAnimationsModule,
     FlexLayoutModule,
     TooltipModule,
+    ContentWrapperModule,
   ],
   declarations: [ProjectFiltersComponent, NgModel],
   exports: [ProjectFiltersComponent],

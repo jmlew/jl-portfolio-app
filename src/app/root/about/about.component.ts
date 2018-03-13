@@ -1,23 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { RoutesService } from "../../shared/routes.service";
-// import { PAGE_DIMENSIONS, NumericDimensions } from "../../shared/ui-layout";
 
 @Component({
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
-  // pageDimensions: NumericDimensions = PAGE_DIMENSIONS;
+export class AboutComponent{
   isOtherEmploymentShown = false;
 
-  constructor(
-    private readonly routesService: RoutesService,
-  ) {
-
-  }
-
-  ngOnInit() {
-  }
-
+  constructor(private readonly routesService: RoutesService) { }
 }

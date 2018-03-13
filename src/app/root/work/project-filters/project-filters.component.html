@@ -3,25 +3,27 @@
   [@filtersVisible]="visibleState"
   (@filtersVisible.done)="onVisibleChangeDone($event)">
 
-  <section class="filter-category" *ngFor="let filter of filters">
-    <div fxLayout="row" fxLayoutAlign="start center">
-      <h2 class="sub-title">{{filter.label}}</h2>
-      <button class="btn-icon btn-filter-clear"
-        *ngIf="isFilterActive(filter)"
-        (click)="onClearFilter(filter)"
-         jl-tooltip message="Clear {{filter.label}}s">
-        <i class="fas fa-times-circle"></i>
-      </button>
-    </div>
-    <div fxLayout="row wrap">
-      <div class="filter-control" *ngFor="let control of filter.controls">
-        <input type="checkbox"
-          id="{{control.id}}"
-          value="{{control.isActive}}"
-          [checked]="control.isActive"
-          (change)="onChangeFilterControl(control, $event.target.checked)">
-        <label for="{{control.id}}"> {{control.name}} </label>
+  <jl-content-wrapper>
+    <section class="filter-category" *ngFor="let filter of filters">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="sub-title">{{filter.label}}</h2>
+        <button class="btn-icon btn-filter-clear"
+          *ngIf="isFilterActive(filter)"
+          (click)="onClearFilter(filter)"
+           jl-tooltip message="Clear {{filter.label}}s">
+          <i class="fas fa-times-circle"></i>
+        </button>
       </div>
-    </div>
-  </section>
+      <div fxLayout="row wrap" fxLayout.xs="column">
+        <div class="filter-control" *ngFor="let control of filter.controls">
+          <input type="checkbox"
+            id="{{control.id}}"
+            value="{{control.isActive}}"
+            [checked]="control.isActive"
+            (change)="onChangeFilterControl(control, $event.target.checked)">
+          <label for="{{control.id}}"> {{control.name}} </label>
+        </div>
+      </div>
+    </section>
+  </jl-content-wrapper>
 </section>

@@ -1,3 +1,5 @@
 # JL Portfolio App
 
-A portfoio site built with Angular and displaying work at the point at which I left Google in 2018.
+A portfoio site built with Angular and displaying data via a Google Spreadsheet ([JL Portfolio Database](https://docs.google.com/spreadsheets/d/19iDmgtY9P1NCF10XvdgcyY0bOBvT-v__UWUVX7reJ1c)).
+
+View Portfolio at [jmlew.com](http://jmlew.com)

@@ -12,17 +12,27 @@
           (click)="onProjectPrev()">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <div>
+        <div fxFlex="auto">
           <div class="item-images" *ngIf="projectItem[MODEL.imgPreviewLoc]">
-            <jl-image-carousel [imgLocBase]="imgLocBase" [imgPreviewLoc]="projectItem[MODEL.imgPreviewLoc]"></jl-image-carousel>
+            <jl-image-carousel
+              [imgLocBase]="imgLocBase"
+              [imgPreviewLoc]="projectItem[MODEL.imgPreviewLoc]"></jl-image-carousel>
           </div>
           <div fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
             <div class="item-info">
               <h2 class="title sub-title">{{projectItem[MODEL.title]}}</h2>
               <h2 class="title-tagline sub-title">
-                <span *ngIf="projectItem[MODEL.company]">{{projectItem[MODEL.company]}}</span>
-                <span *ngIf="projectItem[MODEL.year]"><span class="title-dot"></span>{{projectItem[MODEL.year]}}</span>
-                <span *ngIf="projectItem[MODEL.projectType]"><span class="title-dot"></span>{{projectItem[MODEL.projectType] | join : ', '}}</span>
+                <span *ngIf="projectItem[MODEL.company]">
+                  {{projectItem[MODEL.company]}}
+                </span>
+                <span *ngIf="projectItem[MODEL.year]">
+                  <span class="title-dot"></span>
+                  {{projectItem[MODEL.year]}}
+                </span>
+                <span *ngIf="projectItem[MODEL.projectType]">
+                  <span class="title-dot"></span>
+                  {{projectItem[MODEL.projectType] | join : ', '}}
+                </span>
               </h2>
               <p>{{projectItem[MODEL.description]}}</p>
               <div *ngIf="projectItem[MODEL.tasks]">
@@ -35,16 +45,6 @@
                   </li>
                 </ul>
               </div>
-              <!-- <div *ngIf="projectItem[MODEL.projectSkills]">
-                <h2 class="sub-headline sub-title">
-                  {{projectProps[MODEL.projectSkills].label}}
-                </h2>
-                <ul>
-                  <li *ngFor="let item of projectItem[MODEL.projectSkills]">
-                    {{item}}
-                  </li>
-                </ul>
-              </div> -->
               <div *ngIf="projectItem[MODEL.projectSkills]">
                 <h2 class="sub-headline sub-title">
                   {{projectProps[MODEL.projectSkills].label}}

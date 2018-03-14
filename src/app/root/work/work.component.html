@@ -37,7 +37,7 @@
           fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="start center"
           *ngIf="projectItems.length > 0">
           <jl-project-item *ngFor="let item of projectItems"
-            [item]="item"
+            [projectItem]="item"
             [projectProps]="projectProps"
             [imgLocBase]="dataConfig.imgThumbLocBase"
             (openDetails)="onOpenProject(item)"

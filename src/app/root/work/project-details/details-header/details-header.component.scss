@@ -1,0 +1,33 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+li {
+  color: $color-grey-600;
+}
+
+.title {
+  margin-bottom: .5em;
+  font-size: 1.5em;
+  letter-spacing: .05em;
+  text-transform: none;
+}
+
+.title-tagline {
+  margin-bottom: 1.25em;
+  font-size: .75em;
+  color: $color-grey-500;
+}
+
+.title-dot {
+  margin: 0 .6rem .15rem .4rem;
+  display: inline-block;
+  background-color: $color-grey-300;
+  @include circle(.4rem);
+}
+
+.item-output {
+  margin-bottom: .75rem;
+  padding-bottom: .75em;
+  // border-top: 1px solid $color-grey-300;
+  border-bottom: 1px solid $color-grey-200;
+}

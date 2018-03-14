@@ -146,6 +146,11 @@ const ITEM_OUTPUTS: ItemOutput[] = [
     icon: 'eye',
   },
   {
+    id: 'urlPreviewSwf',
+    message: 'View Preview (requires Flash)',
+    icon: 'eye',
+  },
+  {
     id: 'urlScreencast',
     message: 'View Screencast',
     icon: 'film',

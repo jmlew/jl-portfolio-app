@@ -17,55 +17,22 @@
 .details-content {
   padding: 1.5rem 0 1rem;
 
-  .item-images {
-    // margin-right: 2rem;
+  p, li {
+    color: $color-grey-600;
   }
 
-  .item-info {
-    p, li {
-      color: $color-grey-600;
-    }
-
-    h2 {
-      margin-bottom: .75em;
-      color: $color-grey-900;
-      line-height: 1.25em;
-    }
-
-    .title {
-      margin-bottom: .5em;
-      font-size: 1.5em;
-      letter-spacing: .05em;
-      text-transform: none;
-    }
-
-    .title-tagline {
-      font-size: .75em;
-      color: $color-grey-500;
-      margin-bottom: 1.5em;
-    }
-
-    .sub-headline {
-      margin-top: 1.5em;
-    }
-
-    .title-dot {
-      margin: 0 .6rem .15rem .4rem;
-      display: inline-block;
-      background-color: $color-grey-300;
-      @include circle(.4rem);
-    }
+  h2 {
+    margin-bottom: .75em;
+    color: $color-grey-900;
+    line-height: 1.25em;
   }
 
-  .item-output {
-    margin-bottom: .75rem;
-    padding-bottom: .75em;
-    // border-top: 1px solid $color-grey-300;
-    border-bottom: 1px solid $color-grey-200;
+  .sub-title {
+    margin-top: 1.5em;
   }
 
   .btn-project-select {
-    margin-top: 6rem;
+    margin-top: 5.6rem;
     font-size: 2.5em;
     color: $color-grey-400;
 

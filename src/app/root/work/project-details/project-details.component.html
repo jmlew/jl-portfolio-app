@@ -12,54 +12,34 @@
           (click)="onProjectPrev()">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <div fxFlex="auto" fxLayout="row" fxLayoutGap="2rem">
-          <div fxFlex="60%" *ngIf="projectItem[MODEL.imgPreviewLoc]">
+        <div fxFlex="auto" fxLayoutGap="2rem"
+          fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+          <jl-details-header fxHide fxShow.sm fxShow.xs  [projectItem]="projectItem"></jl-details-header>
+          <div fxFlex="60%" fxFlex.sm="none" fxFlex.xs="none"
+            *ngIf="projectItem[MODEL.imgPreviewLoc]">
             <jl-image-carousel
               [imgLocBase]="imgLocBase"
               [imgPreviewLoc]="projectItem[MODEL.imgPreviewLoc]"></jl-image-carousel>
           </div>
-          <div fxFlex="40%" fxLayout="column" fxLayoutAlign="start stretch">
-            <div class="item-info">
-              <h2 class="title sub-title">{{projectItem[MODEL.title]}}</h2>
-              <h2 class="title-tagline sub-title">
-                <span *ngIf="projectItem[MODEL.company]">
-                  {{projectItem[MODEL.company]}}
-                </span>
-                <span *ngIf="projectItem[MODEL.year]">
-                  <span class="title-dot"></span>
-                  {{projectItem[MODEL.year]}}
-                </span>
-                <span *ngIf="projectItem[MODEL.projectType]">
-                  <span class="title-dot"></span>
-                  {{projectItem[MODEL.projectType] | join : ' | '}}
-                </span>
+          <div fxFlex="40%" fxFlex.sm="none" fxFlex.xs="none"
+            fxLayout="column" fxLayoutAlign="start stretch">
+            <jl-details-header fxShow fxHide.sm fxHide.xs [projectItem]="projectItem"></jl-details-header>
+            <p>{{projectItem[MODEL.description]}}</p>
+            <div *ngIf="projectItem[MODEL.tasks]">
+              <h2 class="sub-title">
+                {{projectProps[MODEL.tasks].label}}
               </h2>
-              <div class="item-output" fxLayout="row" fxLayoutGap=".5em"
-                *ngIf="projectItem.outputs">
-                <button class="btn-icon icon-large"
-                  *ngFor="let output of projectItem.outputs"
-                  (click)="onOpenLink(output.url)"
-                  jl-tooltip [message]="output.message">
-                  <i class="fas fa-{{output.icon}}"></i>
-                </button>
-              </div>
-              <p>{{projectItem[MODEL.description]}}</p>
-              <div *ngIf="projectItem[MODEL.tasks]">
-                <h2 class="sub-headline sub-title">
-                  {{projectProps[MODEL.tasks].label}}
-                </h2>
-                <ul>
-                  <li *ngFor="let item of projectItem[MODEL.tasks]">
-                    {{item}}
-                  </li>
-                </ul>
-              </div>
-              <div *ngIf="projectItem[MODEL.projectSkills]">
-                <h2 class="sub-headline sub-title">
-                  {{projectProps[MODEL.projectSkills].label}}
-                </h2>
-                <p>{{projectItem[MODEL.projectSkills] | join : ' | '}}</p>
-              </div>
+              <ul>
+                <li *ngFor="let item of projectItem[MODEL.tasks]">
+                  {{item}}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="projectItem[MODEL.projectSkills]">
+              <h2 class="sub-title">
+                {{projectProps[MODEL.projectSkills].label}}
+              </h2>
+              <p>{{projectItem[MODEL.projectSkills] | join : ' | '}}</p>
             </div>
           </div>
         </div>

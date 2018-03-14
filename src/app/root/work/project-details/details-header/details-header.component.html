@@ -1,0 +1,20 @@
+<h2 class="title sub-title">{{projectItem[MODEL.title]}}</h2>
+<h2 class="title-tagline sub-title">
+  <span *ngIf="projectItem[MODEL.company]">{{projectItem[MODEL.company]}}</span>
+  <span *ngIf="projectItem[MODEL.year]">
+    <span class="title-dot"></span>
+    {{projectItem[MODEL.year]}}
+  </span>
+  <span *ngIf="projectItem[MODEL.projectType]">
+    <span class="title-dot"></span>
+    {{projectItem[MODEL.projectType] | join : ' | '}}
+  </span>
+</h2>
+<div class="item-output" fxLayout="row" fxLayoutGap=".5em" *ngIf="projectItem.outputs">
+  <button class="btn-icon icon-large"
+    *ngFor="let output of projectItem.outputs"
+    (click)="onOpenLink(output.url)"
+    jl-tooltip [message]="output.message">
+    <i class="fas fa-{{output.icon}}"></i>
+  </button>
+</div>

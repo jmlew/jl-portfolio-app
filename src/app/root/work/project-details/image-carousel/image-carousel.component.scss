@@ -15,7 +15,7 @@
   }
 
   .navigation {
-    margin-top: 1rem;
+    margin-top: .5rem;
 
     .btn-nav {
       font-size: 2rem;
@@ -35,7 +35,7 @@
       .btn-dot {
         margin: 0 3px;
         background-color: $color-grey-400;
-        @include circle(.75rem);
+        @include circle(.625rem);
 
         &:hover,
         &:disabled,

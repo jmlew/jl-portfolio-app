@@ -2,13 +2,13 @@
   (mouseover)="itemDetails.style.opacity = 1"
   (mouseout)="itemDetails.style.opacity = 0"
   (click)="onOpenDetails()">
-  <img class="item-bg" *ngIf="item[MODEL.imgThumbLoc]"
-    src="{{imgLocBase + item[MODEL.imgThumbLoc]}}">
+  <img class="item-bg" *ngIf="projectItem[MODEL.imgThumbLoc]"
+    src="{{imgLocBase + projectItem[MODEL.imgThumbLoc]}}">
   <div #itemDetails class="item-details"
     fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
     <div>
-      <div class="item-title"> {{item[MODEL.title]}} </div>
-      <div class="item-type"> {{item[MODEL.projectType] | join : ' | '}} </div>
+      <div class="item-title"> {{projectItem[MODEL.title]}} </div>
+      <div class="item-type"> {{projectItem[MODEL.projectType] | join : ' | '}} </div>
     </div>
     <button class="item-icon-view btn-icon"
       (click)="onOpenDetails()">
@@ -16,35 +16,11 @@
     </button>
     <div class="item-footer"
       fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlPreview]"
-        (click)="onOpenLink(item[MODEL.urlPreview], $event)"
-        jl-tooltip message="View Preview">
-        <i class="fas fa-eye"></i>
-      </button>
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlScreencast]"
-        (click)="onOpenLink(item[MODEL.urlScreencast], $event)"
-        jl-tooltip message="View Screencast">
-        <i class="fas fa-film"></i>
-      </button>
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlPrototype]"
-        (click)="onOpenLink(item[MODEL.urlPrototype], $event)"
-        jl-tooltip message="View Prototype">
-        <i class="fas fa-cogs"></i>
-      </button>
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlCode]"
-        (click)="onOpenLink(item[MODEL.urlCode], $event)"
-        jl-tooltip message="View Code">
-        <i class="fas fa-code"></i>
-      </button>
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlMocks]"
-        (click)="onOpenLink(item[MODEL.urlMocks], $event)"
-        jl-tooltip message="View Mocks">
-        <i class="fas fa-paint-brush"></i>
-      </button>
-      <button class="btn-icon icon-small" *ngIf="item[MODEL.urlWireframes]"
-        (click)="onOpenLink(item[MODEL.urlWireframes], $event)"
-        jl-tooltip message="View Wireframes">
-        <i class="fas fa-pencil-alt"></i>
+      <button class="btn-icon icon-small"
+        *ngFor="let output of projectItem.outputs"
+        (click)="onOpenLink(output.url, $event)"
+        jl-tooltip [message]="output.message">
+        <i class="fas fa-{{output.icon}}"></i>
       </button>
     </div>
   </div>

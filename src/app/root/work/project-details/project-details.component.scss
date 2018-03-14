@@ -42,7 +42,7 @@
     .title-tagline {
       font-size: .75em;
       color: $color-grey-500;
-      margin-bottom: 1em;
+      margin-bottom: 1.5em;
     }
 
     .sub-headline {
@@ -59,7 +59,7 @@
 
   .item-output {
     margin-bottom: .75rem;
-    padding: .5rem 0 .75em;
+    padding-bottom: .75em;
     // border-top: 1px solid $color-grey-300;
     border-bottom: 1px solid $color-grey-200;
   }

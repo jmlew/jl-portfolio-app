@@ -10,7 +10,7 @@ import { MODEL } from "../../../shared/model";
 })
 export class ProjectItemComponent {
   MODEL = MODEL;
-  @Input() item: ProjectItem;
+  @Input() projectItem: ProjectItem;
   @Input() imgLocBase: string;
   @Input() projectProps: ProjectProps;
   @Output() openDetails = new EventEmitter<ProjectItem>();
@@ -19,7 +19,7 @@ export class ProjectItemComponent {
   constructor() { }
 
   onOpenDetails() {
-    this.openDetails.emit(this.item);
+    this.openDetails.emit(this.projectItem);
   }
 
   onOpenLink(url: string, event: MouseEvent) {

@@ -104,19 +104,73 @@ export class DataService {
           }
           return accum;
         }, {});
+        item.outputs = this.createOutputCollection(item);
         projectItems.push(item);
       }
     }
     return projectItems;
   }
 
-  convertEnums(enumValues: string[], value: string): string[]|null {
+  private convertEnums(enumValues: string[], value: string): string[]|null {
     return value.split(',')
       .filter(item => item)
       .map((item) => item.trim())
       .map((item) => enumValues[parseInt(item) - 1]);
   }
+
+  private createOutputCollection(item: ProjectItem): ItemOutput[] {
+    const outputs = ITEM_OUTPUTS.map((itemUrl: ItemOutput) => {
+      const url = item[itemUrl.id];
+      return url ? {
+        id: itemUrl.id,
+        message: itemUrl.message,
+        icon: itemUrl.icon,
+        url: url,
+      } : null;
+    }).filter(item => item);
+    return outputs.length > 0 ? outputs : null;
+  }
 }
+
+interface ItemOutput {
+  id: string;
+  message: string;
+  icon: string;
+  url?: string;
+}
+
+const ITEM_OUTPUTS: ItemOutput[] = [
+  {
+    id: 'urlPreview',
+    message: 'View Preview',
+    icon: 'eye',
+  },
+  {
+    id: 'urlScreencast',
+    message: 'View Screencast',
+    icon: 'film',
+  },
+  {
+    id: 'urlPrototype',
+    message: 'View Prototype',
+    icon: 'cogs',
+  },
+  {
+    id: 'urlCode',
+    message: 'View Code',
+    icon: 'code',
+  },
+  {
+    id: 'urlMocks',
+    message: 'View Mocks',
+    icon: 'paint-brush',
+  },
+  {
+    id: 'urlWireframes',
+    message: 'View Wireframes',
+    icon: 'pencil-alt',
+  },
+];
 
 interface SheetConfig {
   tab: string;

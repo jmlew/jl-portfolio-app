@@ -17,13 +17,13 @@
           <jl-details-header fxHide fxShow.sm fxShow.xs
             [projectItem]="projectItem"
             (openLink)="onOpenLink($event)"></jl-details-header>
-          <div fxFlex="60%" fxFlex.sm="none" fxFlex.xs="none"
+          <div fxFlex="1 0 auto" fxFlex.sm="none" fxFlex.xs="none"
             *ngIf="projectItem[MODEL.imgPreviewLoc]">
             <jl-image-carousel
               [imgLocBase]="imgLocBase"
               [imgPreviewLoc]="projectItem[MODEL.imgPreviewLoc]"></jl-image-carousel>
           </div>
-          <div fxFlex="40%" fxFlex.sm="none" fxFlex.xs="none"
+          <div fxFlex="1 1 auto" fxFlex.sm="none" fxFlex.xs="none"
             fxLayout="column" fxLayoutAlign="start stretch">
             <jl-details-header fxShow fxHide.sm fxHide.xs
               [projectItem]="projectItem"

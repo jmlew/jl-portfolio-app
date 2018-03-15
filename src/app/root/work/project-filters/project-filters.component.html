@@ -4,24 +4,34 @@
   (@filtersVisible.done)="onVisibleChangeDone($event)">
 
   <jl-content-wrapper>
-    <section class="filter-category" *ngFor="let filter of filters">
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <h2 class="sub-title">{{filter.label}}</h2>
-        <button class="btn-icon btn-filter-clear"
-          *ngIf="isFilterActive(filter)"
-          (click)="onClearFilter(filter)"
-           jl-tooltip message="Clear {{filter.label}}s">
-          <i class="fas fa-times-circle"></i>
-        </button>
-      </div>
-      <div fxLayout="row wrap" fxLayout.xs="column">
-        <div class="filter-control" *ngFor="let control of filter.controls">
-          <input type="checkbox"
-            id="{{control.id}}"
-            value="{{control.isActive}}"
-            [checked]="control.isActive"
-            (change)="onChangeFilterControl(control, $event.target.checked)">
-          <label for="{{control.id}}"> {{control.name}} </label>
+    <section class="filter-categories" fxLayoutGap=".25em">
+      <div *ngFor="let filter of filters">
+        <div fxLayout="row" fxLayoutAlign="start center" >
+          <button class="btn-show-controls btn-show-hide btn-icon"
+            (click)="filter.isShown = !filter.isShown"
+            jl-tooltip message="{{filter.isShown ? 'Hide' : 'Show'}} {{filter.label}}s">
+            <span class="sub-title">{{filter.label}}</span>
+            <i class="fas" ngClass="fa-chevron-{{filter.isShown ? 'up' : 'down'}}"></i>
+          </button>
+          <button class="btn-icon btn-filter-clear"
+            *ngIf="isFilterActive(filter)"
+            (click)="onClearFilter(filter)"
+             jl-tooltip message="Clear {{filter.label}}s">
+            <i class="fas fa-times-circle"></i>
+          </button>
+        </div>
+        <div class="filter-controls"
+          fxLayout="row wrap" fxLayout.xs="column"
+          *ngIf="filter.isShown">
+          <div class="filter-control"
+            *ngFor="let control of filter.controls">
+            <input type="checkbox"
+              id="{{control.id}}"
+              value="{{control.isActive}}"
+              [checked]="control.isActive"
+              (change)="onChangeFilterControl(control, $event.target.checked)">
+            <label for="{{control.id}}"> {{control.name}} </label>
+          </div>
         </div>
       </div>
     </section>

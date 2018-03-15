@@ -2,7 +2,7 @@
 @import '../../../styles/mixins';
 
 .jl-work-content {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
 }
 
 .jl-project-previews {
@@ -13,7 +13,7 @@ $btn-size-filters: 40px;
 .btn-show-filters {
   position: absolute;
   z-index: 1000;
-  top: - $btn-size-filters * .625;
+  top: - ($btn-size-filters * .5) - 2px;
   right: - $btn-size-filters * .625;
   width: 44px;
   height: 44px;

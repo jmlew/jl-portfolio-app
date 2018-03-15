@@ -142,12 +142,12 @@ interface ItemOutput {
 const ITEM_OUTPUTS: ItemOutput[] = [
   {
     id: 'urlPreview',
-    message: 'View Preview',
+    message: 'View Demo',
     icon: 'eye',
   },
   {
     id: 'urlPreviewSwf',
-    message: 'View Preview (requires Flash)',
+    message: 'View Demo (requires Flash)',
     icon: 'eye',
   },
   {

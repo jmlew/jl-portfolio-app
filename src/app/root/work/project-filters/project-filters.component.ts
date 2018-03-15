@@ -18,7 +18,7 @@ import {
 import { FiltersService, Filter, FilterControl } from "./filters.service";
 import { ProjectItem, ProjectProps, DataEnums } from '../../../shared/data-service.service';
 import { VISIBLE_STATE, State } from "../../../shared/states";
-import { MODEL } from "../../../shared/model";
+import { StringMap, MODEL } from "../../../shared/model";
 
 @Component({
   selector: 'jl-project-filters',
@@ -28,7 +28,7 @@ import { MODEL } from "../../../shared/model";
     trigger(
       'filtersVisible',
       [
-        state('hidden', style({ height: '0' })),
+        state('hidden', style({ height: '1rem' })),
         state('visible', style({ height: '*' })),
         transition('hidden => visible', animate('200ms ease-out')),
         transition('visible => hidden', animate('200ms ease'))
@@ -42,7 +42,9 @@ export class ProjectFiltersComponent implements OnInit {
   @Input() dataEnums: DataEnums;;
   @Input() projectItems: ProjectItem[];
   @Output() filtersChanged = new EventEmitter<void>();
+  readonly MODEL: StringMap = MODEL;
   filters: Filter[];
+  isSkillsShown = false;
 
   constructor(private readonly filtersService: FiltersService) { }
 
@@ -56,7 +58,8 @@ export class ProjectFiltersComponent implements OnInit {
     enumFilters.forEach((prop) => {
       const label = this.projectProps[prop].label;
       const values = this.dataEnums[prop];
-      this.filtersService.addFilter(prop, label, values);
+      const isShown = prop === MODEL.projectType ? true : false;
+      this.filtersService.addFilter(prop, label, values, isShown);
     });
   }
 

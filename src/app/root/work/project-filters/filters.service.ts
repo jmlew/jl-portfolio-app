@@ -15,10 +15,11 @@ export class FiltersService {
     this.filters = [];
   }
 
-  addFilter(property: string, label: string, values: string[]) {
+  addFilter(property: string, label: string, values: string[], isShown:boolean) {
     const filter: Filter = {
       property: property,
       label: label,
+      isShown: isShown,
       controls: this.createFilterControls(property, values),
     };
     this.filters.push(filter);
@@ -75,6 +76,7 @@ export interface Filter {
   label: string,
   property: string,
   controls: FilterControl[];
+  isShown: boolean,
 }
 
 export interface FilterControl {

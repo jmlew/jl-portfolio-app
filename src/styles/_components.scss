@@ -80,6 +80,26 @@ $font-size-btn-icon-large: 22px;
   }
 }
 
+.btn-show-hide {
+  color: $color-grey-600;
+  font-size: 1em;
+
+  i {
+    color: $color-grey-500;
+    padding-bottom: 3px;
+    margin-left: 5px;
+    font-size: 1.125em;
+    vertical-align: middle;
+    transition: $transition-btn;
+  }
+
+  &:hover {
+    i {
+      color: $color-icon-over;
+    }
+  }
+}
+
 .divider-h {
   height: 1px;
   border-top: $border-400;

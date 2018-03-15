@@ -14,7 +14,9 @@
         </button>
         <div fxFlex="auto" fxLayoutGap="2rem"
           fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
-          <jl-details-header fxHide fxShow.sm fxShow.xs  [projectItem]="projectItem"></jl-details-header>
+          <jl-details-header fxHide fxShow.sm fxShow.xs
+            [projectItem]="projectItem"
+            (openLink)="onOpenLink($event)"></jl-details-header>
           <div fxFlex="60%" fxFlex.sm="none" fxFlex.xs="none"
             *ngIf="projectItem[MODEL.imgPreviewLoc]">
             <jl-image-carousel
@@ -23,7 +25,9 @@
           </div>
           <div fxFlex="40%" fxFlex.sm="none" fxFlex.xs="none"
             fxLayout="column" fxLayoutAlign="start stretch">
-            <jl-details-header fxShow fxHide.sm fxHide.xs [projectItem]="projectItem"></jl-details-header>
+            <jl-details-header fxShow fxHide.sm fxHide.xs
+              [projectItem]="projectItem"
+              (openLink)="onOpenLink($event)"></jl-details-header>
             <p>{{projectItem[MODEL.description]}}</p>
             <div *ngIf="projectItem[MODEL.tasks]">
               <h2 class="sub-title">

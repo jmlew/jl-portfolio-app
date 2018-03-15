@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgModel } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -19,7 +18,7 @@ import { FiltersService } from "./filters.service";
     TooltipModule,
     ContentWrapperModule,
   ],
-  declarations: [ProjectFiltersComponent, NgModel],
+  declarations: [ProjectFiltersComponent],
   exports: [ProjectFiltersComponent],
   providers: [FiltersService],
 })

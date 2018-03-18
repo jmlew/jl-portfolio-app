@@ -5,6 +5,7 @@ import {
   Output,
   AfterViewInit,
   EventEmitter,
+  HostListener,
 } from '@angular/core';
 import {
   animate,
@@ -53,6 +54,11 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   @Output() close = new EventEmitter<void>();
   @Output() openLink = new EventEmitter<string>();
   @Output() selectProject = new EventEmitter<number>();
+  private readonly keyboardShortcuts = {
+    ArrowRight: this.onProjectNext,
+    ArrowLeft: this.onProjectPrev,
+    Escape: this.onClose,
+  };
 
   constructor() { }
 
@@ -88,5 +94,10 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   }
 
   onPanelVisibleDone(event: AnimationEvent) {
+  }
+
+  @HostListener('window:keydown', ['$event']) onKeyDown($event) {
+    const method = this.keyboardShortcuts[$event.key];
+    if (method) method.call(this);
   }
 }

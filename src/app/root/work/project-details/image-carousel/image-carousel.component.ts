@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'jl-image-carousel',
@@ -11,6 +11,10 @@ export class ImageCarouselComponent implements OnChanges {
   itemsLength: number;
   @Input() imgLocBase: string;
   @Input() imgPreviewLoc: string;
+  private readonly keyboardShortcuts = {
+    ArrowUp: this.onSelectNext,
+    ArrowDown: this.onSelectPrev,
+  };
 
   constructor() { }
 
@@ -39,5 +43,10 @@ export class ImageCarouselComponent implements OnChanges {
   onSelectPrev() {
     this.currentIndex = this.currentIndex === 0 ?
         this.itemsLength - 1 : this.currentIndex - 1;
+  }
+
+  @HostListener('window:keydown', ['$event']) onKeyDown($event) {
+    const method = this.keyboardShortcuts[$event.key];
+    if (method) method.call(this);
   }
 }

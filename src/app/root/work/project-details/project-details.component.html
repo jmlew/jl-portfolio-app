@@ -28,7 +28,7 @@
             <jl-details-header fxShow fxHide.sm fxHide.xs
               [projectItem]="projectItem"
               (openLink)="onOpenLink($event)"></jl-details-header>
-            <p>{{projectItem[MODEL.description]}}</p>
+            <p *ngFor="let desc of projectItem[MODEL.description]">{{desc}}</p>
             <div *ngIf="projectItem[MODEL.tasks]">
               <h2 class="sub-title">
                 {{projectProps[MODEL.tasks].label}}

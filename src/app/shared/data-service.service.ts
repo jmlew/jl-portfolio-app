@@ -95,11 +95,17 @@ export class DataService {
             // Convert enums from indecies to their string values.
             accum[id] = value ? this.convertEnums(dataEnums[id], value) : null;
           } else {
-            if (id === MODEL.tasks) {
-              // Convert tasks from a string of sentences to an array.
-              accum[id] = value ? value.split('.').filter(item => item) : null;
-            } else {
-              accum[id] = value;
+            switch (id) {
+              case MODEL.tasks:
+              case MODEL.description:
+                // Split string into an array using the pipe delimiter.
+                accum[id] = value ? value
+                    .split(CHARS.PIPE)
+                    .filter(item => item) : null;
+                break;
+              default:
+                accum[id] = value;
+                break;
             }
           }
           return accum;
@@ -131,6 +137,10 @@ export class DataService {
     return outputs.length > 0 ? outputs : null;
   }
 }
+
+enum CHARS {
+  PIPE = '|'
+};
 
 interface ItemOutput {
   id: string;

@@ -4,7 +4,9 @@
   (@filtersVisible.done)="onVisibleChangeDone($event)">
 
   <jl-content-wrapper>
-    <section class="filter-categories" fxLayoutGap=".25em">
+    <section class="filter-categories"
+      fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap=".25em"
+      fxLayout.xs="row" fxLayoutAlign.xs="center start" fxLayoutGap.xs="1.5em">
       <div *ngFor="let filter of filters">
         <div fxLayout="row" fxLayoutAlign="start center" >
           <button class="btn-show-controls btn-show-hide btn-icon"

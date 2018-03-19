@@ -17,13 +17,16 @@
           <jl-details-header fxHide fxShow.sm fxShow.xs
             [projectItem]="projectItem"
             (openLink)="onOpenLink($event)"></jl-details-header>
-          <div fxFlex="1 0 auto" fxFlex.sm="none" fxFlex.xs="none"
-            *ngIf="projectItem[MODEL.imgPreviewLoc]">
-            <jl-image-carousel
+          <div fxFlex="1 0 auto" fxFlex.sm="none" fxFlex.xs="none">
+            <jl-video-player
+              *ngIf="projectItem[MODEL.videoPreviewLoc]"
+              [videoLocBase]="videoLocBase"
+              [videoPreviewLoc]="projectItem[MODEL.videoPreviewLoc]"></jl-video-player>
+            <jl-image-carousel *ngIf="projectItem[MODEL.imgPreviewLoc]"
               [imgLocBase]="imgLocBase"
               [imgPreviewLoc]="projectItem[MODEL.imgPreviewLoc]"></jl-image-carousel>
           </div>
-          <div fxFlex="1 1 auto" fxFlex.sm="none" fxFlex.xs="none"
+          <div fxFlex="1 1 100%" fxFlex.sm="none" fxFlex.xs="none"
             fxLayout="column" fxLayoutAlign="start stretch">
             <jl-details-header fxShow fxHide.sm fxHide.xs
               [projectItem]="projectItem"

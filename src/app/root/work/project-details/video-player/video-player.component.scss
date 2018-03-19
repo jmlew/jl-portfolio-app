@@ -1,0 +1,8 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+video {
+  width: 320px;
+  height: 180px;
+  box-shadow: $box-shadow-details-image;
+}

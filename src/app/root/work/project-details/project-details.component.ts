@@ -51,6 +51,7 @@ export class ProjectDetailsComponent implements OnInit, AfterViewInit {
   @Input() projectItem: ProjectItem;
   @Input() projectProps: ProjectProps;
   @Input() imgLocBase: string;
+  @Input() videoLocBase: string;
   @Output() close = new EventEmitter<void>();
   @Output() openLink = new EventEmitter<string>();
   @Output() selectProject = new EventEmitter<number>();

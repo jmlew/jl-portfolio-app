@@ -4,6 +4,7 @@
 
 .jl-modal {
   position: fixed;
+  overflow-x: hidden;
   overflow-y: auto;
   top: 10%;
   max-height: 85%;
@@ -41,13 +42,13 @@
     }
 
     &.btn-left {
-      margin-left: -1em;
+      margin-left: -.5em;
       margin-right: .3em;
     }
 
     &.btn-right {
-      margin-right: -1em;
-      margin-left: .2em;
+      margin-right: -.5em;
+      margin-left: .3em;
     }
 
     &:disabled {

@@ -14,6 +14,7 @@ export const MODEL: StringMap = {
   projectSkills: 'projectSkills',
   imgThumbLoc: 'imgThumbLoc',
   imgPreviewLoc: 'imgPreviewLoc',
+  videoPreviewLoc: 'videoPreviewLoc',
   urlPreview: 'urlPreview',
   urlPrototype: 'urlPrototype',
   urlCode: 'urlCode',

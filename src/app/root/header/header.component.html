@@ -1,14 +1,15 @@
-<header class="jl-header"
+<header class="jl-header" ngClass.xs="xs"
   fxLayout="row" fxLayoutAlign="center center">
   <section class="jl-header-content"
     fxLayout="row" fxLayoutAlign="space-between center"
     fxLayout.xs="column" fxLayoutAlign.xs="center center"
-    fxFlex="{{pageDimensions.wPageMaxXs}}px"
-    fxFlex.sm="{{pageDimensions.wPageMaxSm}}px"
-    fxFlex.md="{{pageDimensions.wPageMaxMd}}px"
-    fxFlex.lg="{{pageDimensions.wPageMaxLg}}px">
+    fxFlex="{{pageDimensions.wPageMaxMd}}"
+    fxFlex.xs="{{pageDimensions.wPageMaxXs}}"
+    fxFlex.sm="{{pageDimensions.wPageMaxSm}}"
+    fxFlex.lg="{{pageDimensions.wPageMaxLg}}">
     <h1 class="jl-title">Jason Lewis</h1>
-    <nav class="jl-header-nav" fxLayout="row" fxLayoutAlign="center center">
+    <nav class="jl-header-nav" ngClass.xs="xs"
+      fxLayout="row" fxLayoutAlign="center center">
       <jl-menu-button label="WORK"
         (activate)="onNavigateTo(routeConfig.work)"
         [isActive]="currentRoute && currentRoute.name == routeConfig.work.name">

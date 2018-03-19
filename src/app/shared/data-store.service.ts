@@ -73,8 +73,10 @@ export class DataStoreService {
   /**
    * Sets the current data config.
    */
-  set dataConfig(props: DataConfig) {
-    this.setItem(DATA_PROP.dataConfig, props);
+  set dataConfig(data: DataConfig) {
+    console.log('dataConfig', data);
+
+    this.setItem(DATA_PROP.dataConfig, data);
   }
 
   /**
@@ -87,8 +89,9 @@ export class DataStoreService {
   /**
    * Sets the current data enums.
    */
-  set dataEnums(props: DataEnums) {
-    this.setItem(DATA_PROP.dataEnums, props);
+  set dataEnums(data: DataEnums) {
+    console.log('dataEnums', data);
+    this.setItem(DATA_PROP.dataEnums, data);
   }
 
   /**
@@ -101,8 +104,9 @@ export class DataStoreService {
   /**
    * Sets the current project properties.
    */
-  set projectProps(props: ProjectProps) {
-    this.setItem(DATA_PROP.projectProps, props);
+  set projectProps(data: ProjectProps) {
+    console.log('projectProps', data);
+    this.setItem(DATA_PROP.projectProps, data);
   }
 
   /**
@@ -115,8 +119,9 @@ export class DataStoreService {
   /**
    * Sets the current projectItems.
    */
-  set projectItems(props: ProjectItem[]) {
-    this.setItem(DATA_PROP.projectItems, props);
+  set projectItems(data: ProjectItem[]) {
+    console.log('projectItems', data);
+    this.setItem(DATA_PROP.projectItems, data);
   }
 
   set isFiltersVisible(isVisible: boolean) {

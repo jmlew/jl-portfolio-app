@@ -1,11 +1,11 @@
 
 export interface NumericDimensions {
-  [name: string]: number;
+  [name: string]: number|string;
 }
 
 export const PAGE_DIMENSIONS: NumericDimensions = {
-  wPageMaxXs: 590,
-  wPageMaxSm: 740,
-  wPageMaxMd: 980,
-  wPageMaxLg: 980,
+  wPageMaxXs: '90%',
+  wPageMaxSm: '90%',
+  wPageMaxMd: '980px',
+  wPageMaxLg: '980px',
 }

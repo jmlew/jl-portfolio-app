@@ -10,11 +10,11 @@
     <h1 class="jl-title">Jason Lewis</h1>
     <nav class="jl-header-nav" ngClass.xs="xs"
       fxLayout="row" fxLayoutAlign="center center">
-      <jl-menu-button label="WORK"
+      <jl-menu-button label="{{routeConfig.work.label}}"
         (activate)="onNavigateTo(routeConfig.work)"
         [isActive]="currentRoute && currentRoute.name == routeConfig.work.name">
       </jl-menu-button>
-      <jl-menu-button label="ABOUT"
+      <jl-menu-button label="{{routeConfig.about.label}}"
         (activate)="onNavigateTo(routeConfig.about)"
         [isActive]="currentRoute && currentRoute.name == routeConfig.about.name">
       </jl-menu-button>

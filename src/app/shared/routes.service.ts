@@ -85,12 +85,12 @@ export const ROOT_ROUTE_CONFIG: RouteConfig = {
   work: {
     name: 'work',
     path: '/work',
-    label: 'My Work',
+    label: 'Work',
   },
   about: {
     name: 'about',
     path: '/about',
-    label: 'About Me',
+    label: 'About',
   },
 }
 

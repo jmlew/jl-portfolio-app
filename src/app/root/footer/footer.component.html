@@ -1,9 +1,17 @@
 <footer fxLayout="row" fxLayoutAlign="center center">
-  <button class="btn-view-source btn-icon"
+  <button class="btn-open-url btn-icon"
     fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".5em"
-    jl-tooltip message="See portfolio source code"
-    (click)="onOpenSource()">
-    <span>View source!</span>
+    jl-tooltip message="View my full CV"
+    (click)="onOpenUrl('https://docs.google.com/document/d/1gs8y5pir0cFO5MPHdY_OAW6FLce_Oh2FLTawnddgA4Q/edit?usp=sharing')">
+    <span>Jason Lewis CV</span>
+    <i class="fas fa-file-alt"></i>
+  </button>
+  <div class="divider-v"></div>
+  <button class="btn-open-url btn-icon"
+    fxLayout="row" fxLayoutAlign="center center" fxLayoutGap=".5em"
+    jl-tooltip message="View portfolio source code"
+    (click)="onOpenUrl('https://github.com/jmlew/jl-portfolio-app')">
+    <span>Source Code</span>
     <img src="../../../assets/ui/icon-github.png">
   </button>
 </footer>

@@ -113,6 +113,13 @@ $font-size-btn-icon-large: 22px;
   }
 }
 
+.divider-v {
+  width: 1px;
+  height: 50%;
+  border-right: $border-400;
+  margin: 0 1rem;
+}
+
 .progress-spinner {
   opacity: .5;
 }

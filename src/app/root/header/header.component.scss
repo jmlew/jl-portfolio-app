@@ -19,6 +19,10 @@
     letter-spacing: 1px;
     color: $color-grey-400;
     margin-bottom: 0;
+
+    &.xs {
+      margin-top: -.25em;
+    }
   }
 
   .jl-header-nav {
@@ -29,7 +33,7 @@
     color: $color-grey-600;
 
     &.xs {
-      padding: 5px 0 0;
+      padding: 8px 0 0;
     }
   }
 }

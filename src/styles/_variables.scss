@@ -18,8 +18,8 @@ $color-red: #f4511e;
 // Component colours
 $color-icon-over: $color-grey-800;
 $color-icon-out: $color-grey-500;
-$color-btn-blue: hsl(210, 68%, 52%);
-$color-btn-blue-over: hsl(210, 69%, 47%);
+$color-btn-blue: #5aa0e6;
+$color-btn-blue-over: #3b87d2;
 
 // Opacity colors
 $color-white-low-opacity: rgba(255, 255, 255, .2);
@@ -41,6 +41,8 @@ $box-shadow-details-page: 0px 2px 8px rgba(0, 0, 0, .6);
 $box-shadow-details-image: 0.8px 1.3px 3.5px $color-black-half-opacity;
 $box-shadow-central: 0px 0px 3px $color-box-shadow;
 $box-shadow-btn: 0 0 0 .2em $color-box-shadow;
+$box-shadow-btn-filters: 1.0px 1.4px 2.5px $color-box-shadow;
+
 
 // Fonts
 $font-family-default: sans-serif;
@@ -55,7 +57,7 @@ $line-height-body: 1.75;
 // Global dimensions
 $height-header: 80px;
 $height-header-column: 120px;
-$height-footer: 50px;
+$height-footer: 54px;
 
 // Components
 $border-radius: .25em;

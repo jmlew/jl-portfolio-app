@@ -9,9 +9,8 @@ export class FooterComponent {
 
   constructor() { }
 
-  onOpenSource() {
-    const gitHubUrl = 'https://github.com/jmlew/jl-portfolio-app';
-    window.open(gitHubUrl, '_blank');
+  onOpenUrl(url: string) {
+    window.open(url, '_blank');
   }
 }
 

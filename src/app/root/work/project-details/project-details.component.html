@@ -32,22 +32,18 @@
               [projectItem]="projectItem"
               (openLink)="onOpenLink($event)"></jl-details-header>
             <p *ngFor="let desc of projectItem[MODEL.description]">{{desc}}</p>
-            <div *ngIf="projectItem[MODEL.tasks]">
-              <h2 class="sub-title">
-                {{projectProps[MODEL.tasks].label}}
-              </h2>
-              <ul>
-                <li *ngFor="let item of projectItem[MODEL.tasks]">
-                  {{item}}
-                </li>
-              </ul>
-            </div>
-            <div *ngIf="projectItem[MODEL.projectSkills]">
-              <h2 class="sub-title">
-                {{projectProps[MODEL.projectSkills].label}}
-              </h2>
-              <p>{{projectItem[MODEL.projectSkills] | join : ' | '}}</p>
-            </div>
+            <h2 class="sub-title" *ngIf="projectItem[MODEL.tasks]">
+              {{projectProps[MODEL.tasks].label}}
+            </h2>
+            <ul *ngIf="projectItem[MODEL.tasks]">
+              <li *ngFor="let item of projectItem[MODEL.tasks]">
+                {{item}}
+              </li>
+            </ul>
+            <h2 class="sub-title" *ngIf="projectItem[MODEL.projectSkills]">
+              {{projectProps[MODEL.projectSkills].label}}
+            </h2>
+            <p *ngIf="projectItem[MODEL.projectSkills]">{{projectItem[MODEL.projectSkills] | join : ' | '}}</p>
           </div>
         </div>
         <button class="btn-project-select btn-right btn-icon"

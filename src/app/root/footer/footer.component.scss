@@ -7,10 +7,17 @@ footer {
   box-shadow: $box-shadow-central;
 }
 
-.btn-view-source {
+.btn-open-url {
   img {
     opacity: .5;
     width: 28px;
+    transition: $transition-btn;
+  }
+
+  i {
+    font-size: 24px;
+    margin-left: 3px;
+    color: $color-grey-600;
     transition: $transition-btn;
   }
 
@@ -23,6 +30,10 @@ footer {
   &:hover {
     img {
       opacity: .8;
+    }
+
+    i {
+      color: $color-grey-800;
     }
 
     span {

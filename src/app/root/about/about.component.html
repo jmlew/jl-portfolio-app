@@ -4,64 +4,136 @@
     fxLayout.xs="column" fxLayoutGap.xs="0">
     <div fxFlex="65" fxFlex.xs="auto">
       <section class="about-section">
-        <h1 class="about-title text-right"> Profile </h1>
+        <h1 class="about-title" ngClass.gt-xs="text-right"> Profile </h1>
         <div class="about-card profile">
-          <p><b>Interaction Designer</b> and <b>UX Engineer</b> currently in the role of Product Technology Manager on the O-Ladder for gTech
-          Ads. I currently specialize in the design and development of internal tools as well as provide UX expertise for various teams
-          around the org.</p>
-          <p>I've brought over <b>14 years experience</b> working with a variety of multimedia and web technologies to Google, where I've spent
-          the past 6 years in a number of roles which have required a unique balance of design and development skills.</p>
+          <p><b>User Experience Designer</b> and <b>Web Developer</b> with over <b>14 years experience</b> working with a diverse range of multimedia and
+            web technologies.</p>
+          <p>Currently specializing in <b>Web Applications Development</b>, with a career spanning a number of disciplines, including
+            Graphic Design, Motion Graphics, Flash & Multimedia Development, and Frontend Web Development.</p>
         </div>
       </section>
       <section class="about-section">
-        <h1 class="about-title text-right"> Employment History </h1>
+        <h1 class="about-title" ngClass.gt-xs="text-right"> Employment History </h1>
         <div class="about-card">
-          <h2 class="sub-title">Interactive Designer & UX Engineer</h2>
+          <h2 class="sub-title">Web Solutions Engineer + UX Designer</h2>
           <h3 class="tagline secondary">
              2015 - 2018<span class="tagline-dot"></span>Google
           </h3>
-          <p>Currently operating in the role of <b>Product Technology Manager</b> to employ <b>Interactive Design</b> and <b>UX Engineering</b>  skills for the design and development of various tools across all product areas under gTech Ads.</p>
-          <p>Employing a mix of <b>project management</b>, <b>UX</b>, and <b>frontend development</b> skills with a thorough knowledge
-            of <b>Product Excellence</b> principles, <b>Google infrastructure</b>, and <b>Web Development</b> technologies, I've driven
-            and contributed to a number of high-profile and impactful projects and collaborated with a number of teams throughout the
-            org.</p>
+          <p>Designing and developing internal web applications at Google; providing expertise to drive the entire creative and development
+          process from inception to delivery.</p>
+          <p>As part of the global Technical Solutions and Insights team, the role demanded a thorough knowledge of current web application
+          technologies and Google’s infrastructure, and a range of expertise, including project management, user experience, and front
+          end engineering.</p>
+          <button class="btn-show-more btn-show-hide btn-icon"
+            (click)="isSectionShown1 = isSectionShown1 ? false : true">
+            <span class="sub-section-title sub-title">Responsibilities</span>
+            <i class="fas" ngClass="fa-chevron-{{isSectionShown1 ? 'up' : 'down'}}"></i>
+          </button>
+          <div *ngIf="isSectionShown1">
+            <ul>
+              <li>Drove the <b>UX Design</b> for each design phase: presenting user flow-charts, low-rez wireframes, and high-rez mockups to formalise
+                designs.</li>
+              <li>Conducted <b>UX research</b>, including focus group feedback sessions with key stakeholders for requirements gathering and iterating
+                on designs.</li>
+              <li><b>Rapid prototyping</b> and the creation of <b>working prototypes</b> which pull mock data, often built as simplified web apps in Angular
+                to ensure easy replication of style and functionality during production.</li>
+              <li><b>Frontend development</b> during production phase, as contributor on larger projects, or owner on smaller projects and for implementing
+                new features post-launch.</li>
+              <li>Provided <b>UX consulting</b> where production was handled by outside teams; adjusting production code to ensure UI design and functionality
+                matches mockups and prototypes.</li>
+              <li>Provided a number of <b>scaffolding starter-projects</b>, providing the codebase with which developers can quickly start development
+                on applications with common functionality aligned with the Material Design Spec and set up in Google’s development context.</li>
+              <li>Liaising with <b>engineering and sales teams</b> throughout the company to scope out projects.</li>
+              <li><b>Mentoring new developers</b> on using the team’s development frameworks (Angular, Closure, etc.), and Google’s build
+                and deployment systems (Blaze, AppEngine, etc).</li>
+            </ul>
+          </div>
         </div>
         <div class="about-card">
-          <h2 class="sub-title">Rich Media Flash & HTML5 Developer</h2>
+          <h2 class="sub-title">Rich Media Web Developer + Interaction Designer</h2>
           <h3 class="tagline secondary">
               2011 - 2015<span class="tagline-dot"></span>Google
           </h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt harum eum, eveniet eaque beatae at adipisci quia tempora,
-          minima, perferendis libero quidem animi repellat eligendi maiores ullam doloremque officia.</p>
+          <p>Designing and developing templated and customised creative solutions for Google’s Programmatic Display Advertising product.
+          Employing Flash Development and Interaction Design expertise to support and improve the offering.</p>
+          <button class="btn-show-more btn-show-hide btn-icon"
+            (click)="isSectionShown2 = isSectionShown2 ? false : true">
+            <span class="sub-section-title sub-title">Responsibilities</span>
+            <i class="fas" ngClass="fa-chevron-{{isSectionShown2 ? 'up' : 'down'}}"></i>
+          </button>
+          <div *ngIf="isSectionShown2">
+            <ul>
+              <li><b>Collaborated with Product and Engineering</b> teams at various levels to improve and scale the Dynamic Remarketing Display
+                product, helping to close the gap with more established competitors.</li>
+              <li><b>Authored the codebase</b> for standardised development of <b>HTML5 templates using AngularJS</b> and co-authored that
+                of the preceding Flash version.</li>
+              <li><b>Developed tooling</b> to facilitate local development and QA by mocking the ad-serving context, pulling in client feed
+                data, and allowing users to create campaign-specific configs which customisable their ads.</li>
+              <li><b>Developed an external preview site</b>, which ensured clients could approve ads rendered dynamically with campaign feed
+                data prior to being implemented.</li>
+              <li><b>Authored the codebase</b> of the dynamic feed-based templates for the new <b>Google Web Designer</b> product to enable
+                clients to build their own units.</li>
+              <li>Provided <b>client-facing technical documentation</b> for the development, QA, and serving of custom units built through
+                Google Web Designer as part of the offering’s launch.</li>
+              <li>Secured <b>top-tier, high revenue, brand-specific clients</b> through the creation of cutting-edge custom Dynamic Remarketing
+                Flash & HTML5 creatives, including designing mockups and developing final units.</li>
+              <li>Provided <b>training and support</b> to various teams who were onboarded to develop these units as the product scaled.</li>
+              <li>Set up and supported <b>full-service bespoke contextual and dynamic remarketing campaigns</b>, assisting AMs with setting
+                up, troubleshooting, and serving campaigns for some of Google’s largest customers.</li>
+            </ul>
+          </div>
         </div>
         <div class="about-card">
           <h2 class="sub-title">Senior Flash Developer</h2>
           <h3 class="tagline secondary">
-            2007 - 2011<span class="tagline-dot"></span>StreamCity (Enabledware 2011)
+            2007 - 2011<span class="tagline-dot"></span>StreamCity (acquired by Enabledware 2011)
           </h3>
-          <ul>
-            <li>Web & Flash Development</li>
-            <li>Motion Graphics & Video Production</li>
-            <li>External Marketing Collateral & Internal Communications</li>
-          </ul>
+          <p>Designing and developing Flash-based video-streaming interfaces for clients ranging from small media agencies to global corporations
+          and government organisations.</p>
+          <button class="btn-show-more btn-show-hide btn-icon"
+            (click)="isSectionShown3 = isSectionShown3 ? false : true">
+            <span class="sub-section-title sub-title">Responsibilities</span>
+            <i class="fas" ngClass="fa-chevron-{{isSectionShown3 ? 'up' : 'down'}}"></i>
+          </button>
+          <div *ngIf="isSectionShown3">
+            <ul>
+              <li>Owned UX Design for large bespoke multi-level WebTV interfaces and on-demand and live-streaming video players, providing
+                mockups before developing the UIs.</li>
+              <li>Developed the standard library of multi-video players and WebTV interfaces, which can be customised and exported to fit
+                the client’s branding.</li>
+              <li>Worked alongside the Senior Flex Developer to help build and maintain the ‘MAGIC’ CMS Flex Application, with which clients
+                manage their video libraries and customize their video interfaces.</li>
+              <li>Developed the company’s website as well as a range of microsites and online sales collateral.</li>
+              <li>Designed and produced the company’s print-based sales collateral.</li>
+              <li>Produced a range of motion graphics for the company’s video production arm.</li>
+            </ul>
+          </div>
         </div>
         <div class="about-card">
           <h2 class="sub-title">Lead Creative Specialist</h2>
           <h3 class="tagline secondary">
             2004 – 2007<span class="tagline-dot"></span>Eden Media
           </h3>
-          <ul>
-            <li>Multimedia Development</li>
-            <li>Web Design</li>
-            <li>Motion Graphics & Video Production</li>
-            <li>External Marketing Collateral</li>
-          </ul>
+          <p>Delivered a range of web, multimedia, and motion graphics projects; driving the design process from tender pitches to project
+          delivery for clients ranging from small companies to large blue chip corporations.</p>
+          <button class="btn-show-more btn-show-hide btn-icon"
+            (click)="isSectionShown4 = isSectionShown4 ? false : true">
+            <span class="sub-section-title sub-title">Responsibilities</span>
+            <i class="fas" ngClass="fa-chevron-{{isSectionShown4 ? 'up' : 'down'}}"></i>
+          </button>
+          <div *ngIf="isSectionShown4">
+            <ul>
+              <li>Designed and developed a variety of promotional and educational CD ROMs and other multimedia products.</li>
+              <li>Created a variety of motion graphics for animated graphics sequences, video introductions and transitions, backdrops and
+                titles.</li>
+              <li>Developed microsites and various other online sales collateral.</li>
+            </ul>
+          </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="end center">
-          <button class="btn-show-more btn-show-hide btn-icon"
-            (click)="isOtherEmploymentShown = !isOtherEmploymentShown">
-            <!-- <span>{{isOtherEmploymentShown ? 'Hide' : 'Show'}} Pre 2007</span> -->
-            <span>Before 2004</span>
+          <button class="btn-show-more show-cards btn-show-hide btn-icon"
+            (click)="isOtherEmploymentShown = isOtherEmploymentShown ? false : true">
+            <span>Pre 2004</span>
             <i class="fas"
             ngClass="fa-chevron-{{isOtherEmploymentShown ? 'up' : 'down'}}"></i>
           </button>
@@ -73,7 +145,7 @@
                 2001 - 2004<span class="tagline-dot"></span>Optiplan Filing Systems
             </h3>
             <ul>
-              <li>Graphic Design & External Print Marketing Collateral</li>
+              <li>Graphic Design & Print Marketing Collateral</li>
               <li>Web Design</li>
               <li>Multimedia Development</li>
             </ul>
@@ -85,7 +157,7 @@
             </h3>
             <ul>
               <li>Graphic Design</li>
-              <li>External Print Marketing Collateral</li>
+              <li>Online and Print Marketing Collateral</li>
             </ul>
           </div>
           <div class="about-card">
@@ -94,8 +166,9 @@
                 2002 - 2003<span class="tagline-dot"></span>Swift Printing & Graphics
             </h3>
             <ul>
-              <li>Graphic Designer</li>
-              <li>Pre-Press Operator</li>
+              <li>Graphic Design</li>
+              <li>Print Marketing Collateral</li>
+              <li>Pre-press operation</li>
             </ul>
           </div>
         </div>
@@ -105,26 +178,28 @@
       <section class="about-section">
         <h1 class="about-title"> Skills </h1>
         <div class="about-card">
-          <h2 class="sub-title">Development</h2>
+          <h2 class="sub-title">Web Development</h2>
           <ul>
             <li>Javascript + Typescript</li>
-            <li>Angular + AngularJS</li>
+            <li>Angular (2+) + AngularJS</li>
             <li>RxJS</li>
+            <li>React.js</li>
+            <li>Node.js</li>
             <li>Polymer</li>
-            <li>CSS3 / Sass / LESS</li>
+            <li>CSS (+ preprocessors)</li>
             <li>Python</li>
-            <li>Rapid Prototyping</li>
+            <li>Flash (AS2 + AS3)</li>
             <li>Motion Design</li>
+            <li>Google App Engine</li>
             <li>Google APIs</li>
-            <li>App Engine</li>
-            <li>Apps Script</li>
             <li>SQL</li>
+            <li>Git</li>
           </ul>
-          <h2 class="sub-title">Design</h2>
+          <h2 class="sub-title">UX Design</h2>
           <ul>
-            <li>Illustrator</li>
-            <li>Photoshop</li>
             <li>Sketch</li>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
             <li>Axure</li>
             <li>Framer</li>
             <li>After Effects</li>
@@ -140,11 +215,10 @@
           <h3 class="tagline">University of Western Sydney</h3>
           <h3 class="tagline secondary">1999 - 2003</h3>
           <ul>
-            <li>Web Design</li>
-            <li>Web Development</li>
+            <li>Web Design & Development</li>
             <li>Multimedia & New Media Development</li>
+            <li>Graphic Design & Design Theory</li>
             <li>Illustration & Photography</li>
-            <li>Design Theory & Graphic Design Principle</li>
           </ul>
         </div>
       </section>

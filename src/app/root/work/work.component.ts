@@ -14,8 +14,14 @@ import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
     trigger(
       'btnFiltersVisible',
       [
-        state('hidden', style({ transform: 'rotateZ(0)' })),
-        state('visible', style({ transform: 'rotateZ(180deg)' })),
+        state('hidden', style({
+          'transform': 'rotateZ(0)',
+          'margin-bottom': '-5px',
+        })),
+        state('visible', style({
+          'transform': 'rotateZ(180deg)',
+          'margin-bottom': '0',
+        })),
         transition('hidden => visible', animate('200ms ease-out')),
         transition('visible => hidden', animate('150ms ease-in-out'))
       ])

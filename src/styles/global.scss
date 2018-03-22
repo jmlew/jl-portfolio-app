@@ -27,9 +27,13 @@ p, h1, h2, h3, h4, h5 {
 }
 
 ul {
-  margin-left: 1.75rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-left: 1.25rem;
   list-style-type: disc;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 
   li {
     padding-left: .125rem;
@@ -41,17 +45,6 @@ ul {
   font-family: $font-family-titles;
   text-transform: uppercase;
   letter-spacing: .075em;
-}
-
-// Dimensions
-.width-page-max-lg {
-  // width: $width-page-max-lg;
-}
-.width-page-max-md {
-  // width: $width-page-max-md;
-}
-.width-page-max-sm {
-  // width: $width-page-max-sm;
 }
 
 // Control elements ourside app scope.

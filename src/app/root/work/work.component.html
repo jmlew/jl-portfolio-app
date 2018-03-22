@@ -13,10 +13,10 @@
 <jl-content-wrapper>
   <div *ngIf="dataLoadedState === LOAD_STATE.loaded">
     <button class="btn-show-filters btn-icon"
-      [@btnFiltersVisible]="filtersVisibleState"
       (click)="onToggleFiltersVisible()"
       jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'Show Filters'">
-      <img src="../../../assets/ui/icon-filter.svg" />
+      <img src="../../../assets/ui/icon-filter.svg"
+        [@btnFiltersVisible]="filtersVisibleState"/>
     </button>
     <jl-project-filters
       [isVisible]="isFiltersVisible"

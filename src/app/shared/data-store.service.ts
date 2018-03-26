@@ -74,7 +74,7 @@ export class DataStoreService {
    * Sets the current data config.
    */
   set dataConfig(data: DataConfig) {
-    console.log('dataConfig', data);
+    // console.log('dataConfig', data);
 
     this.setItem(DATA_PROP.dataConfig, data);
   }
@@ -90,7 +90,7 @@ export class DataStoreService {
    * Sets the current data enums.
    */
   set dataEnums(data: DataEnums) {
-    console.log('dataEnums', data);
+    // console.log('dataEnums', data);
     this.setItem(DATA_PROP.dataEnums, data);
   }
 
@@ -105,7 +105,7 @@ export class DataStoreService {
    * Sets the current project properties.
    */
   set projectProps(data: ProjectProps) {
-    console.log('projectProps', data);
+    // console.log('projectProps', data);
     this.setItem(DATA_PROP.projectProps, data);
   }
 
@@ -120,7 +120,7 @@ export class DataStoreService {
    * Sets the current projectItems.
    */
   set projectItems(data: ProjectItem[]) {
-    console.log('projectItems', data);
+    // console.log('projectItems', data);
     this.setItem(DATA_PROP.projectItems, data);
   }
 

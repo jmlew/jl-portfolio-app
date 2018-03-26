@@ -7,33 +7,20 @@ $font-size-btn-icon-small: 15px;
 $font-size-btn-icon-large: 22px;
 
 .btn-main {
-  display: inline-block;
-  font-family: $font-family-titles;
-  background-color: $color-grey-500;
-  color: $color-white;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  border: none;
+  @include btn-base();
   padding: .375em 1em;
+  font-family: $font-family-titles;
+  font-weight: 500;
   font-size: $font-size-btn;
+  letter-spacing: 1px;
   line-height: $line-height-base;
   border-radius: $border-radius;
-  transition: $transition-btn;
-  text-decoration: none;
+  background-color: $color-grey-500;
+  color: $color-white;
 
   &:not(:disabled) {
-    cursor: pointer;
-
     &:active, &:hover {
       background-color: $color-grey-600;
-    }
-
-    &:focus {
-      outline: 0;
     }
   }
 
@@ -47,27 +34,17 @@ $font-size-btn-icon-large: 22px;
 }
 
 .btn-icon {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  border: none;
+  @include btn-base();
   padding: 5px;
   font-size: $font-size-btn-icon;
   line-height: 1;
   color: $color-icon-out;
   background-color: transparent;
-  transition: $transition-btn;
 
   &:not(:disabled) {
-    cursor: pointer;
 
     &:active, &:hover {
       color: $color-icon-over;
-    }
-
-    &:focus {
-      outline: 0;
     }
   }
 

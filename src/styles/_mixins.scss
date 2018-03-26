@@ -12,3 +12,22 @@
   font-size: 100px;
   color: $color;
 }
+
+@mixin btn-base {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: none;
+  text-decoration: none;
+  transition: $transition-btn;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

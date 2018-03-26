@@ -25,15 +25,12 @@
         <div class="filter-controls"
           fxLayout="row wrap" fxLayout.xs="column"
           *ngIf="filter.isShown">
-          <div class="filter-control"
-            *ngFor="let control of filter.controls">
-            <input type="checkbox"
-              id="{{control.id}}"
-              value="{{control.isActive}}"
-              [checked]="control.isActive"
-              (change)="onChangeFilterControl(control, $event.target.checked)">
-            <label for="{{control.id}}"> {{control.name}} </label>
-          </div>
+          <button class="filter-control"
+            *ngFor="let control of filter.controls"
+            [class.active]="control.isActive"
+            (click)="onChangeFilterControl(control)">
+            {{control.name}}
+          </button>
         </div>
       </div>
     </section>

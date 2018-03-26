@@ -63,8 +63,8 @@ export class ProjectFiltersComponent implements OnInit {
     });
   }
 
-  onChangeFilterControl(control: FilterControl, value: boolean) {
-    control.isActive = value;
+  onChangeFilterControl(control: FilterControl) {
+    control.isActive = !control.isActive;
     this.filtersChanged.emit();
   }
 

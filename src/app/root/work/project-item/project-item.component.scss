@@ -8,10 +8,19 @@ $item-padding-v: 5px;
 $item-padding-low-v: 3px;
 $item-width: 240px;
 $item-height: 180px;
+.project-item-container {
+  margin: 0 0 $item-spacing * 2 $item-spacing;
+}
+
+.project-type {
+  margin-bottom: $item-padding-v;
+  color: $color-grey-600;
+  text-align: center;
+  font-size: .75em;
+}
 
 .project-item {
   position: relative;
-  margin: 0 0 $item-spacing $item-spacing;
   background-color: $color-white;
   box-shadow: $box-shadow-card;
   overflow: hidden;
@@ -20,9 +29,13 @@ $item-height: 180px;
   height: $item-height;
 
   &:hover {
+    cursor: pointer;
     margin-top: -2px;
     box-shadow: $box-shadow-card-over;
-    cursor: pointer;
+
+    .item-details {
+      opacity: 1;
+    }
   }
 
   .item-bg {
@@ -37,30 +50,18 @@ $item-height: 180px;
 
     .item-title {
       padding: $item-padding-v $item-padding-h;
-      background-color: $color-white-extreme-opacity;
-      color: $color-grey-900;
-      border-bottom: 1px solid $color-grey-400;
+      background-color: $color-black-high-opacity;
+      color: $color-white;
+      border-bottom: 1px solid rgba(255, 255, 255, .7);
       line-height: 1.3;
       text-align: center;
-      font-size: 14px;
-    }
-
-    .item-type {
-      padding: $item-padding-low-v $item-padding-h;
-      margin-top: -1px;
-      background-color: $color-black-half-opacity;
-      color: $color-grey-100;
-      border-bottom: 1px solid $color-grey-200;
-      text-align: center;
-      font-size: 12px;
-      text-transform: uppercase;
+      font-size: .825em;
     }
 
     .item-footer {
       padding: $item-padding-low-v $item-padding-h;
       color: $color-grey-800;
-      border-top: 1px solid $color-grey-300;
-      background-color: $color-white-extreme-opacity;
+      background-color: $color-white;
     }
 
     .item-icon-view {

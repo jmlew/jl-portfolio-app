@@ -1,27 +1,25 @@
-<div class="project-item"
-  (mouseover)="itemDetails.style.opacity = 1"
-  (mouseout)="itemDetails.style.opacity = 0"
-  (click)="onOpenDetails()">
-  <img class="item-bg" *ngIf="projectItem[MODEL.imgThumbLoc]"
-    src="{{imgLocBase + projectItem[MODEL.imgThumbLoc]}}">
-  <div #itemDetails class="item-details"
-    fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
-    <div>
+<div class="project-item-container">
+  <div class="project-type"> {{projectItem[MODEL.projectType] | join : ' | '}} </div>
+  <div class="project-item"
+    (click)="onOpenDetails()">
+    <img class="item-bg" *ngIf="projectItem[MODEL.imgThumbLoc]"
+      src="{{imgLocBase + projectItem[MODEL.imgThumbLoc]}}">
+    <div class="item-details"
+      fxFlexFill fxLayout="column" fxLayoutAlign="space-between stretch">
       <div class="item-title"> {{projectItem[MODEL.title]}} </div>
-      <div class="item-type"> {{projectItem[MODEL.projectType] | join : ' | '}} </div>
-    </div>
-    <button class="item-icon-view btn-icon"
-      (click)="onOpenDetails()">
-      <i class="fas fa-info-circle"></i>
-    </button>
-    <div class="item-footer"
-      fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
-      <button class="btn-icon icon-small"
-        *ngFor="let output of projectItem.outputs"
-        (click)="onOpenLink(output.url, $event)"
-        jl-tooltip [message]="output.message">
-        <i class="fas fa-{{output.icon}}"></i>
+      <button class="item-icon-view btn-icon"
+        (click)="onOpenDetails()">
+        <i class="fas fa-info-circle"></i>
       </button>
+      <div class="item-footer"
+        fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <button class="btn-icon icon-small"
+          *ngFor="let output of projectItem.outputs"
+          (click)="onOpenLink(output.url, $event)"
+          jl-tooltip [message]="output.message">
+          <i class="fas fa-{{output.icon}}"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

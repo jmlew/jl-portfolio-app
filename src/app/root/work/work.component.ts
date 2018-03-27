@@ -40,7 +40,6 @@ export class WorkComponent implements OnInit {
   currentProjectItem: ProjectItem;
   currentProjectItemIndex: number;
   isProjectDetailsVisible = false;
-
   @ViewChild(ProjectFiltersComponent)
   private projectFilters: ProjectFiltersComponent;
 
@@ -54,7 +53,6 @@ export class WorkComponent implements OnInit {
 
   ngOnInit() {
     this.dataLoadedState = LOAD_STATE.loading;
-
     if (this.dataStore.projectItems) {
       this.init();
     } else {
@@ -73,9 +71,7 @@ export class WorkComponent implements OnInit {
       this.updateFiltersVisibleState();
       this.dataLoadedState = LOAD_STATE.loaded;
     } else {
-      setTimeout(() => {
-        this.projectFilters.initFilters();
-      });
+      setTimeout(() => this.projectFilters.initFilters());
     }
   }
 
@@ -106,6 +102,7 @@ export class WorkComponent implements OnInit {
     this.filterProjectItems();
     setTimeout(() => {
       this.isFiltersVisible = true;
+      this.dataStore.isFiltersVisible = this.isFiltersVisible;
       this.updateFiltersVisibleState();
     }, AUTO_REVEAL_FILTERS_DELAY);
     this.dataLoadedState = LOAD_STATE.loaded;
@@ -156,4 +153,4 @@ export class WorkComponent implements OnInit {
   }
 }
 
-const AUTO_REVEAL_FILTERS_DELAY = 800;
+const AUTO_REVEAL_FILTERS_DELAY = 1200;

@@ -1,12 +1,12 @@
-import { Component, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
+import { Component, ViewChild, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { RoutesService } from "../../shared/routes.service";
 import { DataService, DataConfig, DataEnums, ProjectItem, ProjectProps, SHEETS } from '../../shared/data-service.service';
 import { FiltersService, Filter, FilterControl } from "./project-filters/filters.service";
+import { ProjectFiltersComponent } from "./project-filters/project-filters.component";
 import { DataStoreService, DATA_PROP } from "../../shared/data-store.service";
 import { LOAD_STATE, VISIBLE_STATE, State } from "../../shared/states";
-
 @Component({
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss'],
@@ -31,8 +31,8 @@ export class WorkComponent implements OnInit {
   readonly LOAD_STATE: State = LOAD_STATE;
   readonly VISIBLE_STATE: State = VISIBLE_STATE;
   dataLoadedState: string = LOAD_STATE.unloaded;
-  filtersVisibleState: string;
-  isFiltersVisible: boolean;
+  filtersVisibleState: string = VISIBLE_STATE.hidden;
+  isFiltersVisible = false;
   projectItems: ProjectItem[];
   projectProps: ProjectProps;
   dataEnums: DataEnums;
@@ -40,6 +40,9 @@ export class WorkComponent implements OnInit {
   currentProjectItem: ProjectItem;
   currentProjectItemIndex: number;
   isProjectDetailsVisible = false;
+
+  @ViewChild(ProjectFiltersComponent)
+  private projectFilters: ProjectFiltersComponent;
 
   constructor(
     private readonly renderer: Renderer2,
@@ -51,25 +54,29 @@ export class WorkComponent implements OnInit {
 
   ngOnInit() {
     this.dataLoadedState = LOAD_STATE.loading;
+
     if (this.dataStore.projectItems) {
-      this.render();
+      this.init();
     } else {
-      this.loadData().then(() => this.render());
+      this.loadData().then(() => this.init());
     }
   }
 
-  private render() {
+  private init() {
     this.dataEnums = this.dataStore.dataEnums;
     this.dataConfig = this.dataStore.dataConfig;
     this.projectProps = this.dataStore.projectProps;
-    this.projectItems = this.filtersService.filters ?
-        this.filtersService.filterItems(this.dataStore.projectItems) :
-        this.dataStore.projectItems;
-
-    this.isFiltersVisible = this.dataStore.isFiltersVisible || false;
-    this.updateFiltersVisibleState();
-
-    this.dataLoadedState = LOAD_STATE.loaded;
+    if (this.filtersService.filters) {
+      this.projectFilters.createFiltersView();
+      this.filterProjectItems();
+      this.isFiltersVisible = this.dataStore.isFiltersVisible;
+      this.updateFiltersVisibleState();
+      this.dataLoadedState = LOAD_STATE.loaded;
+    } else {
+      setTimeout(() => {
+        this.projectFilters.initFilters();
+      });
+    }
   }
 
   private loadData() {
@@ -93,6 +100,20 @@ export class WorkComponent implements OnInit {
             resolve();
           });
     });
+  }
+
+  onFiltersInit() {
+    this.filterProjectItems();
+    setTimeout(() => {
+      this.isFiltersVisible = true;
+      this.updateFiltersVisibleState();
+    }, AUTO_REVEAL_FILTERS_DELAY);
+    this.dataLoadedState = LOAD_STATE.loaded;
+  }
+
+  private filterProjectItems() {
+    this.projectItems =
+      this.filtersService.filterItems(this.dataStore.projectItems);
   }
 
   onOpenProject(item: ProjectItem) {
@@ -120,11 +141,11 @@ export class WorkComponent implements OnInit {
 
   onToggleFiltersVisible() {
     this.isFiltersVisible = ! this.isFiltersVisible;
+    this.dataStore.isFiltersVisible = this.isFiltersVisible;
     this.updateFiltersVisibleState();
   }
 
   private updateFiltersVisibleState() {
-    this.dataStore.isFiltersVisible = this.isFiltersVisible;
     this.filtersVisibleState =
       this.isFiltersVisible ? VISIBLE_STATE.visible : VISIBLE_STATE.hidden;
   }
@@ -134,3 +155,5 @@ export class WorkComponent implements OnInit {
         this.filtersService.filterItems(this.dataStore.projectItems);
   }
 }
+
+const AUTO_REVEAL_FILTERS_DELAY = 800;

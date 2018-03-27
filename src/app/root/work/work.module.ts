@@ -17,9 +17,9 @@ import { WorkComponent } from './work.component';
     FlexLayoutModule,
     ContentWrapperModule,
     TooltipModule,
+    ProjectFiltersModule,
     ProjectItemModule,
     ProjectDetailsModule,
-    ProjectFiltersModule,
   ],
   declarations: [WorkComponent],
 })

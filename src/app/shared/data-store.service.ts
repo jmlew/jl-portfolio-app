@@ -127,11 +127,12 @@ export class DataStoreService {
   set isFiltersVisible(isVisible: boolean) {
     this.setItem(
       DATA_PROP.isFiltersVisible,
-      this.convertBooleanToString(isVisible));
+      this.convertBooleanToString(isVisible),
+      true);
   }
 
   get isFiltersVisible(): boolean {
-    const isVisible = this.getItem(DATA_PROP.isFiltersVisible);
+    const isVisible = this.getItem(DATA_PROP.isFiltersVisible, true);
     return isVisible == null ? null : this.convertStringToBoolean(isVisible);
   }
 }

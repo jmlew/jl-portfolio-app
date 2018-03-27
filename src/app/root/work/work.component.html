@@ -1,4 +1,4 @@
-<jl-project-details
+<jl-project-details *ngIf="isProjectDetailsVisible"
   [projectProps]="projectProps"
   [imgLocBase]="dataConfig.imgPreviewLocBase"
   [videoLocBase]="dataConfig.videoPreviewLocBase"
@@ -8,24 +8,24 @@
   (close)="onCloseProject()"
   (openLink)="onOpenLink($event)"
   (selectProject)="onSelectProject($event)"
-  *ngIf="isProjectDetailsVisible"></jl-project-details>
+  ></jl-project-details>
 
 <jl-content-wrapper>
-  <div *ngIf="dataLoadedState === LOAD_STATE.loaded">
-    <button class="btn-show-filters btn-icon"
-      (click)="onToggleFiltersVisible()"
-      jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'Show Filters'">
-      <img src="../../../assets/ui/icon-filter.svg"
-        [@btnFiltersVisible]="filtersVisibleState"/>
-    </button>
-    <jl-project-filters
-      [isVisible]="isFiltersVisible"
-      [visibleState]="filtersVisibleState"
-      [projectProps]="projectProps"
-      [projectItems]="projectItems"
-      [dataEnums]="dataEnums"
-      (filtersChanged)="onFiltersChanged()"></jl-project-filters>
-  </div>
+  <button class="btn-show-filters btn-icon"
+    *ngIf="dataLoadedState === LOAD_STATE.loaded"
+    (click)="onToggleFiltersVisible()"
+    jl-tooltip [message]="isFiltersVisible ? 'Hide Filters' : 'Show Filters'">
+    <img src="../../../assets/ui/icon-filter.svg"
+      [@btnFiltersVisible]="filtersVisibleState"/>
+  </button>
+  <jl-project-filters
+    [isVisible]="isFiltersVisible"
+    [visibleState]="filtersVisibleState"
+    [projectProps]="projectProps"
+    [projectItems]="projectItems"
+    [dataEnums]="dataEnums"
+    (filtersInit)="onFiltersInit()"
+    (filtersChanged)="onFiltersChanged()"></jl-project-filters>
 
   <section class="jl-work-content">
     <section [ngSwitch]="dataLoadedState">
@@ -36,7 +36,7 @@
       <div *ngSwitchCase="LOAD_STATE.loaded">
         <section class="jl-project-previews"
           fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="start center"
-          *ngIf="projectItems.length > 0">
+          *ngIf="projectItems?.length > 0">
           <jl-project-item *ngFor="let item of projectItems"
             [projectItem]="item"
             [projectProps]="projectProps"
@@ -44,7 +44,7 @@
             (openDetails)="onOpenProject(item)"
             (openLink)="onOpenLink($event)"></jl-project-item>
         </section>
-        <div *ngIf="projectItems.length === 0"
+        <div *ngIf="projectItems?.length === 0"
           fxLayout="row" fxLayoutAlign="center center">
           <p class="user-message">No projects returned for the above filters.</p>
         </div>

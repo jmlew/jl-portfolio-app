@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   OnDestroy,
   Input,
   Output,
@@ -30,37 +29,49 @@ import { StringMap, MODEL } from "../../../shared/model";
       [
         state('hidden', style({ height: '1rem' })),
         state('visible', style({ height: '*' })),
-        transition('hidden => visible', animate('200ms ease-out')),
-        transition('visible => hidden', animate('200ms ease'))
+        transition('hidden => visible', animate('300ms ease-out')),
+        transition('visible => hidden', animate('200ms ease-in-out'))
       ]),
   ]
 })
-export class ProjectFiltersComponent implements OnInit {
+export class ProjectFiltersComponent {
   @Input() isVisible: boolean;
   @Input() visibleState: string;
   @Input() projectProps: ProjectProps;
   @Input() dataEnums: DataEnums;;
   @Input() projectItems: ProjectItem[];
   @Output() filtersChanged = new EventEmitter<void>();
+  @Output() filtersInit = new EventEmitter<void>();
   readonly MODEL: StringMap = MODEL;
   filters: Filter[];
   isSkillsShown = false;
 
   constructor(private readonly filtersService: FiltersService) { }
 
-  ngOnInit() {
-    if (!this.filtersService.filters) this.createFilters();
-    this.filters = this.filtersService.filters;
+  initFilters() {
+    this.createFilters();
+    this.createFiltersView();
+    this.filtersInit.emit();
   }
 
   private createFilters() {
-    this.filtersService.initFilters();
+    const initiallyActiveFilters = [
+      this.dataEnums[MODEL.projectType][0],
+      this.dataEnums[MODEL.projectType][1],
+      this.dataEnums[MODEL.projectType][2],
+    ];
+    this.filtersService.initFilters(initiallyActiveFilters);
     enumFilters.forEach((prop) => {
       const label = this.projectProps[prop].label;
       const values = this.dataEnums[prop];
-      const isShown = prop === MODEL.projectType ? true : false;
+      // const isShown = prop === MODEL.projectType ? true : false;
+      const isShown = true;
       this.filtersService.addFilter(prop, label, values, isShown);
     });
+  }
+
+  createFiltersView() {
+    this.filters = this.filtersService.filters;
   }
 
   onChangeFilterControl(control: FilterControl) {

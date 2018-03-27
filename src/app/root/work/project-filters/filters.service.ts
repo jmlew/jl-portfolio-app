@@ -7,11 +7,12 @@ import {
 
 @Injectable()
 export class FiltersService {
-  isActiveAll = false;
   filters: Filter[];
+  private initiallyActive: string[];
   constructor() { }
 
-  initFilters() {
+  initFilters(initiallyActive: string[]) {
+    this.initiallyActive = initiallyActive;
     this.filters = [];
   }
 
@@ -30,7 +31,7 @@ export class FiltersService {
       return {
         name: value,
         id: (property + value).replace(/\s/g, ''),
-        isActive: this.isActiveAll,
+        isActive: this.initiallyActive.includes(value),
       };
     });
   }

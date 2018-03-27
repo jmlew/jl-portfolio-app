@@ -1,7 +1,5 @@
 @import '../../../../styles/variables';
 
-$btn-height: 1em;
-
 .btn-header-menu {
   display: inline-block;
   font-family: $font-family-titles;
@@ -15,7 +13,7 @@ $btn-height: 1em;
   border: none;
   padding: 0 .75rem;
   font-size: 1em;
-  line-height: 0;
+  line-height: 2.2;
   text-decoration: none;
   text-transform: uppercase;
   color: $color-grey-600;
@@ -24,7 +22,6 @@ $btn-height: 1em;
   .underline {
     width: 0;
     margin: 0 auto;
-    padding-bottom: $btn-height;
     border-bottom: 1px solid $color-grey-600;
     transition: width .075s ease-out;
 

@@ -48,6 +48,13 @@ $item-height: 180px;
     background-color: $color-black-half-opacity;
     transition: $transition-opacity;
 
+    &:hover {
+      .item-icon-view {
+        margin-top: 0;
+        opacity: 1;
+      }
+    }
+
     .item-title {
       padding: $item-padding-v $item-padding-h;
       background-color: $color-black-high-opacity;
@@ -65,8 +72,11 @@ $item-height: 180px;
     }
 
     .item-icon-view {
+      margin-top: 10%;
       font-size: 3.5rem;
       color: $color-white-high-opacity;
+      opacity: .5;
+      transition: margin-top .3s ease-out, opacity .3s ease-out;
 
       &:hover {
         color: $color-white;

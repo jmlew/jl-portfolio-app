@@ -38,7 +38,7 @@ const rootRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       rootRoutes,
-      // { enableTracing: true } // <-- debugging purposes only
+      // { enableTracing: true }
     )
   ],
   exports: [RouterModule, PageNotFoundModule]

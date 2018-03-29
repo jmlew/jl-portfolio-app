@@ -233,5 +233,5 @@ export interface ProjectProps {
 }
 
 export type ProjectItemValue = any;
-// export type ProjectItemValue = string | number | Date | string[];
+// export type ProjectItemValue = string | number | string[];
 export interface ProjectItem { [id: string]: ProjectItemValue; }

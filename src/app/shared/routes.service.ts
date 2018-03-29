@@ -14,6 +14,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RoutesService {
+  private pageTitleBase: string;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -28,10 +29,11 @@ export class RoutesService {
    * completion of the nagivation life-cycle and updates the page title.
    */
   private updateCurrentPageOnRouteChange() {
+    this.pageTitleBase = this.titleService.getTitle();
     this.getRouteDataOnNavigationEnd(RouteLevel.Root)
       .subscribe((data: Data) => {
-        if (data.page && data.page.label) {
-          this.titleService.setTitle('Jason Lewis: ' + data.page.label);
+        if (data.route && data.route.label) {
+          this.titleService.setTitle(`${this.pageTitleBase}: ${data.route.label}`);
         }
       });
   }

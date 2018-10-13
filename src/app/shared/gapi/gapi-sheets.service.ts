@@ -6,19 +6,17 @@ import { Observable } from 'rxjs/Observable';
 export class GapiSheetsService {
   isApiReady = false;
 
-  constructor(private gApiService: GoogleApiService) {}
+  constructor(private gApiService: GoogleApiService) { }
 
   apiOnLoad(): Observable<void> {
     return this.gApiService.onLoad();
   }
 
-  initSheetsApi(): Promise<void | {}> {
+  async initSheetsApi(): Promise<void | {}> {
     if (this.isApiReady) return new Promise((resolve) => resolve());
-    return this.loadClient()
-      .then(() => {
-        this.isApiReady = true;
-        return this.initClient();
-      });
+    await this.loadClient();
+    this.isApiReady = true;
+    return this.initClient();
   }
 
   private loadClient(): Promise<{}> {

@@ -11,8 +11,9 @@ export class DataService {
     private readonly gapiSheetsService: GapiSheetsService,
   ) { }
 
-  loadSheetsData(config: SheetConfig): Promise<string[][]> {
-    return this.initSheetsApi().then(() => this.getSheetsData(config));
+  async loadSheetsData(config: SheetConfig): Promise<string[][]> {
+    await this.initSheetsApi();
+    return this.getSheetsData(config);
   }
 
   private initSheetsApi(): Promise<{}> {
@@ -22,10 +23,10 @@ export class DataService {
         resolve();
       } else {
         this.gapiLoadSubscription =
-            this.gapiSheetsService.apiOnLoad().subscribe(() => {
-              this.gapiSheetsService.initSheetsApi().then(() => resolve());
-              this.gapiLoadSubscription.unsubscribe();
-            });
+          this.gapiSheetsService.apiOnLoad().subscribe(() => {
+            this.gapiSheetsService.initSheetsApi().then(() => resolve());
+            this.gapiLoadSubscription.unsubscribe();
+          });
       }
     });
   }
@@ -79,9 +80,9 @@ export class DataService {
   }
 
   createProjectItems(
-      sheetRows: string[][],
-      dataConfig: DataConfig,
-      dataEnums: DataEnums): ProjectItem[] {
+    sheetRows: string[][],
+    dataConfig: DataConfig,
+    dataEnums: DataEnums): ProjectItem[] {
     const ids: string[] = sheetRows[0];
     const isEnabledIndex = ids.indexOf(MODEL.isEnabled);
     const projectItems: ProjectItem[] = [];
@@ -100,8 +101,8 @@ export class DataService {
               case MODEL.description:
                 // Split string into an array using the pipe delimiter.
                 accum[id] = value ? value
-                    .split(CHARS.PIPE)
-                    .filter(item => item) : null;
+                  .split(CHARS.PIPE)
+                  .filter(item => item) : null;
                 break;
               default:
                 accum[id] = value;
@@ -117,7 +118,7 @@ export class DataService {
     return projectItems;
   }
 
-  private convertEnums(enumValues: string[], value: string): string[]|null {
+  private convertEnums(enumValues: string[], value: string): string[] | null {
     return value.split(',')
       .filter(item => item)
       .map((item) => item.trim())
